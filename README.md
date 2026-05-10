@@ -2,6 +2,14 @@
 
 Three production-grade Angular 19 starter projects, each derived from a complete HTML design catalogue. Every project is a pluggable component library plus a working demo route that reproduces the source HTML pixel-for-pixel.
 
+## Live Demos (GitHub Pages)
+
+| # | Style | Demo |
+|---|---|---|
+| 1 | Swiss Editorial | [catalogue1](https://kartikeychoudhary.github.io/Catalogue/catalogue1/) |
+| 2 | Neo-Brutalist | [catalogue2](https://kartikeychoudhary.github.io/Catalogue/catalogue2/) |
+| 3 | Glassmorphic Spatial | [catalogue3](https://kartikeychoudhary.github.io/Catalogue/catalogue3/) |
+
 ## Projects
 
 | # | Name | Style | Fonts | Signature |

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Angular Catalogue Starters</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh;
+    background: #0c0c0a; color: #f4f4ee;
+    font-family: "Inter", -apple-system, system-ui, sans-serif;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 48px 24px;
+  }
+  h1 { font-family: "Fraunces", "Times New Roman", serif; font-size: clamp(32px, 5vw, 56px); font-weight: 400; letter-spacing: -0.02em; margin: 0 0 8px; }
+  h1 em { font-style: italic; color: #d6231a; }
+  p.sub { color: #a3a39d; font-size: 16px; margin: 0 0 48px; text-align: center; max-width: 48ch; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; width: 100%; }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    border: 1px solid #3a3a35; padding: 28px; text-decoration: none; color: inherit;
+    transition: border-color 120ms, transform 120ms; display: flex; flex-direction: column; gap: 12px;
+  }
+  .card:hover { border-color: #d6231a; transform: translateY(-2px); }
+  .card .num { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8a8a83; }
+  .card h3 { font-family: "Fraunces", serif; font-size: 22px; font-weight: 400; margin: 0; }
+  .card p { font-size: 14px; color: #a3a39d; margin: 0; line-height: 1.5; }
+  .card .tag { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #d6231a; margin-top: auto; }
+</style>
+</head>
+<body>
+<h1>Catalogue <em>Starters</em></h1>
+<p class="sub">Three production-grade Angular 19 component libraries. Each is a pluggable design system with 30+ accessible, OnPush components.</p>
+<div class="grid">
+  <a class="card" href="/Catalogue/catalogue1/">
+    <span class="num">01 / 03</span>
+    <h3>Swiss Editorial</h3>
+    <p>Strict grid, serif+grotesque, single hot accent. Fraunces &amp; Inter. 1px hairlines.</p>
+    <span class="tag">Fraunces · 0px radius</span>
+  </a>
+  <a class="card" href="/Catalogue/catalogue2/">
+    <span class="num">02 / 03</span>
+    <h3>Neo-Brutalist</h3>
+    <p>Thick borders, hard offset shadows, uppercase. Space Grotesk. Clunk on press.</p>
+    <span class="tag">Space Grotesk · 3px rules</span>
+  </a>
+  <a class="card" href="/Catalogue/catalogue3/">
+    <span class="num">03 / 03</span>
+    <h3>Glassmorphic Spatial</h3>
+    <p>Translucent layers, backdrop blur, aurora gradients. Plus Jakarta Sans. Dark-first.</p>
+    <span class="tag">Jakarta Sans · blur(28px)</span>
+  </a>
+</div>
+</body>
+</html>
