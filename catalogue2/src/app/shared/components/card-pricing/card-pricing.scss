@@ -1,0 +1,44 @@
+:host {
+  display: block;
+
+  .card {
+    background: var(--surface);
+    border: var(--bw) solid var(--text);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+  }
+
+  .price {
+    font-size: 72px;
+    line-height: 0.9;
+    font-weight: 700;
+
+    small {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+
+    li::before {
+      content: "\25B8 ";
+      font-weight: 700;
+    }
+  }
+}

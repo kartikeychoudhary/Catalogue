@@ -1,0 +1,8 @@
+<div
+  class="avatar"
+  [class.avatar-sm]="size === 'sm'"
+  [class.avatar-lg]="size === 'lg'"
+  [attr.aria-label]="initials || null"
+  role="img">
+  {{ initials }}
+</div>

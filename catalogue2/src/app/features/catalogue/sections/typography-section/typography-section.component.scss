@@ -1,0 +1,29 @@
+.type-row {
+  display: grid;
+  grid-template-columns: 180px 1fr 220px;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: var(--bw) solid var(--text);
+  align-items: baseline;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+.type-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  background: var(--text);
+  color: var(--bg);
+  display: inline-block;
+}
+
+.type-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  opacity: 0.6;
+}

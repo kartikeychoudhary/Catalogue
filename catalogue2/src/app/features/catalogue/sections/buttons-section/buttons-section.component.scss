@@ -1,0 +1,27 @@
+.btn-grid {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 16px 20px;
+  align-items: center;
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.btn-grid .lab {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  background: var(--text);
+  color: var(--bg);
+  justify-self: start;
+}
+
+.btn-cluster {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}

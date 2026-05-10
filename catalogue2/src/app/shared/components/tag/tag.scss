@@ -1,0 +1,17 @@
+:host {
+  display: inline-flex;
+
+  .tag {
+    display: inline-flex;
+    padding: 4px 10px;
+    background: var(--accent);
+    border: 2px solid var(--text);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+
+    &.-alt {
+      background: var(--surface);
+    }
+  }
+}

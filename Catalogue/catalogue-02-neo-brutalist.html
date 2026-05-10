@@ -1,0 +1,1023 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-palette="concrete">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Catalogue 02 — Neo-Brutalist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  --bg: #f5f1e8;
+  --surface: #ffffff;
+  --surface-2: #ebe6d8;
+  --text: #050505;
+  --text-muted: #1a1a1a;
+  --text-dim: #555;
+  --border: #050505;
+
+  --success: #1ea654;
+  --warning: #ff9b00;
+  --danger:  #ff3a3a;
+  --info:    #2c5cff;
+
+  --accent:    #ffd400;
+  --accent-2:  #ff5af0;
+  --accent-fg: #050505;
+
+  --shadow: 6px 6px 0 var(--text);
+  --shadow-lg: 10px 10px 0 var(--text);
+  --shadow-sm: 3px 3px 0 var(--text);
+  --bw: 3px;
+  --bw-thick: 5px;
+
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px;
+  --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px;
+}
+[data-palette="toxic"] {
+  --bg: #d2ff3a; --surface: #ffffff; --surface-2: #b0e000;
+  --accent: #ff00aa; --accent-2: #00ffd5;
+}
+[data-palette="riso"] {
+  --bg: #ffd9e0; --surface: #fff7d6; --surface-2: #c9e0ff;
+  --accent: #ff3a3a; --accent-2: #2c5cff;
+}
+[data-theme="dark"] {
+  --bg: #0a0a0a; --surface: #1a1a1a; --surface-2: #2a2a2a;
+  --text: #f5f1e8; --text-muted: #f5f1e8; --text-dim: #aaa;
+  --accent-fg: #050505;
+}
+[data-theme="dark"][data-palette="toxic"] { --bg: #0a0a0a; --surface: #1a1a1a; --surface-2: #1a3300; --text: #d2ff3a; --accent: #ff00aa; }
+[data-theme="dark"][data-palette="riso"]  { --bg: #0d0a14; --surface: #1c1424; --surface-2: #2a1f3a; --text: #ffd9e0; --accent: #ff3a3a; }
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg); color: var(--text);
+  font-family: var(--sans); font-size: 16px; line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  background-image: radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--text) 20%, transparent) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+h1,h2,h3,h4,h5,h6 { font-family: var(--display); font-weight: 700; margin: 0; line-height: 1.0; letter-spacing: -0.02em; }
+h1 { font-size: clamp(40px, 6vw, 80px); }
+h2 { font-size: clamp(32px, 4.5vw, 56px); text-transform: uppercase; }
+h3 { font-size: 32px; }
+h4 { font-size: 24px; }
+h5 { font-size: 20px; }
+h6 { font-size: 16px; text-transform: uppercase; letter-spacing: 0.02em; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 4px solid var(--accent); outline-offset: 2px; }
+
+.page { max-width: 1440px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 80px 0; border-top: var(--bw) solid var(--text); }
+.section:first-of-type { border-top: 0; }
+.section-head {
+  background: var(--text); color: var(--bg);
+  padding: 14px 20px; margin-bottom: 32px;
+  display: flex; gap: 20px; align-items: baseline; flex-wrap: wrap;
+  font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.04em;
+  border: var(--bw) solid var(--text); box-shadow: var(--shadow);
+  transform: rotate(-0.5deg);
+}
+.section-head .num { font-size: 12px; }
+.section-head h2 { font-size: clamp(24px, 3.5vw, 40px); color: var(--bg); }
+.section-head .meta { font-size: 11px; opacity: 0.7; margin-left: auto; }
+
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--bg); border-bottom: var(--bw-thick) solid var(--text);
+}
+.topbar-inner { max-width: 1440px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; gap: 20px; justify-content: space-between; }
+.brand-mark {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 6px 12px; background: var(--accent); color: var(--accent-fg);
+  border: var(--bw) solid var(--text); box-shadow: var(--shadow-sm);
+  font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em;
+}
+.brand-meta { font-family: var(--mono); font-size: 11px; text-transform: uppercase; }
+.nav-links { display: flex; gap: 16px; font-family: var(--mono); font-size: 12px; text-transform: uppercase; }
+.nav-links a { text-decoration: none; padding: 4px 8px; border: 2px solid transparent; }
+.nav-links a:hover { border-color: var(--text); background: var(--accent); }
+@media (max-width: 900px) { .nav-links { display: none; } }
+.panel-toggle {
+  width: 44px; height: 44px; border: var(--bw) solid var(--text);
+  background: var(--surface); color: var(--text);
+  font-family: var(--mono); font-weight: 700; font-size: 18px; cursor: pointer; box-shadow: var(--shadow-sm);
+}
+.panel-toggle:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--text); }
+
+.theme-panel {
+  position: fixed; top: 80px; right: 24px; z-index: 60;
+  width: 320px; background: var(--surface); color: var(--text);
+  border: var(--bw) solid var(--text); padding: 20px; box-shadow: var(--shadow-lg);
+  display: none;
+}
+.theme-panel.open { display: block; }
+.theme-panel h6 { font-family: var(--mono); font-size: 11px; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.06em; }
+.theme-panel section + section { margin-top: 18px; }
+.theme-row, .palette-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+.theme-row { grid-template-columns: 1fr 1fr; }
+.theme-btn, .palette-btn {
+  border: var(--bw) solid var(--text); background: var(--surface); color: var(--text);
+  font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+  padding: 8px; cursor: pointer; font-weight: 700;
+}
+.theme-btn[aria-pressed="true"], .palette-btn[aria-pressed="true"] { background: var(--accent); }
+.swatch-row { display: flex; gap: 6px; flex-wrap: wrap; }
+.swatch-btn { width: 32px; height: 32px; border: var(--bw) solid var(--text); cursor: pointer; padding: 0; box-shadow: 2px 2px 0 var(--text); }
+.swatch-btn[aria-pressed="true"] { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--text); }
+.hex-input { width: 100%; border: var(--bw) solid var(--text); background: var(--bg); color: var(--text); padding: 8px; font-family: var(--mono); font-size: 12px; margin-top: 6px; }
+
+.identity { padding: 80px 0; }
+.identity .row { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; }
+@media (max-width: 900px) { .identity .row { grid-template-columns: 1fr; } }
+.identity-tag {
+  display: inline-block; padding: 6px 12px; background: var(--text); color: var(--bg);
+  font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+  transform: rotate(-1.5deg); margin-bottom: 16px;
+}
+.identity h1 { font-family: var(--display); font-size: clamp(56px,10vw,160px); line-height: 0.85; text-transform: uppercase; letter-spacing: -0.04em; }
+.identity h1 .yellow { background: var(--accent); padding: 0 8px; box-shadow: var(--shadow); display: inline-block; }
+.identity h1 .ink { color: var(--accent); -webkit-text-stroke: 2px var(--text); }
+.identity-philo { background: var(--surface); border: var(--bw) solid var(--text); box-shadow: var(--shadow); padding: 24px; }
+.identity-philo p { font-size: 18px; }
+.signature {
+  margin-top: 40px; background: var(--accent); color: var(--accent-fg);
+  border: var(--bw) solid var(--text); box-shadow: var(--shadow-lg);
+  padding: 32px; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center;
+}
+.signature blockquote { margin: 0; font-family: var(--display); font-weight: 700; font-size: 28px; line-height: 1.05; max-width: 26ch; }
+.signature .who { font-family: var(--mono); font-size: 12px; text-transform: uppercase; }
+.meta-blocks { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 24px; }
+@media (max-width: 720px) { .meta-blocks { grid-template-columns: 1fr; } }
+.meta-block { background: var(--surface); border: var(--bw) solid var(--text); padding: 16px; }
+.meta-block dt { font-family: var(--mono); font-size: 11px; text-transform: uppercase; opacity: 0.7; }
+.meta-block dd { margin: 4px 0 0; font-weight: 700; font-size: 18px; }
+
+.swatch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 720px) { .swatch-grid { grid-template-columns: 1fr 1fr; } }
+.swatch { border: var(--bw) solid var(--text); background: var(--surface); box-shadow: var(--shadow); display: flex; flex-direction: column; }
+.swatch-chip { height: 120px; border-bottom: var(--bw) solid var(--text); }
+.swatch-info { padding: 12px; display: flex; flex-direction: column; gap: 4px; }
+.swatch-name { font-weight: 700; font-size: 16px; }
+.swatch-hex { font-family: var(--mono); font-size: 12px; }
+.semantic-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 24px; }
+@media (max-width: 720px) { .semantic-grid { grid-template-columns: 1fr 1fr; } }
+.semantic { border: var(--bw) solid var(--text); box-shadow: var(--shadow-sm); background: var(--surface); }
+.semantic .bar { height: 24px; border-bottom: var(--bw) solid var(--text); }
+.semantic .body { padding: 10px; }
+.semantic .name { font-weight: 700; font-size: 16px; }
+.semantic .tok { font-family: var(--mono); font-size: 11px; opacity: 0.6; }
+.token-strip { margin-top: 24px; display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+@media (max-width: 720px) { .token-strip { grid-template-columns: 1fr; } }
+.token-card { border: var(--bw) solid var(--text); padding: 14px; background: var(--surface); }
+.token-card h6 { font-family: var(--mono); font-size: 11px; text-transform: uppercase; opacity: 0.7; margin-bottom: 6px; }
+.token-card code { font-family: var(--mono); font-size: 13px; }
+
+.type-row { display: grid; grid-template-columns: 180px 1fr 220px; gap: 20px; padding: 20px 0; border-bottom: var(--bw) solid var(--text); align-items: baseline; }
+@media (max-width: 900px) { .type-row { grid-template-columns: 1fr; gap: 8px; } }
+.type-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; padding: 4px 8px; background: var(--text); color: var(--bg); display: inline-block; }
+.type-meta { font-family: var(--mono); font-size: 11px; opacity: 0.6; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--display); font-weight: 700; font-size: 15px; text-transform: uppercase;
+  padding: 14px 22px; border: var(--bw) solid var(--text); background: var(--surface); color: var(--text);
+  cursor: pointer; box-shadow: var(--shadow); min-height: 48px;
+  transition: transform 80ms, box-shadow 80ms;
+}
+.btn:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 var(--text); }
+.btn:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--text); }
+.btn-primary { background: var(--accent); color: var(--accent-fg); }
+.btn-secondary { background: var(--surface); }
+.btn-tertiary { background: transparent; border-style: dashed; box-shadow: none; }
+.btn-tertiary:hover { background: var(--accent); transform: none; box-shadow: none; }
+.btn-destructive { background: var(--danger); color: #fff; }
+.btn-icon { width: 48px; height: 48px; padding: 0; }
+.btn[disabled] { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
+.btn.-loading { color: transparent; position: relative; }
+.btn.-loading::after { content:""; position:absolute; inset:0; margin:auto; width:18px; height:18px; border:3px solid currentColor; color: var(--accent-fg); border-top-color: transparent; border-radius: 50%; animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.btn-sm { font-size: 13px; padding: 10px 16px; min-height: 40px; box-shadow: var(--shadow-sm); }
+.btn-lg { font-size: 17px; padding: 18px 28px; min-height: 56px; }
+
+.btn-grid { display: grid; grid-template-columns: 160px 1fr; gap: 16px 20px; align-items: center; }
+@media (max-width: 720px) { .btn-grid { grid-template-columns: 1fr; } }
+.btn-grid .lab { font-family: var(--mono); font-size: 11px; text-transform: uppercase; padding: 4px 8px; background: var(--text); color: var(--bg); justify-self: start; }
+.btn-cluster { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 720px) { .form-grid { grid-template-columns: 1fr; } }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label, .field .label-text { font-family: var(--mono); font-size: 11px; text-transform: uppercase; font-weight: 700; }
+.input, .textarea, .select {
+  font-family: var(--sans); font-size: 16px;
+  padding: 12px 14px; min-height: 48px;
+  border: var(--bw) solid var(--text); background: var(--surface); color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+.input:focus, .textarea:focus, .select:focus { outline: none; background: var(--accent); transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--text); }
+.input[disabled], .textarea[disabled] { background: var(--surface-2); color: var(--text-dim); box-shadow: none; cursor: not-allowed; }
+.textarea { min-height: 100px; }
+.field.error .input, .field.error .textarea { background: color-mix(in oklab, var(--danger) 25%, var(--surface)); border-color: var(--danger); }
+.field.error .helper { color: var(--danger); font-weight: 700; }
+.field.success .input { background: color-mix(in oklab, var(--success) 20%, var(--surface)); }
+.helper { font-size: 12px; }
+
+.check, .radio { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; cursor: pointer; min-height: 32px; font-weight: 500; }
+.check input, .radio input {
+  appearance: none; width: 22px; height: 22px;
+  border: var(--bw) solid var(--text); background: var(--surface); cursor: pointer; position: relative;
+  box-shadow: 2px 2px 0 var(--text);
+}
+.check input:checked { background: var(--accent); }
+.check input:checked::after { content: "✕"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--text); font-size: 14px; }
+.radio input:checked::after { content: ""; position: absolute; inset: 4px; background: var(--accent); }
+
+.toggle { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+.toggle input { appearance: none; width: 56px; height: 28px; border: var(--bw) solid var(--text); background: var(--surface); position: relative; cursor: pointer; box-shadow: 2px 2px 0 var(--text); }
+.toggle input::after { content: ""; position: absolute; top: 1px; left: 1px; width: 22px; height: 22px; background: var(--text); transition: 120ms; }
+.toggle input:checked { background: var(--accent); }
+.toggle input:checked::after { left: 30px; }
+
+.slider { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; background: var(--text); border: 0; }
+.slider::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; background: var(--accent); border: var(--bw) solid var(--text); cursor: pointer; box-shadow: 2px 2px 0 var(--text); }
+.slider::-moz-range-thumb { width: 24px; height: 24px; background: var(--accent); border: var(--bw) solid var(--text); cursor: pointer; }
+
+.upload { border: var(--bw) dashed var(--text); padding: 24px; text-align: center; background: var(--surface); cursor: pointer; font-weight: 700; }
+.upload:hover { background: var(--accent); }
+
+.search { position: relative; }
+.search .input { padding-left: 42px; }
+.search::before { content: "⌕"; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-family: var(--mono); font-weight: 700; font-size: 18px; }
+
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media (max-width: 1024px) { .card-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 720px) { .card-grid { grid-template-columns: 1fr; } }
+.card {
+  background: var(--surface); border: var(--bw) solid var(--text);
+  padding: 20px; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 14px; position: relative;
+}
+.card-eyebrow {
+  align-self: flex-start; padding: 4px 8px; background: var(--accent); color: var(--accent-fg);
+  border: 2px solid var(--text); font-family: var(--mono); font-size: 11px; text-transform: uppercase; font-weight: 700;
+}
+.card h4 { font-size: 22px; line-height: 1.1; }
+.card .body { font-size: 14px; }
+.card-feature { background: var(--text); color: var(--bg); }
+.card-feature h4, .card-feature p { color: var(--bg); }
+
+.card-pricing .price { font-size: 72px; line-height: 0.9; font-weight: 700; }
+.card-pricing .price small { font-size: 16px; font-weight: 500; }
+.card-pricing ul { list-style: none; padding: 0; margin: 8px 0 14px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+.card-pricing li::before { content: "▸ "; font-weight: 700; }
+
+.card-profile { display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: center; }
+.avatar { width: 64px; height: 64px; background: var(--accent); border: var(--bw) solid var(--text); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 22px; color: var(--accent-fg); box-shadow: var(--shadow-sm); }
+
+.card-stat .num { font-size: 80px; font-weight: 700; line-height: 0.9; letter-spacing: -0.04em; }
+.card-stat .delta { display: inline-block; padding: 3px 8px; background: var(--success); color: #fff; font-family: var(--mono); font-size: 12px; font-weight: 700; }
+.card-stat .delta.-neg { background: var(--danger); }
+
+.card-media { padding: 0; overflow: hidden; }
+.card-media .img {
+  height: 180px; border-bottom: var(--bw) solid var(--text);
+  background:
+    linear-gradient(45deg, var(--accent) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--accent) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--accent) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--accent) 75%);
+  background-size: 24px 24px;
+  background-position: 0 0, 0 12px, 12px -12px, -12px 0px;
+  background-color: var(--surface-2);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 11px; text-transform: uppercase;
+}
+.card-media .img span { background: var(--text); color: var(--bg); padding: 4px 8px; font-weight: 700; }
+.card-media .body-pad { padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 10px; }
+
+.demo { border: var(--bw) solid var(--text); background: var(--surface); box-shadow: var(--shadow); }
+.demo-label { padding: 10px 16px; background: var(--text); color: var(--bg); font-family: var(--mono); font-size: 11px; text-transform: uppercase; display: flex; justify-content: space-between; }
+
+.fake-navbar { display: flex; align-items: center; padding: 14px 16px; gap: 16px; border-bottom: var(--bw) solid var(--text); }
+.fake-navbar .brand { font-weight: 700; font-size: 20px; padding: 4px 8px; background: var(--accent); border: 2px solid var(--text); }
+.fake-navbar nav { display: flex; gap: 8px; margin-left: auto; }
+.fake-navbar nav a { font-family: var(--mono); font-size: 12px; text-transform: uppercase; padding: 6px 10px; border: 2px solid transparent; text-decoration: none; }
+.fake-navbar nav a.-active { background: var(--text); color: var(--bg); }
+.fake-navbar nav a:not(.-active):hover { border-color: var(--text); }
+
+.fake-shell { display: grid; grid-template-columns: 240px 1fr; min-height: 320px; }
+@media (max-width: 720px) { .fake-shell { grid-template-columns: 1fr; } .fake-side { display:none; } }
+.fake-side { border-right: var(--bw) solid var(--text); padding: 16px; background: var(--surface-2); }
+.fake-side h6 { margin-bottom: 8px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; }
+.fake-side ul { list-style: none; padding: 0; margin: 0 0 18px; display: flex; flex-direction: column; gap: 4px; }
+.fake-side li { padding: 8px 10px; border: 2px solid transparent; font-size: 14px; cursor: pointer; display: flex; justify-content: space-between; }
+.fake-side li.-active { background: var(--accent); border-color: var(--text); font-weight: 700; box-shadow: 2px 2px 0 var(--text); }
+.fake-main { padding: 20px; }
+.tabs { display: flex; gap: 0; border-bottom: var(--bw) solid var(--text); margin-bottom: 16px; flex-wrap: wrap; }
+.tab { padding: 10px 16px; font-family: var(--mono); font-size: 12px; text-transform: uppercase; font-weight: 700; cursor: pointer; background: var(--surface); border: 0; border-right: var(--bw) solid var(--text); margin-bottom: calc(var(--bw) * -1); }
+.tab.-active { background: var(--accent); border-bottom: var(--bw) solid var(--accent); }
+
+.crumb { padding: 12px 16px; font-family: var(--mono); font-size: 12px; border-bottom: var(--bw) solid var(--text); }
+.crumb a { text-decoration: none; padding: 2px 6px; border: 2px solid transparent; }
+.crumb a:hover { background: var(--accent); border-color: var(--text); }
+.crumb span { padding: 0 4px; opacity: 0.5; }
+
+.pager { display: flex; gap: 8px; padding: 16px; flex-wrap: wrap; }
+.pager button { width: 40px; height: 40px; border: var(--bw) solid var(--text); background: var(--surface); cursor: pointer; font-family: var(--mono); font-weight: 700; box-shadow: 2px 2px 0 var(--text); }
+.pager button.-active { background: var(--accent); }
+.pager .ellipsis { width: 20px; line-height: 40px; text-align: center; }
+
+.bottom-nav { display: flex; border-top: var(--bw) solid var(--text); }
+.bottom-nav button { flex: 1; padding: 14px 8px; background: var(--surface); border: 0; border-right: var(--bw) solid var(--text); font-family: var(--mono); font-size: 11px; text-transform: uppercase; font-weight: 700; cursor: pointer; }
+.bottom-nav button:last-child { border-right: 0; }
+.bottom-nav button.-active { background: var(--accent); }
+
+.tbl-wrap { border: var(--bw) solid var(--text); box-shadow: var(--shadow); background: var(--surface); overflow-x: auto; }
+.tbl { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 640px; }
+.tbl th, .tbl td { text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--text); }
+.tbl th { background: var(--text); color: var(--bg); font-family: var(--mono); font-size: 11px; text-transform: uppercase; cursor: pointer; }
+.tbl tr:nth-child(even) td { background: var(--surface-2); }
+.tbl tr:last-child td { border-bottom: 0; }
+.tbl .num { font-family: var(--mono); text-align: right; }
+
+.badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border: 2px solid var(--text); font-family: var(--mono); font-size: 11px; text-transform: uppercase; font-weight: 700; background: var(--surface); }
+.badge.-success { background: var(--success); color: #fff; }
+.badge.-warning { background: var(--warning); color: var(--text); }
+.badge.-danger { background: var(--danger); color: #fff; }
+.badge.-info { background: var(--info); color: #fff; }
+.badge.-neutral { background: var(--surface); }
+.tag { display: inline-flex; padding: 4px 10px; background: var(--accent); border: 2px solid var(--text); font-family: var(--mono); font-size: 12px; font-weight: 700; }
+.tag.-alt { background: var(--surface); }
+
+.list { border: var(--bw) solid var(--text); box-shadow: var(--shadow); background: var(--surface); }
+.list-item { display: grid; grid-template-columns: 48px 1fr auto; gap: 14px; padding: 12px 14px; border-bottom: 2px solid var(--text); align-items: center; }
+.list-item:last-child { border-bottom: 0; }
+.list-icon { width: 40px; height: 40px; background: var(--accent); border: var(--bw) solid var(--text); display: flex; align-items: center; justify-content: center; font-weight: 700; }
+.list-text { font-size: 14px; }
+.list-text small { display: block; font-family: var(--mono); font-size: 11px; opacity: 0.7; margin-top: 2px; }
+
+.kv { display: grid; grid-template-columns: 140px 1fr; border: var(--bw) solid var(--text); background: var(--surface); margin: 0; }
+.kv > * { padding: 10px 14px; border-bottom: 2px solid var(--text); }
+.kv > *:nth-last-child(-n+2) { border-bottom: 0; }
+.kv dt { font-family: var(--mono); font-size: 11px; text-transform: uppercase; background: var(--surface-2); border-right: var(--bw) solid var(--text); }
+.kv dd { margin: 0; font-weight: 700; font-size: 14px; }
+
+.avatar-group { display: inline-flex; }
+.avatar-group .avatar { width: 40px; height: 40px; font-size: 14px; margin-left: -6px; }
+.avatar-group .avatar:first-child { margin-left: 0; }
+.avatar-group .more { width: 40px; height: 40px; margin-left: -6px; background: var(--surface); border: var(--bw) solid var(--text); display: inline-flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 11px; font-weight: 700; }
+
+.empty { border: var(--bw) dashed var(--text); padding: 40px; text-align: center; background: var(--surface); }
+.empty h5 { margin-bottom: 8px; font-size: 24px; }
+
+.alert { border: var(--bw) solid var(--text); padding: 16px; display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; box-shadow: var(--shadow-sm); background: var(--surface); }
+.alert .icon { width: 36px; height: 36px; background: var(--accent); border: var(--bw) solid var(--text); display: flex; align-items: center; justify-content: center; font-weight: 700; }
+.alert.-success .icon { background: var(--success); color: #fff; }
+.alert.-warning .icon { background: var(--warning); }
+.alert.-danger .icon { background: var(--danger); color: #fff; }
+.alert.-info .icon { background: var(--info); color: #fff; }
+.alert h6 { font-size: 16px; margin-bottom: 2px; }
+.alert p { font-size: 13px; }
+
+.toast { background: var(--text); color: var(--bg); padding: 12px 16px; display: flex; gap: 12px; align-items: center; border: var(--bw) solid var(--text); box-shadow: var(--shadow); }
+.toast .dot { width: 12px; height: 12px; background: var(--accent); border: 2px solid var(--bg); }
+.toast button { margin-left: auto; background: var(--accent); color: var(--accent-fg); border: 2px solid var(--bg); font-family: var(--mono); font-size: 11px; font-weight: 700; padding: 4px 8px; cursor: pointer; }
+
+.modal-stage { border: var(--bw) solid var(--text); background: var(--surface-2); padding: 24px; min-height: 280px; position: relative; }
+.modal { background: var(--surface); border: var(--bw) solid var(--text); padding: 20px; max-width: 460px; box-shadow: var(--shadow-lg); }
+.modal h4 { margin-bottom: 8px; }
+.modal-actions { display: flex; gap: 10px; margin-top: 18px; }
+
+.drawer-stage { border: var(--bw) solid var(--text); background: var(--surface-2); height: 280px; position: relative; overflow: hidden; }
+.drawer { position: absolute; top: 0; right: 0; bottom: 0; width: 60%; background: var(--surface); border-left: var(--bw) solid var(--text); padding: 20px; }
+
+.tooltip-anchor { position: relative; display: inline-block; }
+.tooltip { position: absolute; bottom: 100%; left: 50%; transform: translate(-50%, -10px); background: var(--text); color: var(--bg); font-family: var(--mono); font-size: 12px; padding: 8px 12px; white-space: nowrap; border: var(--bw) solid var(--text); }
+
+.popover { position: relative; display: inline-block; }
+.popover-card { position: absolute; top: 100%; left: 0; margin-top: 10px; background: var(--surface); border: var(--bw) solid var(--text); padding: 14px; width: 240px; box-shadow: var(--shadow); }
+
+.progress { background: var(--surface-2); height: 16px; border: var(--bw) solid var(--text); position: relative; }
+.progress > span { display: block; height: 100%; background: var(--accent); }
+.skel { background: linear-gradient(90deg, var(--surface-2), color-mix(in oklab, var(--surface-2) 50%, var(--surface)), var(--surface-2)); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; height: 14px; border: 2px solid var(--text); }
+.skel.-tall { height: 32px; }
+.skel.-img { height: 140px; }
+@keyframes shimmer { from { background-position: 0 0; } to { background-position: -200% 0; } }
+
+.hero {
+  border: var(--bw-thick) solid var(--text); background: var(--surface);
+  padding: 48px; box-shadow: var(--shadow-lg);
+  display: grid; grid-template-columns: 7fr 5fr; gap: 40px;
+}
+@media (max-width: 900px) { .hero { grid-template-columns: 1fr; padding: 32px; } }
+.hero .eyebrow { font-family: var(--mono); font-size: 12px; text-transform: uppercase; padding: 6px 10px; background: var(--text); color: var(--bg); display: inline-block; margin-bottom: 24px; transform: rotate(-1deg); }
+.hero h1 { font-size: clamp(48px, 7vw, 96px); text-transform: uppercase; }
+.hero h1 .y { background: var(--accent); padding: 0 8px; }
+.hero p { font-size: 18px; margin-top: 20px; max-width: 50ch; }
+.hero-actions { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
+.hero-side { display: flex; flex-direction: column; gap: 16px; }
+.hero-figure {
+  flex: 1; min-height: 240px; border: var(--bw) solid var(--text); background: var(--accent);
+  background-image: repeating-linear-gradient(-45deg, transparent 0 14px, var(--text) 14px 16px);
+  display: flex; align-items: flex-end; justify-content: flex-end; padding: 16px;
+}
+.hero-figure span { background: var(--text); color: var(--bg); padding: 4px 10px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; }
+
+.feature-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
+@media (max-width: 720px) { .feature-grid { grid-template-columns: 1fr; } }
+.feature { background: var(--surface); border: var(--bw) solid var(--text); padding: 24px; box-shadow: var(--shadow); }
+.feature .num { font-family: var(--display); font-size: 56px; font-weight: 700; line-height: 1; }
+.feature h5 { margin: 12px 0 8px; }
+.feature p { font-size: 14px; }
+.feature:nth-child(2) { background: var(--accent); }
+.feature:nth-child(5) { background: var(--text); color: var(--bg); }
+
+.cta { margin-top: 32px; background: var(--text); color: var(--bg); border: var(--bw) solid var(--text); padding: 40px; box-shadow: var(--shadow-lg); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+@media (max-width: 720px) { .cta { grid-template-columns: 1fr; padding: 28px; } }
+.cta h3 { color: var(--bg); font-size: clamp(28px, 4vw, 48px); text-transform: uppercase; }
+.cta p { color: var(--bg); opacity: 0.8; margin-top: 10px; max-width: 50ch; }
+
+footer.foot {
+  margin-top: 48px; border-top: var(--bw-thick) solid var(--text); padding-top: 32px;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 24px;
+}
+@media (max-width: 720px) { footer.foot { grid-template-columns: 1fr 1fr; } }
+.foot h6 { font-family: var(--mono); font-size: 11px; text-transform: uppercase; margin-bottom: 10px; }
+.foot ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+.foot a { text-decoration: none; }
+.foot a:hover { background: var(--accent); }
+.foot-mark {
+  font-family: var(--display); font-weight: 700; font-size: 56px; text-transform: uppercase; line-height: 0.9;
+  background: var(--accent); border: var(--bw) solid var(--text); padding: 10px 16px; box-shadow: var(--shadow); display: inline-block;
+}
+.colophon { margin-top: 24px; padding: 16px 0; border-top: 2px solid var(--text); display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; flex-wrap: wrap; gap: 8px; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="brand-mark">CATALOGUE Nº 02</span>
+      <span class="brand-meta">[ NEO-BRUTALIST ]</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#identity">IDENTITY</a>
+      <a href="#color">COLOR</a>
+      <a href="#type">TYPE</a>
+      <a href="#components">COMPONENTS</a>
+      <a href="#patterns">PATTERNS</a>
+    </nav>
+    <button class="panel-toggle" id="panelToggle" aria-label="Open theme panel">▣</button>
+  </div>
+</header>
+
+<aside class="theme-panel" id="themePanel">
+  <section><h6>// THEME</h6>
+    <div class="theme-row">
+      <button class="theme-btn" data-theme="light" aria-pressed="true">LIGHT</button>
+      <button class="theme-btn" data-theme="dark" aria-pressed="false">DARK</button>
+    </div>
+  </section>
+  <section><h6>// PALETTE</h6>
+    <div class="palette-row">
+      <button class="palette-btn" data-palette="concrete" aria-pressed="true">CONCRETE</button>
+      <button class="palette-btn" data-palette="toxic">TOXIC</button>
+      <button class="palette-btn" data-palette="riso">RISO</button>
+    </div>
+  </section>
+  <section><h6>// ACCENT</h6>
+    <div class="swatch-row">
+      <button class="swatch-btn" data-accent="#ffd400" style="background:#ffd400" aria-pressed="true"></button>
+      <button class="swatch-btn" data-accent="#ff5af0" style="background:#ff5af0"></button>
+      <button class="swatch-btn" data-accent="#00ffd5" style="background:#00ffd5"></button>
+      <button class="swatch-btn" data-accent="#ff3a3a" style="background:#ff3a3a"></button>
+      <button class="swatch-btn" data-accent="#2c5cff" style="background:#2c5cff"></button>
+      <button class="swatch-btn" data-accent="#1ea654" style="background:#1ea654"></button>
+    </div>
+    <input class="hex-input" id="hexInput" placeholder="#ffd400" />
+  </section>
+</aside>
+
+<main class="page">
+
+<section class="identity" id="identity">
+  <div class="row">
+    <div>
+      <span class="identity-tag">CATALOGUE Nº 02 / STYLE B</span>
+      <h1>NEO·<br/><span class="yellow">BRUTAL</span><br/><span class="ink">IST</span></h1>
+    </div>
+    <div class="identity-philo">
+      <p><strong>Loud, raw, charismatic.</strong> Thick borders, hard offset shadows, and a refusal to apologize. We use the system's plain bones — fat type, flat color, hard edges — and lean into the awkward angles instead of smoothing them. The interface looks like it was xeroxed, taped to a wall, and shipped.</p>
+      <div class="meta-blocks">
+        <div class="meta-block"><dt>BEST FOR</dt><dd>Indie tools · DTC brands · Music & culture</dd></div>
+        <div class="meta-block"><dt>SIGNATURE</dt><dd>3px borders + 6/6 hard shadows on every surface</dd></div>
+        <div class="meta-block"><dt>VOICE</dt><dd>Direct. Funny. Slightly rude.</dd></div>
+      </div>
+    </div>
+  </div>
+  <div class="signature">
+    <blockquote>"IF IT DOESN'T CLUNK WHEN YOU PRESS IT, IT'S NOT FINISHED."</blockquote>
+    <span class="who">— HOUSE RULES, R3</span>
+  </div>
+</section>
+
+<section class="section" id="color">
+  <header class="section-head">
+    <span class="num">02 / 10</span>
+    <h2>COLOR SYSTEM</h2>
+    <span class="meta">// PALETTE :: TOKENS :: ACCENT</span>
+  </header>
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-chip" style="background: var(--bg)"></div><div class="swatch-info"><span class="swatch-name">BG</span><span class="swatch-hex" data-token="bg">--bg</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background: var(--surface)"></div><div class="swatch-info"><span class="swatch-name">SURFACE</span><span class="swatch-hex" data-token="surface">--surface</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background: var(--surface-2)"></div><div class="swatch-info"><span class="swatch-name">SURFACE 2</span><span class="swatch-hex" data-token="surface-2">--surface-2</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background: var(--text)"></div><div class="swatch-info"><span class="swatch-name">TEXT / BORDER</span><span class="swatch-hex" data-token="text">--text</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background: var(--accent)"></div><div class="swatch-info"><span class="swatch-name">ACCENT</span><span class="swatch-hex" data-token="accent">--accent</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background: var(--accent-2)"></div><div class="swatch-info"><span class="swatch-name">ACCENT 2</span><span class="swatch-hex" data-token="accent-2">--accent-2</span></div></div>
+  </div>
+  <div class="semantic-grid">
+    <div class="semantic"><div class="bar" style="background:var(--success)"></div><div class="body"><div class="name">SUCCESS</div><div class="tok">--success</div></div></div>
+    <div class="semantic"><div class="bar" style="background:var(--warning)"></div><div class="body"><div class="name">WARNING</div><div class="tok">--warning</div></div></div>
+    <div class="semantic"><div class="bar" style="background:var(--danger)"></div><div class="body"><div class="name">DANGER</div><div class="tok">--danger</div></div></div>
+    <div class="semantic"><div class="bar" style="background:var(--info)"></div><div class="body"><div class="name">INFO</div><div class="tok">--info</div></div></div>
+  </div>
+  <div class="token-strip">
+    <div class="token-card"><h6>SPACING</h6><code>4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96</code></div>
+    <div class="token-card"><h6>BORDER</h6><code>3px / 5px hard black</code></div>
+    <div class="token-card"><h6>SHADOW</h6><code>6px 6px 0 #050505</code></div>
+  </div>
+</section>
+
+<section class="section" id="type">
+  <header class="section-head">
+    <span class="num">03 / 10</span>
+    <h2>TYPOGRAPHY</h2>
+    <span class="meta">// SPACE GROTESK + JETBRAINS MONO</span>
+  </header>
+  <div class="type-row"><span class="type-label">DISPLAY</span><span style="font-size:clamp(56px,8vw,120px);font-weight:700;line-height:0.85;letter-spacing:-0.04em;text-transform:uppercase;">BUILD UGLY THINGS</span><span class="type-meta">SP·GROTESK · 700 · clamp(56,8vw,120) · 0.85</span></div>
+  <div class="type-row"><span class="type-label">H1</span><span style="font-size:64px;font-weight:700;text-transform:uppercase;line-height:0.95;">SHIP THE FIRST DRAFT</span><span class="type-meta">SP·GROTESK · 700 · 64 · 0.95</span></div>
+  <div class="type-row"><span class="type-label">H2</span><span style="font-size:44px;font-weight:700;text-transform:uppercase;">DON'T SAND THE EDGES</span><span class="type-meta">SP·GROTESK · 700 · 44 · 1.0</span></div>
+  <div class="type-row"><span class="type-label">H3</span><span style="font-size:32px;font-weight:700;">A heading that punches</span><span class="type-meta">SP·GROTESK · 700 · 32 · 1.05</span></div>
+  <div class="type-row"><span class="type-label">H4</span><span style="font-size:24px;font-weight:700;">Subhead with shoulders</span><span class="type-meta">SP·GROTESK · 700 · 24 · 1.1</span></div>
+  <div class="type-row"><span class="type-label">H5</span><span style="font-size:20px;font-weight:500;">Section title, friendly</span><span class="type-meta">SP·GROTESK · 500 · 20 · 1.2</span></div>
+  <div class="type-row"><span class="type-label">H6</span><span style="font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;">EYEBROW · KICKER · LABEL</span><span class="type-meta">SP·GROTESK · 700 · 16 · 0.04em</span></div>
+  <div class="type-row"><span class="type-label">BODY LG</span><span style="font-size:19px;line-height:1.5;">A bigger paragraph for landings — the kind that has to land in three sentences and not waste anybody's morning.</span><span class="type-meta">SP·GROTESK · 400 · 19 · 1.5</span></div>
+  <div class="type-row"><span class="type-label">BODY</span><span style="font-size:16px;line-height:1.5;">Standard running text. Use it for paragraphs. Don't be afraid of long sentences if they earn it.</span><span class="type-meta">SP·GROTESK · 400 · 16 · 1.5</span></div>
+  <div class="type-row"><span class="type-label">BODY SM</span><span style="font-size:14px;line-height:1.45;">Compressed text for tables and helper rows. Still readable. Still loud.</span><span class="type-meta">SP·GROTESK · 400 · 14 · 1.45</span></div>
+  <div class="type-row"><span class="type-label">CAPTION</span><span style="font-size:12px;">Figure 02. Tape recovered from wall.</span><span class="type-meta">SP·GROTESK · 400 · 12</span></div>
+  <div class="type-row"><span class="type-label">OVERLINE</span><span style="font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.1em;">// FILED UNDER · PRESS</span><span class="type-meta">MONO · 700 · 11 · 0.1em</span></div>
+  <div class="type-row"><span class="type-label">CODE</span><span style="font-family:var(--mono);font-size:13px;background:var(--accent);padding:6px 10px;border:2px solid var(--text);">--accent: #ffd400;</span><span class="type-meta">JBM · 400 · 13</span></div>
+</section>
+
+<section class="section" id="components">
+  <header class="section-head">
+    <span class="num">04 / 10</span>
+    <h2>BUTTONS</h2>
+    <span class="meta">// VARIANTS :: SIZES :: STATES</span>
+  </header>
+  <div class="btn-grid">
+    <span class="lab">PRIMARY</span>
+    <div class="btn-cluster">
+      <button class="btn btn-primary btn-sm">SHIP IT</button>
+      <button class="btn btn-primary">SHIP IT</button>
+      <button class="btn btn-primary btn-lg">SHIP IT</button>
+      <button class="btn btn-primary -loading">SHIP IT</button>
+      <button class="btn btn-primary" disabled>SHIP IT</button>
+    </div>
+    <span class="lab">SECONDARY</span>
+    <div class="btn-cluster">
+      <button class="btn btn-secondary btn-sm">SAVE DRAFT</button>
+      <button class="btn btn-secondary">SAVE DRAFT</button>
+      <button class="btn btn-secondary btn-lg">SAVE DRAFT</button>
+      <button class="btn btn-secondary" disabled>SAVE DRAFT</button>
+    </div>
+    <span class="lab">TERTIARY</span>
+    <div class="btn-cluster">
+      <button class="btn btn-tertiary">View changes</button>
+      <button class="btn btn-tertiary btn-sm">More options</button>
+      <button class="btn btn-tertiary" disabled>Locked</button>
+    </div>
+    <span class="lab">DESTRUCTIVE</span>
+    <div class="btn-cluster">
+      <button class="btn btn-destructive">DELETE FOREVER</button>
+      <button class="btn btn-destructive btn-sm">REMOVE</button>
+    </div>
+    <span class="lab">ICON</span>
+    <div class="btn-cluster">
+      <button class="btn btn-icon">★</button>
+      <button class="btn btn-icon">⌕</button>
+      <button class="btn btn-icon">⎙</button>
+      <button class="btn btn-icon">⚙</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <header class="section-head">
+    <span class="num">05 / 10</span>
+    <h2>FORM CONTROLS</h2>
+    <span class="meta">// INPUTS :: SELECTION :: VALIDATION</span>
+  </header>
+  <div class="form-grid">
+    <div class="field"><label>BAND NAME</label><input class="input" value="HARD SHOULDER" /><span class="helper">Shows up on the merch.</span></div>
+    <div class="field"><label>SEARCH</label><div class="search"><input class="input" placeholder="SEARCH MERCH, SHOWS, TAPES…" /></div></div>
+    <div class="field error"><label>EMAIL</label><input class="input" value="x@@" /><span class="helper">THAT'S NOT AN EMAIL, FRIEND.</span></div>
+    <div class="field success"><label>HANDLE</label><input class="input" value="hard-shoulder" /><span class="helper">AVAILABLE. CLAIM IT.</span></div>
+    <div class="field"><label>GENRE</label><select class="select"><option>POST-PUNK</option><option>NOISE-ROCK</option><option>INDUSTRIAL</option></select></div>
+    <div class="field"><label>VENUES (MULTI)</label><select class="select" multiple size="3"><option selected>BASEMENT</option><option selected>WAREHOUSE</option><option>BAR</option><option>FESTIVAL</option></select></div>
+    <div class="field"><label>BIO</label><textarea class="textarea">Three loud people from a small town who refuse to soundcheck.</textarea></div>
+    <div class="field"><label>LOCKED</label><input class="input" value="MASTER PASSWORD" disabled /><span class="helper">ASK THE LABEL.</span></div>
+    <div class="field"><span class="label-text">FORMAT</span>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;">
+        <label class="radio"><input type="radio" name="fmt" checked /> VINYL</label>
+        <label class="radio"><input type="radio" name="fmt" /> TAPE</label>
+        <label class="radio"><input type="radio" name="fmt" /> DIGITAL</label>
+      </div>
+    </div>
+    <div class="field"><span class="label-text">FLAGS</span>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;">
+        <label class="check"><input type="checkbox" checked /> EXPLICIT</label>
+        <label class="check"><input type="checkbox" /> RADIO EDIT</label>
+        <label class="check"><input type="checkbox" checked /> LIMITED</label>
+      </div>
+    </div>
+    <div class="field"><label>RELEASE DATE</label><input class="input" type="date" value="2026-06-13" /></div>
+    <div class="field">
+      <label class="toggle"><input type="checkbox" checked /> <span>ALLOW REMIX SUBMISSIONS</span></label>
+      <label class="toggle" style="margin-top:12px;"><input type="checkbox" /> <span>SEND TO RADIO STATIONS</span></label>
+    </div>
+    <div class="field"><label>VOLUME · SLIDER</label><input class="slider" type="range" min="0" max="11" value="11" /><span class="helper">It goes to 11.</span></div>
+    <div class="field"><label>COVER ART</label><div class="upload">DROP A 1500×1500 JPG, OR <strong>BROWSE FILES</strong></div></div>
+  </div>
+</section>
+
+<section class="section">
+  <header class="section-head">
+    <span class="num">06 / 10</span>
+    <h2>CARDS & SURFACES</h2>
+    <span class="meta">// SIX SHAPES OF NOISE</span>
+  </header>
+  <div class="card-grid">
+    <article class="card">
+      <span class="card-eyebrow">DROP // 04</span>
+      <h4>DOUBLE LP — REPRESS</h4>
+      <p class="body">300 copies on splatter vinyl. Comes with a folded zine, a pin, and a polaroid we took at the show.</p>
+      <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;border-top:2px solid var(--text);padding-top:10px;text-transform:uppercase;"><span>€34</span><span>184 LEFT</span></div>
+    </article>
+    <article class="card card-feature">
+      <span class="card-eyebrow">FEATURED</span>
+      <h4>WAREHOUSE TOUR — 12 DATES</h4>
+      <p class="body">No support, no encore, all in basements you have to find. May 28 → June 30.</p>
+      <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;border-top:2px solid var(--bg);padding-top:10px;text-transform:uppercase;"><span>SOLD 9/12</span><span>WAITLIST</span></div>
+    </article>
+    <article class="card card-pricing">
+      <span class="card-eyebrow">SUBSCRIBE</span>
+      <div class="price">€9<small>/mo</small></div>
+      <p class="body">Every release, every B-side, every show recording. Cancel anytime, but you won't.</p>
+      <ul>
+        <li>EVERY RELEASE THE DAY IT DROPS</li>
+        <li>FULL LIVE-RECORDING ARCHIVE</li>
+        <li>FIRST-DIBS ON MERCH RUNS</li>
+        <li>QUARTERLY MEMBER-ONLY SHOW</li>
+      </ul>
+      <button class="btn btn-primary">SUBSCRIBE</button>
+    </article>
+    <article class="card">
+      <div class="card-profile">
+        <div class="avatar">HS</div>
+        <div>
+          <h4 style="font-size:18px;">HARD SHOULDER</h4>
+          <p style="font-size:13px;font-family:var(--mono);">3-PIECE / SHEFFIELD UK / SINCE 2019</p>
+        </div>
+      </div>
+      <p class="body">Currently writing record three in a converted bus depot. Following back if your demos are good.</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;"><span class="tag">POST-PUNK</span><span class="tag -alt">NOISE</span><span class="tag -alt">DIY</span></div>
+    </article>
+    <article class="card card-stat">
+      <span class="card-eyebrow">MONTHLY LISTENERS</span>
+      <div class="num">142K</div>
+      <div style="display:flex;align-items:center;gap:8px;"><span class="delta">↑ 18.4%</span><span style="font-family:var(--mono);font-size:11px;">VS LAST MONTH</span></div>
+      <p style="font-size:13px;margin-top:6px;">Up 24K since the radio session. Top city: Manchester.</p>
+    </article>
+    <article class="card card-media">
+      <div class="img"><span>COVER · 1500×1500</span></div>
+      <div class="body-pad">
+        <span class="card-eyebrow">EP // 02</span>
+        <h4>SHEET METAL HEAVEN</h4>
+        <p class="body">Six tracks recorded live to tape. Out 13 June.</p>
+        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;text-transform:uppercase;"><span>13:42 / 6 TRACKS</span><span>PRE-ORDER →</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <header class="section-head">
+    <span class="num">07 / 10</span>
+    <h2>NAVIGATION</h2>
+    <span class="meta">// TOPNAV :: SIDEBAR :: TABS :: PAGER :: MOBILE</span>
+  </header>
+  <div style="display:flex;flex-direction:column;gap:24px;">
+    <div class="demo">
+      <div class="demo-label"><span>// PRIMARY NAVBAR</span><span>≥ 768px</span></div>
+      <div class="fake-navbar">
+        <span class="brand">HARD ✕ SHOULDER</span>
+        <nav>
+          <a href="#" class="-active">SHOP</a>
+          <a href="#">TOUR</a>
+          <a href="#">SOUNDS</a>
+          <a href="#">FANCLUB</a>
+        </nav>
+        <button class="btn btn-primary btn-sm">SUBSCRIBE</button>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="demo-label"><span>// APP SHELL</span><span>FANCLUB DASHBOARD</span></div>
+      <div class="fake-shell">
+        <aside class="fake-side">
+          <h6>// LIBRARY</h6>
+          <ul>
+            <li class="-active">Releases <span>14</span></li>
+            <li>Live tapes <span>22</span></li>
+            <li>Demos <span>8</span></li>
+            <li>Press <span>4</span></li>
+          </ul>
+          <h6>// SHOP</h6>
+          <ul>
+            <li>Vinyl</li>
+            <li>Tapes</li>
+            <li>Merch</li>
+          </ul>
+        </aside>
+        <div class="fake-main">
+          <div class="crumb"><a href="#">LIBRARY</a><span>/</span><a href="#">RELEASES</a><span>/</span> SHEET METAL HEAVEN</div>
+          <div class="tabs">
+            <button class="tab -active">OVERVIEW</button>
+            <button class="tab">TRACKS</button>
+            <button class="tab">PRESS</button>
+            <button class="tab">FILES</button>
+          </div>
+          <h4 style="margin-bottom:8px;">SHEET METAL HEAVEN</h4>
+          <p style="font-size:13px;font-family:var(--mono);">EP / 6 TRACKS / RELEASE 13 JUN 2026 / STATUS · IN MASTERING</p>
+        </div>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="demo-label"><span>// PAGINATION</span><span>BAND ARCHIVE</span></div>
+      <div class="pager">
+        <button>‹</button>
+        <button>1</button>
+        <button class="-active">2</button>
+        <button>3</button>
+        <button>4</button>
+        <span class="ellipsis">…</span>
+        <button>22</button>
+        <button>›</button>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="demo-label"><span>// MOBILE BOTTOM-NAV</span><span>≤ 768px</span></div>
+      <div class="bottom-nav">
+        <button class="-active">HOME</button>
+        <button>SHOP</button>
+        <button>TOUR</button>
+        <button>ME</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <header class="section-head">
+    <span class="num">08 / 10</span>
+    <h2>DATA DISPLAY</h2>
+    <span class="meta">// TABLES :: LISTS :: TAGS :: AVATARS</span>
+  </header>
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead><tr><th>TRACK ↓</th><th>ALBUM</th><th>STATUS</th><th class="num">PLAYS</th><th>UPDATED</th></tr></thead>
+      <tbody>
+        <tr><td>BARRIER METAL</td><td>SHEET METAL HEAVEN</td><td><span class="badge -success">● MASTERED</span></td><td class="num">182,440</td><td>MAY 02</td></tr>
+        <tr><td>WAREHOUSE BREATH</td><td>SHEET METAL HEAVEN</td><td><span class="badge -warning">● MIXING</span></td><td class="num">04,210</td><td>MAY 07</td></tr>
+        <tr><td>VOLUME II</td><td>FIRST PRESS</td><td><span class="badge -info">● LIVE</span></td><td class="num">1.2M</td><td>APR 19</td></tr>
+        <tr><td>OFF-CYCLE B-SIDE</td><td>—</td><td><span class="badge -neutral">● DEMO</span></td><td class="num">0</td><td>MAY 08</td></tr>
+        <tr><td>SOFT EDGE</td><td>SHEET METAL HEAVEN</td><td><span class="badge -danger">● SCRAPPED</span></td><td class="num">—</td><td>MAY 09</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;">
+    <div class="list">
+      <div class="list-item"><div class="list-icon">▶</div><div class="list-text">VOLUME II<small>// 1.2M PLAYS · 4:18</small></div><span class="badge -success">● LIVE</span></div>
+      <div class="list-item"><div class="list-icon">●</div><div class="list-text">SHEET METAL HEAVEN<small>// EP · 6 TRACKS · 13 JUN</small></div><span class="badge -warning">● PRE</span></div>
+      <div class="list-item"><div class="list-icon">↻</div><div class="list-text">RADIO 1 SESSION<small>// MAY 21 · BBC LIVE</small></div><span class="badge -info">● BOOKED</span></div>
+      <div class="list-item"><div class="list-icon">✕</div><div class="list-text">FESTIVAL B<small>// CANCELLED, REFUNDS PROCESSED</small></div><span class="badge -danger">● OFF</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div>
+        <h6 style="margin-bottom:8px;">// TAGS</h6>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag">post-punk</span><span class="tag -alt">noise</span><span class="tag">DIY</span><span class="tag -alt">live-tape</span><span class="tag">limited-press</span><span class="tag -alt">2026</span></div>
+      </div>
+      <div>
+        <h6 style="margin-bottom:8px;">// AVATARS</h6>
+        <div style="display:flex;gap:14px;align-items:center;">
+          <div class="avatar" style="width:56px;height:56px;font-size:18px;">HS</div>
+          <div class="avatar-group">
+            <div class="avatar">M</div>
+            <div class="avatar" style="background:var(--surface);color:var(--text);">P</div>
+            <div class="avatar" style="background:var(--accent-2);">D</div>
+            <div class="more">+18</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h6 style="margin-bottom:8px;">// KEY → VALUE</h6>
+        <dl class="kv">
+          <dt>RELEASE</dt><dd>13 JUN 2026</dd>
+          <dt>FORMAT</dt><dd>VINYL · TAPE · DIGITAL</dd>
+          <dt>RUNTIME</dt><dd>13:42</dd>
+          <dt>LABEL</dt><dd>HARD SHOULDER REC.</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="empty" style="margin-top:24px;">
+    <h5>NOTHING HERE YET.</h5>
+    <p style="font-family:var(--mono);font-size:13px;">// Try removing a filter, or upload a new tape.</p>
+    <button class="btn btn-primary btn-sm" style="margin-top:14px;">UPLOAD TAPE</button>
+  </div>
+</section>
+
+<section class="section">
+  <header class="section-head">
+    <span class="num">09 / 10</span>
+    <h2>FEEDBACK & OVERLAYS</h2>
+    <span class="meta">// ALERTS :: TOASTS :: MODALS :: PROGRESS</span>
+  </header>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+    <div class="alert -success"><div class="icon">✓</div><div><h6>MASTER UPLOADED</h6><p>BARRIER METAL · 24-bit / 96kHz · 184 MB</p></div><button class="btn btn-tertiary btn-sm">OPEN</button></div>
+    <div class="alert -info"><div class="icon">i</div><div><h6>SESSION SCHEDULED</h6><p>BBC RADIO 1, MAY 21 — DOORS 18:30, ON-AIR 19:15.</p></div><button class="btn btn-tertiary btn-sm">DETAILS</button></div>
+    <div class="alert -warning"><div class="icon">!</div><div><h6>MIX BOUNCE PENDING</h6><p>WAREHOUSE BREATH still hasn't been re-bounced after the May 5 notes.</p></div><button class="btn btn-tertiary btn-sm">REMIND</button></div>
+    <div class="alert -danger"><div class="icon">×</div><div><h6>FILE FAILED CHECKSUM</h6><p>The pressing plant rejected the WAV. Re-export from the master DAW.</p></div><button class="btn btn-tertiary btn-sm">RE-EXPORT</button></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;">
+    <div class="modal-stage">
+      <div class="modal">
+        <h4>SCRAP THIS TRACK?</h4>
+        <p style="font-size:14px;">SOFT EDGE will be removed from the EP and the master archive. We can't get it back without re-recording.</p>
+        <div class="modal-actions">
+          <button class="btn btn-secondary btn-sm">KEEP IT</button>
+          <button class="btn btn-destructive btn-sm">SCRAP</button>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-stage">
+      <div class="drawer">
+        <h5>STUDIO NOTES</h5>
+        <p style="font-family:var(--mono);font-size:11px;text-transform:uppercase;margin-bottom:12px;">// WAREHOUSE BREATH</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="border-left:4px solid var(--accent);padding:6px 10px;background:var(--surface-2);font-size:13px;"><strong>P:</strong> THE BASS DROPS OUT TOO EARLY IN B2.</div>
+          <div style="border-left:4px solid var(--text);padding:6px 10px;background:var(--surface-2);font-size:13px;"><strong>M:</strong> AGREE. PUSH IT 4 BARS.</div>
+          <div style="border-left:4px solid var(--text);padding:6px 10px;background:var(--surface-2);font-size:13px;"><strong>D:</strong> RE-BOUNCING NOW. TAKE 4.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:24px;">
+    <div>
+      <h6 style="margin-bottom:10px;">// TOOLTIP & POPOVER</h6>
+      <div style="display:flex;gap:18px;align-items:flex-end;">
+        <div class="tooltip-anchor"><button class="btn btn-secondary btn-sm">HOVER</button><div class="tooltip">// CTRL+S TO SAVE</div></div>
+        <div class="popover"><button class="btn btn-secondary btn-sm">DETAILS ▾</button><div class="popover-card"><strong>EP // 02</strong><p style="font-size:12px;font-family:var(--mono);margin-top:4px;">6 TRACKS · 13:42 · MASTER PENDING</p></div></div>
+      </div>
+    </div>
+    <div>
+      <h6 style="margin-bottom:10px;">// TOAST</h6>
+      <div class="toast"><span class="dot"></span> SAVED 6s AGO. <button>UNDO</button></div>
+      <div class="toast" style="margin-top:8px;background:var(--accent);color:var(--accent-fg);"><span class="dot" style="background:var(--text);border-color:var(--accent-fg);"></span> COPIED TO CLIPBOARD <button style="background:var(--text);color:var(--bg);border-color:var(--accent-fg);">OK</button></div>
+    </div>
+    <div>
+      <h6 style="margin-bottom:10px;">// PROGRESS & SKELETON</h6>
+      <div class="progress"><span style="width:64%"></span></div>
+      <p style="font-family:var(--mono);font-size:11px;margin-top:6px;">// UPLOADING · 64% · 14.2 / 22.3 MB</p>
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:6px;">
+        <div class="skel -img"></div>
+        <div class="skel -tall" style="width:80%"></div>
+        <div class="skel" style="width:60%"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="patterns">
+  <header class="section-head">
+    <span class="num">10 / 10</span>
+    <h2>LAYOUT PATTERNS</h2>
+    <span class="meta">// HOW IT COMPOSES</span>
+  </header>
+  <div class="hero">
+    <div>
+      <span class="eyebrow">// EP 02 · OUT 13 JUNE 2026</span>
+      <h1>SHEET <span class="y">METAL</span><br/>HEAVEN.</h1>
+      <p>Six tracks recorded live to tape in a converted bus depot. Pressed on splatter vinyl in a run of 300. The first 100 ship with a polaroid we took at the show.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg">PRE-ORDER · €34</button>
+        <button class="btn btn-secondary btn-lg">LISTEN TO B-SIDE</button>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="hero-figure"><span>COVER · 1500×1500</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="background:var(--surface);border:var(--bw) solid var(--text);padding:12px;box-shadow:var(--shadow-sm);"><div style="font-family:var(--mono);font-size:11px;text-transform:uppercase;">PRESSED</div><div style="font-size:32px;font-weight:700;">300</div></div>
+        <div style="background:var(--accent);border:var(--bw) solid var(--text);padding:12px;box-shadow:var(--shadow-sm);"><div style="font-family:var(--mono);font-size:11px;text-transform:uppercase;">LEFT</div><div style="font-size:32px;font-weight:700;">184</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="feature-grid">
+    <div class="feature"><div class="num">01</div><h5>NO STOCK PHOTOS</h5><p>Every image is something we shot, scanned, or xeroxed. Real over polished, every time.</p></div>
+    <div class="feature"><div class="num">02</div><h5>EVERY EDGE BLACK</h5><p>3px borders, 6/6 hard shadows, zero rounded corners. The grid is the design language.</p></div>
+    <div class="feature"><div class="num">03</div><h5>CLUNK > SLICK</h5><p>Buttons that move when you press them. Toggles that thunk. Forms that respond like physical controls.</p></div>
+    <div class="feature"><div class="num">04</div><h5>COLOR AS NOUN</h5><p>One accent, used as the loud yes. Never as decoration. If it's yellow, it matters.</p></div>
+    <div class="feature"><div class="num">05</div><h5>VOICE FORWARD</h5><p>Direct copy. No marketing voice. We say SHIP IT and DELETE FOREVER and mean it.</p></div>
+    <div class="feature"><div class="num">06</div><h5>MOBILE STAYS LOUD</h5><p>The system collapses but never softens. 3px borders at 360px just like at 1440.</p></div>
+  </div>
+  <div class="cta">
+    <div>
+      <h3>JOIN THE FANCLUB.<br/>€9 / MONTH.</h3>
+      <p>Every release the day it drops, full live archive, first dibs on merch, and a quarterly member-only show.</p>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="btn btn-secondary">JUST THE EP</button>
+      <button class="btn btn-primary">SUBSCRIBE</button>
+    </div>
+  </div>
+  <footer class="foot">
+    <div>
+      <span class="foot-mark">HARD ✕ SHOULDER</span>
+      <p style="margin-top:14px;font-size:14px;max-width:42ch;">A 3-piece from Sheffield, currently writing record three in a converted bus depot. We answer DMs.</p>
+    </div>
+    <div><h6>// SHOP</h6><ul><li><a href="#">Vinyl</a></li><li><a href="#">Tapes</a></li><li><a href="#">Merch</a></li><li><a href="#">Bundles</a></li></ul></div>
+    <div><h6>// LIVE</h6><ul><li><a href="#">Tour</a></li><li><a href="#">Past shows</a></li><li><a href="#">Booking</a></li><li><a href="#">Riders</a></li></ul></div>
+    <div><h6>// CLUB</h6><ul><li><a href="#">Subscribe</a></li><li><a href="#">Demos box</a></li><li><a href="#">Newsletter</a></li><li><a href="#">Press kit</a></li></ul></div>
+  </footer>
+  <div class="colophon">
+    <span>© 2026 HARD SHOULDER REC. · SHEFFIELD UK</span>
+    <span>SET IN SPACE GROTESK + JBM · NO STOCK PHOTOS WERE HARMED</span>
+  </div>
+</section>
+
+</main>
+
+<script>
+(function(){
+  const html = document.documentElement;
+  const panel = document.getElementById('themePanel');
+  document.getElementById('panelToggle').addEventListener('click', () => panel.classList.toggle('open'));
+  document.querySelectorAll('[data-theme]').forEach(b => b.addEventListener('click', () => {
+    html.dataset.theme = b.dataset.theme;
+    document.querySelectorAll('[data-theme]').forEach(x => x.setAttribute('aria-pressed', x.dataset.theme === b.dataset.theme));
+    refreshHex();
+  }));
+  document.querySelectorAll('[data-palette]').forEach(b => b.addEventListener('click', () => {
+    html.dataset.palette = b.dataset.palette;
+    document.querySelectorAll('[data-palette]').forEach(x => x.setAttribute('aria-pressed', x.dataset.palette === b.dataset.palette));
+    refreshHex();
+  }));
+  function setAccent(hex){
+    html.style.setProperty('--accent', hex);
+    const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+    const lum=(0.299*r+0.587*g+0.114*b)/255;
+    html.style.setProperty('--accent-fg', lum>0.6?'#050505':'#ffffff');
+  }
+  document.querySelectorAll('.swatch-btn').forEach(b => b.addEventListener('click', () => {
+    setAccent(b.dataset.accent);
+    document.querySelectorAll('.swatch-btn').forEach(x => x.setAttribute('aria-pressed', x === b));
+    document.getElementById('hexInput').value = b.dataset.accent;
+  }));
+  document.getElementById('hexInput').addEventListener('change', e => {
+    const v = e.target.value.trim();
+    if (/^#[0-9a-f]{6}$/i.test(v)) { setAccent(v); document.querySelectorAll('.swatch-btn').forEach(x => x.setAttribute('aria-pressed', false)); }
+  });
+  function refreshHex(){
+    requestAnimationFrame(() => {
+      document.querySelectorAll('[data-token]').forEach(el => {
+        const t = el.dataset.token;
+        const v = getComputedStyle(html).getPropertyValue('--' + t).trim();
+        el.textContent = `--${t}  ${v}`;
+      });
+    });
+  }
+  refreshHex();
+})();
+</script>
+</body>
+</html>

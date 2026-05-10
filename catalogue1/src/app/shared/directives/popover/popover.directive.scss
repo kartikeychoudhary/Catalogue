@@ -1,0 +1,28 @@
+.popover {
+  position: relative;
+}
+
+.popover-card {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  background: var(--surface);
+  border: 1px solid var(--text);
+  padding: var(--s-4);
+  width: 240px;
+  box-shadow: 6px 6px 0 var(--text);
+  z-index: 999;
+}
+
+.popover-card h6 {
+  font-family: var(--serif);
+  font-size: 15px;
+  margin: 0 0 var(--s-2) 0;
+}
+
+.popover-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}

@@ -1,0 +1,102 @@
+// _themes.scss — Swiss Editorial tokens (verbatim from source HTML)
+
+:root {
+  --serif: "Fraunces", "GT Sectra", "Times New Roman", serif;
+  --sans: "Inter", "Neue Haas Grotesk", -apple-system, system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  /* INK palette (default) */
+  --bg:        #fafaf7;
+  --surface:   #ffffff;
+  --surface-2: #f3f3ee;
+  --border:    #1a1a1a;
+  --border-soft: #e2e2dc;
+  --hairline:  #c8c8c2;
+  --text:      #0a0a0a;
+  --text-muted:#5b5b56;
+  --text-dim:  #8a8a83;
+
+  --success: #1f6f3f;
+  --warning: #b06f00;
+  --danger:  #b1242c;
+  --info:    #1c4a86;
+
+  --accent:   #d6231a;
+  --accent-fg:#ffffff;
+
+  /* Geometry */
+  --radius: 0px;
+  --hair: 1px;
+  --rule: 1px solid var(--hairline);
+  --rule-strong: 1px solid var(--text);
+
+  /* Spacing scale */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px;
+  --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px; --s-10: 128px;
+
+  /* Type scale */
+  --t-display: clamp(56px, 9vw, 152px);
+  --t-h1: clamp(40px, 5.5vw, 80px);
+  --t-h2: clamp(30px, 4vw, 56px);
+  --t-h3: clamp(24px, 3vw, 36px);
+  --t-h4: 22px;
+  --t-h5: 18px;
+  --t-h6: 15px;
+  --t-body-lg: 19px;
+  --t-body: 16px;
+  --t-body-sm: 14px;
+  --t-caption: 12px;
+  --t-overline: 11px;
+}
+
+[data-palette="stone"] {
+  --bg: #f5f1ea;
+  --surface: #fbf8f2;
+  --surface-2: #ece6da;
+  --border: #2a241c;
+  --border-soft: #d9d2c2;
+  --hairline: #beb6a4;
+  --text: #1f1a13;
+  --text-muted: #645c4d;
+  --text-dim: #8e8676;
+}
+
+[data-palette="steel"] {
+  --bg: #f1f3f5;
+  --surface: #ffffff;
+  --surface-2: #e3e7eb;
+  --border: #11161c;
+  --border-soft: #cfd5dc;
+  --hairline: #adb6c0;
+  --text: #0c1117;
+  --text-muted: #4a5260;
+  --text-dim: #7a8390;
+}
+
+[data-theme="dark"] {
+  --bg: #0c0c0a;
+  --surface: #141412;
+  --surface-2: #1c1c19;
+  --border: #f4f4ee;
+  --border-soft: #2a2a26;
+  --hairline: #3a3a35;
+  --text: #f4f4ee;
+  --text-muted: #a3a39d;
+  --text-dim: #6e6e68;
+  --success: #4fae6e;
+  --warning: #d99b3a;
+  --danger:  #ec5b62;
+  --info:    #5b8fd8;
+}
+
+[data-theme="dark"][data-palette="stone"] {
+  --bg: #14110b; --surface: #1c1812; --surface-2: #25201a;
+  --border-soft: #322c22; --hairline: #443d2f;
+  --text: #f1eadc; --text-muted: #a59c89; --text-dim: #6f6857;
+}
+
+[data-theme="dark"][data-palette="steel"] {
+  --bg: #07090b; --surface: #0e1115; --surface-2: #161b21;
+  --border-soft: #232a32; --hairline: #38424d;
+  --text: #eef2f7; --text-muted: #99a3b0; --text-dim: #5d6772;
+}

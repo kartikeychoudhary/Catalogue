@@ -1,0 +1,59 @@
+:host {
+  display: block;
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    &.error .input-el {
+      background: color-mix(in oklab, var(--danger) 25%, var(--surface));
+      border-color: var(--danger);
+    }
+
+    &.error .helper {
+      color: var(--danger);
+      font-weight: 700;
+    }
+
+    &.success .input-el {
+      background: color-mix(in oklab, var(--success) 20%, var(--surface));
+    }
+  }
+
+  label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .input-el {
+    font-family: var(--sans);
+    font-size: 16px;
+    padding: 12px 14px;
+    min-height: 48px;
+    border: var(--bw) solid var(--text);
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: var(--shadow-sm);
+
+    &:focus {
+      outline: none;
+      background: var(--accent);
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0 var(--text);
+    }
+
+    &[disabled] {
+      background: var(--surface-2);
+      color: var(--text-dim);
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+  }
+
+  .helper {
+    font-size: 12px;
+  }
+}

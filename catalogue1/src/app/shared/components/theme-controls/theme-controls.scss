@@ -1,0 +1,117 @@
+:host {
+  position: relative;
+}
+
+.panel-toggle {
+  background: var(--surface);
+  color: var(--text);
+  border: var(--rule);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  font-family: var(--mono);
+  position: relative;
+  z-index: calc(var(--z-panel, 60) + 1);
+
+  &:hover {
+    background: var(--surface-2);
+  }
+}
+
+.theme-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + var(--s-2));
+  width: 260px;
+  background: var(--surface);
+  border: var(--rule-strong);
+  padding: var(--s-5);
+  display: none;
+  flex-direction: column;
+  gap: var(--s-4);
+  z-index: var(--z-panel, 60);
+
+  &.open {
+    display: flex;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-2);
+  }
+
+  h6 {
+    font-family: var(--mono);
+    font-size: var(--t-overline);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin: 0;
+  }
+}
+
+.theme-row,
+.palette-row {
+  display: flex;
+  gap: var(--s-2);
+}
+
+.theme-btn,
+.palette-btn {
+  flex: 1;
+  padding: var(--s-2) var(--s-3);
+  font-family: var(--mono);
+  font-size: var(--t-caption);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  border: var(--rule);
+  cursor: pointer;
+
+  &[aria-pressed="true"] {
+    background: var(--text);
+    color: var(--bg);
+  }
+
+  &:hover {
+    background: var(--hairline);
+  }
+}
+
+.swatch-row {
+  display: flex;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+}
+
+.swatch-btn {
+  width: 28px;
+  height: 28px;
+  border: var(--rule);
+  cursor: pointer;
+  padding: 0;
+
+  &[aria-pressed="true"] {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+  }
+}
+
+.hex-input {
+  margin-top: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  font-family: var(--mono);
+  font-size: var(--t-body-sm);
+  border: var(--rule);
+  background: var(--surface);
+  color: var(--text);
+  width: 100%;
+  box-sizing: border-box;
+}

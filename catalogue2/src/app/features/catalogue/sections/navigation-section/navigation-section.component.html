@@ -1,0 +1,36 @@
+<section class="section">
+  <header class="section-head">
+    <span class="section-num">07 / 10</span>
+    <span class="section-title">NAVIGATION</span>
+    <span class="section-meta">// TOPNAV :: SIDEBAR :: TABS :: PAGER :: MOBILE</span>
+  </header>
+  <div style="display:flex;flex-direction:column;gap:24px;">
+    <div class="demo">
+      <div class="demo-label"><span>// PRIMARY NAVBAR</span><span>≥ 768px</span></div>
+      <app-navbar brand="HARD ✕ SHOULDER"
+        [links]="[{label:'SHOP',href:'#',active:true},{label:'TOUR',href:'#'},{label:'SOUNDS',href:'#'},{label:'FANCLUB',href:'#'}]"
+        ctaLabel="SUBSCRIBE">
+      </app-navbar>
+    </div>
+    <div class="demo">
+      <div class="demo-label"><span>// APP SHELL</span><span>FANCLUB DASHBOARD</span></div>
+      <div style="display:grid;grid-template-columns:240px 1fr;min-height:320px;">
+        <app-sidebar [sections]="sidebarSections"></app-sidebar>
+        <div style="padding:20px;">
+          <app-breadcrumbs [crumbs]="[{label:'LIBRARY',href:'#'},{label:'RELEASES',href:'#'},{label:'SHEET METAL HEAVEN',href:'#'}]"></app-breadcrumbs>
+          <app-tabs [tabs]="[{label:'OVERVIEW',active:true},{label:'TRACKS'},{label:'PRESS'},{label:'FILES'}]"></app-tabs>
+          <h4 style="margin-bottom:8px;">SHEET METAL HEAVEN</h4>
+          <p style="font-size:13px;font-family:var(--mono);">EP / 6 TRACKS / RELEASE 13 JUN 2026 / STATUS · IN MASTERING</p>
+        </div>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="demo-label"><span>// PAGINATION</span><span>BAND ARCHIVE</span></div>
+      <app-pagination [current]="2" [total]="22"></app-pagination>
+    </div>
+    <div class="demo">
+      <div class="demo-label"><span>// MOBILE BOTTOM-NAV</span><span>≤ 768px</span></div>
+      <app-bottom-nav [items]="[{label:'HOME',active:true},{label:'SHOP'},{label:'TOUR'},{label:'ME'}]"></app-bottom-nav>
+    </div>
+  </div>
+</section>

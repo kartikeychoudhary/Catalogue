@@ -1,0 +1,28 @@
+<button class="panel-toggle" (click)="togglePanel()" [attr.aria-expanded]="open()" aria-label="Open theme panel">⊕</button>
+
+<aside class="theme-panel" [class.open]="open()" aria-label="Theme controls">
+  <section>
+    <h6>Theme</h6>
+    <div class="theme-row">
+      <button class="theme-btn" [attr.aria-pressed]="currentTheme === 'light'" (click)="setTheme('light')">Light</button>
+      <button class="theme-btn" [attr.aria-pressed]="currentTheme === 'dark'" (click)="setTheme('dark')">Dark</button>
+    </div>
+  </section>
+  <section>
+    <h6>Palette</h6>
+    <div class="palette-row">
+      @for (p of PALETTES; track p) {
+        <button class="palette-btn" [attr.aria-pressed]="currentPalette === p" (click)="setPalette(p)">{{ p }}</button>
+      }
+    </div>
+  </section>
+  <section>
+    <h6>Accent</h6>
+    <div class="swatch-row">
+      @for (a of ACCENTS; track a.hex) {
+        <button class="swatch-btn" [style.background]="a.hex" [attr.aria-pressed]="currentAccent === a.hex" [attr.aria-label]="a.label" (click)="setAccent(a.hex)"></button>
+      }
+    </div>
+    <input type="text" class="hex-input" [value]="currentAccent" (change)="onHexInput($event)" placeholder="#d6231a" />
+  </section>
+</aside>

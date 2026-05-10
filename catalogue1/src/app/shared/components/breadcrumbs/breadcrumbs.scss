@@ -1,0 +1,21 @@
+.crumb {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  padding: var(--s-3) var(--s-4);
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+.sep {
+  padding: 0 8px;
+  color: var(--text-dim);
+}

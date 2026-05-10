@@ -1,0 +1,43 @@
+.fake-navbar {
+  display: flex;
+  align-items: center;
+  padding: var(--s-3) var(--s-4);
+  gap: var(--s-5);
+  border-bottom: var(--rule);
+}
+
+.brand {
+  font-family: var(--serif);
+  font-size: 18px;
+}
+
+nav {
+  display: flex;
+  gap: var(--s-4);
+  margin-left: auto;
+}
+
+nav a {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  text-decoration: none;
+}
+
+nav a.-active {
+  color: var(--accent);
+}
+
+.cta {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: var(--s-1) var(--s-3);
+  border: 1px solid var(--hairline);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}

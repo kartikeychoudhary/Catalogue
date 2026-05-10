@@ -1,0 +1,19 @@
+:host {
+  display: block;
+
+  .card {
+    background: var(--text);
+    color: var(--bg);
+    border: var(--bw) solid var(--text);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+
+    h4, p {
+      color: var(--bg);
+    }
+  }
+}

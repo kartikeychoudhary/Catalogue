@@ -1,0 +1,8 @@
+<div class="alert" [class.-success]="variant === 'success'" [class.-warning]="variant === 'warning'" [class.-danger]="variant === 'danger'" [class.-info]="variant === 'info'">
+  <div class="icon">!</div>
+  <div>
+    <h6>{{ title }}</h6>
+    <p>{{ message }}</p>
+  </div>
+  <app-button *ngIf="actionLabel" variant="tertiary" size="sm" (clicked)="actionClick.emit()">{{ actionLabel }}</app-button>
+</div>

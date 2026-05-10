@@ -1,0 +1,40 @@
+:host {
+  display: inline-flex;
+
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+
+    input {
+      appearance: none;
+      width: 56px;
+      height: 28px;
+      border: var(--bw) solid var(--text);
+      background: var(--surface);
+      position: relative;
+      cursor: pointer;
+      box-shadow: 2px 2px 0 var(--text);
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        width: 22px;
+        height: 22px;
+        background: var(--text);
+        transition: 120ms;
+      }
+
+      &:checked {
+        background: var(--accent);
+
+        &::after {
+          left: 30px;
+        }
+      }
+    }
+  }
+}

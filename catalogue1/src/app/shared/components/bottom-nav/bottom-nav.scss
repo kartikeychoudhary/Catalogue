@@ -1,0 +1,26 @@
+.bottom-nav {
+  display: flex;
+  border-top: var(--rule);
+}
+
+button {
+  flex: 1;
+  padding: 10px;
+  background: var(--surface);
+  border: 0;
+  border-right: var(--rule);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+button:last-child {
+  border-right: 0;
+}
+
+.-active {
+  color: var(--accent);
+}

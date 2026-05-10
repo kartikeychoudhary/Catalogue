@@ -1,0 +1,12 @@
+<article class="card card-media">
+  <div class="img" [attr.aria-label]="imageAlt || null" role="img"></div>
+  <div class="body">
+    <p class="eyebrow" *ngIf="eyebrow">{{ eyebrow }}</p>
+    <h3 class="title" *ngIf="title">{{ title }}</h3>
+    <p class="desc" *ngIf="description">{{ description }}</p>
+    <div class="meta" *ngIf="metaLabel || metaValue">
+      <span *ngIf="metaLabel">{{ metaLabel }}</span>
+      <span *ngIf="metaValue">{{ metaValue }}</span>
+    </div>
+  </div>
+</article>

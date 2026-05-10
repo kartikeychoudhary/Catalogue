@@ -1,0 +1,37 @@
+.fake-side {
+  border-right: var(--rule);
+  padding: var(--s-4);
+}
+
+h6 {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 var(--s-3) 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 8px 0;
+  font-size: 14px;
+  border-bottom: var(--rule);
+  display: flex;
+  justify-content: space-between;
+}
+
+li.-active {
+  color: var(--accent);
+}
+
+.count {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+}

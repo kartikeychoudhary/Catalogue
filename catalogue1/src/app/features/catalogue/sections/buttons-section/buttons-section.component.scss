@@ -1,0 +1,27 @@
+.demo {
+  padding: var(--s-5) 0;
+  border-bottom: var(--rule);
+}
+
+.demo-label {
+  font-family: var(--mono);
+  font-size: var(--t-overline);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  display: block;
+  margin-bottom: var(--s-3);
+}
+
+.btn-grid {
+  display: flex;
+  gap: var(--s-3);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-cluster {
+  display: flex;
+  gap: var(--s-2);
+  align-items: center;
+}

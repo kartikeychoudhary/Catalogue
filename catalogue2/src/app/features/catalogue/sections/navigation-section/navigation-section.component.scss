@@ -1,0 +1,16 @@
+.demo {
+  border: var(--bw) solid var(--text);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.demo-label {
+  padding: 10px 16px;
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+}

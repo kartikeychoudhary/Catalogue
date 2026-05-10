@@ -1,0 +1,26 @@
+<aside class="panel" [class.open]="open">
+  <section><h6>THEME</h6>
+    <div class="seg">
+      <button (click)="setTheme('dark')" [attr.aria-pressed]="themeMode === 'dark'">Dark</button>
+      <button (click)="setTheme('light')" [attr.aria-pressed]="themeMode === 'light'">Light</button>
+    </div>
+  </section>
+  <section><h6>AURORA</h6>
+    <div class="aurora-row">
+      <button class="aurora-btn" *ngFor="let opt of auroraOptions"
+        (click)="setAurora(opt.value)"
+        [attr.aria-pressed]="selectedAurora() === opt.value"
+        [style.--c1]="opt.c1" [style.--c2]="opt.c2" [style.--c3]="opt.c3">
+      </button>
+    </div>
+  </section>
+  <section><h6>RADIUS</h6>
+    <div class="seg">
+      <button (click)="setRadius('soft')" [attr.aria-pressed]="selectedRadius() === 'soft'">Soft</button>
+      <button (click)="setRadius('round')" [attr.aria-pressed]="selectedRadius() === 'round'">Round</button>
+      <button (click)="setRadius('sharp')" [attr.aria-pressed]="selectedRadius() === 'sharp'">Sharp</button>
+    </div>
+  </section>
+</aside>
+
+<button class="icon-btn panel-toggle" (click)="togglePanel()" aria-label="Settings">⚙</button>

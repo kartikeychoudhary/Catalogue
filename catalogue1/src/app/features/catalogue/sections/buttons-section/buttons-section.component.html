@@ -1,0 +1,44 @@
+<section class="section" id="components">
+  <div class="section-head">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Buttons</h2>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Primary · Sizes</span>
+    <div class="btn-grid">
+      <app-button variant="primary" size="sm">Subscribe</app-button>
+      <app-button variant="primary">Subscribe</app-button>
+      <app-button variant="primary" size="lg">Subscribe</app-button>
+    </div>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Primary · States</span>
+    <div class="btn-grid">
+      <app-button variant="primary">Default</app-button>
+      <app-button variant="primary" [loading]="true">Loading</app-button>
+      <app-button variant="primary" [disabled]="true">Disabled</app-button>
+    </div>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Variants</span>
+    <div class="btn-grid">
+      <app-button variant="primary">Primary</app-button>
+      <app-button variant="secondary">Secondary</app-button>
+      <app-button variant="tertiary">Tertiary</app-button>
+      <app-button variant="destructive">Destructive</app-button>
+    </div>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Icon Buttons</span>
+    <div class="btn-cluster">
+      <app-icon-button icon="search" variant="primary" ariaLabel="Search"></app-icon-button>
+      <app-icon-button icon="heart" variant="secondary" ariaLabel="Like"></app-icon-button>
+      <app-icon-button icon="settings" variant="tertiary" ariaLabel="Settings"></app-icon-button>
+      <app-icon-button icon="close" variant="destructive" ariaLabel="Close"></app-icon-button>
+    </div>
+  </div>
+</section>

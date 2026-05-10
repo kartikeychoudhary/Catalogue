@@ -1,0 +1,16 @@
+<div class="pager">
+  <button class="prev" [disabled]="current <= 1" (click)="prev()">&lsaquo;</button>
+  @for (page of pages; track page) {
+    @if (page === '...') {
+      <span class="ellipsis">&hellip;</span>
+    } @else {
+      <button
+        class="page"
+        [class.-active]="page === current"
+        (click)="goTo(page)">
+        {{ page }}
+      </button>
+    }
+  }
+  <button class="next" [disabled]="current >= total" (click)="next()">&rsaquo;</button>
+</div>

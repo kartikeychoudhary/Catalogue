@@ -1,0 +1,88 @@
+// _themes.scss — Glassmorphic Spatial design tokens
+:root {
+  --display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  /* Dawn aurora (default) */
+  --aurora-1: #ff5fb3;
+  --aurora-2: #6e5cff;
+  --aurora-3: #2dd4ff;
+  --aurora-4: #ffd166;
+
+  --accent: #8b7bff;
+  --accent-2: #2dd4ff;
+
+  /* Dark spatial */
+  --bg-deep: #06070d;
+  --bg-mid:  #0c0e1a;
+  --ink: #ffffff;
+  --ink-soft: rgba(255,255,255,0.78);
+  --ink-mute: rgba(255,255,255,0.55);
+  --ink-faint: rgba(255,255,255,0.32);
+
+  --glass-1: rgba(255,255,255,0.06);
+  --glass-2: rgba(255,255,255,0.10);
+  --glass-3: rgba(255,255,255,0.14);
+  --glass-strong: rgba(255,255,255,0.22);
+
+  --hairline: rgba(255,255,255,0.10);
+  --hairline-bold: rgba(255,255,255,0.18);
+  --hairline-glow: rgba(255,255,255,0.45);
+
+  --success: #2bd9a3;
+  --warning: #ffb547;
+  --danger:  #ff6e7a;
+  --info:    #6bb8ff;
+
+  --shadow-1: 0 1px 0 rgba(255,255,255,0.06) inset, 0 30px 60px -20px rgba(0,0,0,0.55);
+  --shadow-2: 0 1px 0 rgba(255,255,255,0.10) inset, 0 40px 90px -30px rgba(0,0,0,0.7), 0 0 0 1px var(--hairline);
+  --shadow-pop: 0 30px 60px -20px rgba(139,123,255,0.35);
+
+  --r-1: 8px; --r-2: 12px; --r-3: 16px; --r-4: 20px; --r-5: 28px; --r-6: 36px;
+  --pad: clamp(20px, 3vw, 40px);
+
+  --bx: 16px; /* base spacing */
+}
+[data-aurora="reef"] {
+  --aurora-1: #00e1c4;
+  --aurora-2: #2c5cff;
+  --aurora-3: #b54bff;
+  --aurora-4: #ffd166;
+  --accent: #2dd4ff;
+  --accent-2: #b54bff;
+}
+[data-aurora="ember"] {
+  --aurora-1: #ff7a4c;
+  --aurora-2: #ff3d77;
+  --aurora-3: #ffd166;
+  --aurora-4: #6e5cff;
+  --accent: #ff7a4c;
+  --accent-2: #ff3d77;
+}
+[data-aurora="forest"] {
+  --aurora-1: #4ad991;
+  --aurora-2: #00b4a4;
+  --aurora-3: #6e5cff;
+  --aurora-4: #ffd166;
+  --accent: #4ad991;
+  --accent-2: #00b4a4;
+}
+
+[data-theme="light"] {
+  --bg-deep: #eef0f5;
+  --bg-mid: #dde0ea;
+  --ink: #0b0d18;
+  --ink-soft: rgba(11,13,24,0.78);
+  --ink-mute: rgba(11,13,24,0.58);
+  --ink-faint: rgba(11,13,24,0.32);
+  --glass-1: rgba(255,255,255,0.55);
+  --glass-2: rgba(255,255,255,0.70);
+  --glass-3: rgba(255,255,255,0.82);
+  --glass-strong: rgba(255,255,255,0.92);
+  --hairline: rgba(11,13,24,0.08);
+  --hairline-bold: rgba(11,13,24,0.14);
+  --hairline-glow: rgba(11,13,24,0.32);
+  --shadow-1: 0 1px 0 rgba(255,255,255,0.7) inset, 0 30px 60px -20px rgba(20,30,80,0.18);
+  --shadow-2: 0 1px 0 rgba(255,255,255,0.7) inset, 0 40px 90px -30px rgba(20,30,80,0.25), 0 0 0 1px var(--hairline);
+}

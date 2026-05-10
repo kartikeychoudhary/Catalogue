@@ -1,0 +1,29 @@
+:host {
+  display: block;
+
+  .tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: var(--bw) solid var(--text);
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .tab {
+    padding: 10px 16px;
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    background: var(--surface);
+    border: 0;
+    border-right: var(--bw) solid var(--text);
+    margin-bottom: calc(var(--bw) * -1);
+
+    &.-active {
+      background: var(--accent);
+      border-bottom: var(--bw) solid var(--accent);
+    }
+  }
+}

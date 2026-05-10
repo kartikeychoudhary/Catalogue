@@ -1,0 +1,495 @@
+<!-- 01 IDENTITY -->
+<section class="hero" id="identity">
+  <div class="hero-grid">
+    <div class="glass hero-card">
+      <div class="hero-eyebrow"><span class="dot"></span> CATALOGUE NO 03 · STYLE C</div>
+      <h1>Calm <span class="grad">spatial</span> surfaces<br/>that hold attention.</h1>
+      <p class="lede">A premium glass-and-light system for ambient products — focus, music, well-being, calm AI. Translucency, depth, and ambient color do the heavy lifting; everything else gets out of the way.</p>
+      <div class="hero-actions">
+        <app-button variant="primary" size="lg">Begin a session</app-button>
+        <app-button variant="ghost" size="lg">Watch a 90-second tour</app-button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="k">// PHILOSOPHY</div><div class="v">Less, but softer</div></div>
+        <div class="hero-stat"><div class="k">// SIGNATURE</div><div class="v">Backdrop blur 28<small>px</small></div></div>
+        <div class="hero-stat"><div class="k">// VOICE</div><div class="v">Considered, quiet</div></div>
+      </div>
+    </div>
+    <div class="hero-side">
+      <app-now-playing></app-now-playing>
+      <div class="glass signal-card">
+        <app-signal-ring [percentage]="78"></app-signal-ring>
+        <div>
+          <h6 style="margin-bottom:2px;">FOCUS SIGNAL</h6>
+          <div style="font-size: 14px;">78 / 100 — Deep, sustained.</div>
+          <p style="font-size:12px;color:var(--ink-mute);margin-top:4px;">Heart-rate variability is up; we'll dim the lamp at 18:30.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 COLOR -->
+<section class="section" id="color">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">02 / 10</span>
+      <h2>Color & ambience</h2>
+    </div>
+    <p class="lede">Two solid surfaces, four glass tints, four aurora hues, and a quietly opinionated semantic set. Color shows up as light, not as paint.</p>
+  </header>
+  <div class="swatch-grid">
+    <div class="swatch"><div class="chip" style="background: var(--bg-deep)"></div><div class="swatch-info"><div class="swatch-name">Bg deep</div><div class="swatch-hex">--bg-deep</div></div></div>
+    <div class="swatch"><div class="chip" style="background: var(--bg-mid)"></div><div class="swatch-info"><div class="swatch-name">Bg mid</div><div class="swatch-hex">--bg-mid</div></div></div>
+    <div class="swatch"><div class="chip glass-chip"></div><div class="swatch-info"><div class="swatch-name">Glass 1 / 2</div><div class="swatch-hex">α 0.06 / 0.10</div></div></div>
+    <div class="swatch"><div class="chip" style="background: var(--ink)"></div><div class="swatch-info"><div class="swatch-name">Ink</div><div class="swatch-hex">--ink</div></div></div>
+    <div class="swatch"><div class="chip" style="background: linear-gradient(135deg, var(--aurora-1), var(--aurora-2))"></div><div class="swatch-info"><div class="swatch-name">Aurora 1→2</div><div class="swatch-hex">--aurora-1, --aurora-2</div></div></div>
+    <div class="swatch"><div class="chip" style="background: linear-gradient(135deg, var(--aurora-2), var(--aurora-3))"></div><div class="swatch-info"><div class="swatch-name">Aurora 2→3</div><div class="swatch-hex">--aurora-2, --aurora-3</div></div></div>
+    <div class="swatch"><div class="chip" style="background: var(--accent)"></div><div class="swatch-info"><div class="swatch-name">Accent</div><div class="swatch-hex">--accent</div></div></div>
+    <div class="swatch"><div class="chip" style="background: var(--accent-2)"></div><div class="swatch-info"><div class="swatch-name">Accent 2</div><div class="swatch-hex">--accent-2</div></div></div>
+  </div>
+  <div class="aurora-strip">
+    <div class="stops">aurora-1 · aurora-2 · aurora-3 · aurora-4</div>
+  </div>
+  <div class="semantic-grid">
+    <div class="semantic"><div class="sw" style="background:var(--success)"></div><div><div class="name">Success</div><div class="tok">--success</div></div></div>
+    <div class="semantic"><div class="sw" style="background:var(--warning)"></div><div><div class="name">Warning</div><div class="tok">--warning</div></div></div>
+    <div class="semantic"><div class="sw" style="background:var(--danger)"></div><div><div class="name">Danger</div><div class="tok">--danger</div></div></div>
+    <div class="semantic"><div class="sw" style="background:var(--info)"></div><div><div class="name">Info</div><div class="tok">--info</div></div></div>
+  </div>
+  <div class="token-grid">
+    <div class="token-card"><h6>BLUR</h6><code>20 / 28 / 36 / 40 px</code></div>
+    <div class="token-card"><h6>RADIUS</h6><code>8 · 12 · 16 · 20 · 28 · 36</code></div>
+    <div class="token-card"><h6>SPACING</h6><code>4 · 8 · 12 · 16 · 24 · 32 · 48 · 64</code></div>
+    <div class="token-card"><h6>ELEVATION</h6><code>shadow-1 · shadow-2 · shadow-pop</code></div>
+  </div>
+</section>
+
+<!-- 03 TYPE -->
+<section class="section" id="type">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">03 / 10</span>
+      <h2>Typography</h2>
+    </div>
+    <p class="lede">Plus Jakarta Sans across the system. Light weights for display, mono for telemetry. Tightened tracking on big sizes; never below 13 in the body.</p>
+  </header>
+  <div class="type-row"><span class="type-label">DISPLAY</span><span style="font-size:clamp(48px,7vw,96px);font-weight:300;letter-spacing:-0.04em;line-height:1.0;">A softer kind of focus.</span><span class="type-meta">JAKARTA · 300 · -0.04em</span></div>
+  <div class="type-row"><span class="type-label">H1</span><span style="font-size:56px;font-weight:500;letter-spacing:-0.035em;line-height:1.05;">Built for long, quiet sessions.</span><span class="type-meta">JAKARTA · 500 · -0.035em</span></div>
+  <div class="type-row"><span class="type-label">H2</span><span style="font-size:36px;font-weight:500;letter-spacing:-0.03em;">Dim the lamp at sundown</span><span class="type-meta">JAKARTA · 500 · -0.03em</span></div>
+  <div class="type-row"><span class="type-label">H3</span><span style="font-size:28px;font-weight:500;letter-spacing:-0.02em;">A heading at reading distance</span><span class="type-meta">JAKARTA · 500 · -0.02em</span></div>
+  <div class="type-row"><span class="type-label">H4</span><span style="font-size:20px;font-weight:600;">Subhead with weight</span><span class="type-meta">JAKARTA · 600 · 20</span></div>
+  <div class="type-row"><span class="type-label">H5</span><span style="font-size:17px;font-weight:600;">Section title</span><span class="type-meta">JAKARTA · 600 · 17</span></div>
+  <div class="type-row"><span class="type-label">EYEBROW</span><span style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;color:var(--ink-mute);">CATEGORY · LABEL · KICKER</span><span class="type-meta">JAKARTA · 600 · 12 · 0.14em</span></div>
+  <div class="type-row"><span class="type-label">BODY LG</span><span style="font-size:18px;line-height:1.55;color:var(--ink-soft);">A larger paragraph for landings — generous but not loud, with breath between lines and a soft contrast that works against any aurora.</span><span class="type-meta">JAKARTA · 400 · 18 · 1.55</span></div>
+  <div class="type-row"><span class="type-label">BODY</span><span style="font-size:15px;line-height:1.55;color:var(--ink-soft);">Standard running text. Works on glass; cap text at ~70 characters per line and the system holds together at any zoom.</span><span class="type-meta">JAKARTA · 400 · 15 · 1.55</span></div>
+  <div class="type-row"><span class="type-label">BODY SM</span><span style="font-size:13px;line-height:1.5;color:var(--ink-mute);">Tertiary text for tables, helpers, and metadata.</span><span class="type-meta">JAKARTA · 400 · 13 · 1.5</span></div>
+  <div class="type-row"><span class="type-label">CAPTION</span><span style="font-size:12px;color:var(--ink-mute);">Caption · Aurora Sessions · 32 min focus</span><span class="type-meta">JAKARTA · 400 · 12</span></div>
+  <div class="type-row"><span class="type-label">MONO</span><span style="font-family:var(--mono);font-size:13px;color:var(--ink-mute);">// telemetry · uptime 99.97% · region eu-west</span><span class="type-meta">JBM · 400 · 13</span></div>
+  <div class="type-row"><span class="type-label">CODE</span><span style="font-family:var(--mono);font-size:13px;color:var(--ink);background:var(--glass-2);padding:6px 10px;border-radius:8px;border:1px solid var(--hairline);">backdrop-filter: blur(28px);</span><span class="type-meta">JBM · 400 · 13</span></div>
+</section>
+
+<!-- 04 BUTTONS -->
+<section class="section" id="components">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">04 / 10</span>
+      <h2>Buttons</h2>
+    </div>
+    <p class="lede">A pill-shaped baseline with one luminous primary, two glass tones, and a low-noise destructive. Everything has a barely-there border highlight on top.</p>
+  </header>
+  <div class="btn-grid">
+    <span class="lab">PRIMARY</span>
+    <div class="btn-cluster">
+      <app-button variant="primary" size="sm">Begin session</app-button>
+      <app-button variant="primary">Begin session</app-button>
+      <app-button variant="primary" size="lg">Begin session</app-button>
+      <app-button variant="primary" [loading]="true">Begin</app-button>
+      <app-button variant="primary" [disabled]="true">Disabled</app-button>
+    </div>
+    <span class="lab">SECONDARY</span>
+    <div class="btn-cluster">
+      <app-button variant="secondary" size="sm">Save preset</app-button>
+      <app-button variant="secondary">Save preset</app-button>
+      <app-button variant="secondary" size="lg">Save preset</app-button>
+    </div>
+    <span class="lab">GHOST</span>
+    <div class="btn-cluster">
+      <app-button variant="ghost">Maybe later</app-button>
+      <app-button variant="ghost" size="sm">Cancel</app-button>
+      <app-button variant="ghost" [disabled]="true">Locked</app-button>
+    </div>
+    <span class="lab">DESTRUCTIVE</span>
+    <div class="btn-cluster">
+      <app-button variant="destructive">Delete session</app-button>
+      <app-button variant="destructive" size="sm">Remove</app-button>
+    </div>
+    <span class="lab">GLOW · OUTLINE</span>
+    <div class="btn-cluster">
+      <app-button variant="glow">Aurora outline</app-button>
+      <app-button variant="glow" size="lg">Get the lamp</app-button>
+    </div>
+    <span class="lab">ICON</span>
+    <div class="btn-cluster">
+      <app-button variant="secondary" size="icon">♡</app-button>
+      <app-button variant="secondary" size="icon">⌕</app-button>
+      <app-button variant="secondary" size="icon">⏻</app-button>
+      <app-button variant="primary" size="icon">＋</app-button>
+    </div>
+  </div>
+</section>
+
+<!-- 05 FORMS -->
+<section class="section">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">05 / 10</span>
+      <h2>Form controls</h2>
+    </div>
+    <p class="lede">Inputs sit on glass, focus to a halo, and never raise their voice. Validation is a tinted halo, not a red banner.</p>
+  </header>
+  <div class="form-grid">
+    <app-input label="Display name" value="Mira O." helper="Visible to your circle and any sessions you host."></app-input>
+    <app-search placeholder="Search sessions, sounds, presets…"></app-search>
+    <app-input label="Email" value="mira@@" helper="That's not quite a valid address." state="error"></app-input>
+    <app-input label="Username" value="mira-aurora" helper="✓ Available." state="success"></app-input>
+    <app-select label="Soundscape" [options]="[{label: 'North Atlantic — slow tide', value: 'na'}, {label: 'Pinewood — quiet rain', value: 'pw'}, {label: 'Reef cave — pulse', value: 'rc'}]"></app-select>
+    <app-textarea label="Intention" value="Wrap up the q3 wind-down doc without breaking concentration. Easy on the binaural beats."></app-textarea>
+    <app-input label="Locked" value="org-master-key" helper="Managed by your organization." [disabled]="true"></app-input>
+    <div class="field"><span class="label-text">Lighting</span>
+      <app-radio-group name="ll" [options]="[{label: 'Dim', value: 'dim'}, {label: 'Ember', value: 'ember'}, {label: 'Off', value: 'off'}]" value="dim"></app-radio-group>
+    </div>
+    <div class="field"><span class="label-text">Notifications</span>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;">
+        <app-checkbox [checked]="true">Daily digest</app-checkbox>
+        <app-checkbox>New sounds</app-checkbox>
+        <app-checkbox [checked]="true">Session reminders</app-checkbox>
+      </div>
+    </div>
+    <app-input label="Wake time" type="time" value="06:45"></app-input>
+    <div class="field">
+      <app-toggle label="Sync HRV from watch" [checked]="true"></app-toggle>
+      <app-toggle label="Auto-dim lamps after 22:00" style="margin-top:10px;"></app-toggle>
+    </div>
+    <app-slider label="Volume" [value]="62" [min]="0" [max]="100" helper="62 / 100 — calm but present."></app-slider>
+    <div class="field"><label>Cover image</label><app-upload>Drop a 1200×1200 image, or <strong>click to browse</strong></app-upload></div>
+  </div>
+</section>
+
+<!-- 06 CARDS -->
+<section class="section">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">06 / 10</span>
+      <h2>Cards & surfaces</h2>
+    </div>
+    <p class="lede">Cards float on the page, never against it. Each carries a soft top highlight; backgrounds borrow color from the aurora behind them.</p>
+  </header>
+  <div class="card-grid">
+    <app-card>
+      <span class="card-eyebrow">// SESSION · 32 MIN</span>
+      <h4>Slow Tide, North Atlantic</h4>
+      <p>A drone-and-binaural pairing for long writing blocks. Trade the espresso.</p>
+      <div class="card-foot"><span>Ambient · Drone</span><span>4.7 ★ · 12k saved</span></div>
+    </app-card>
+    <app-card-feature>
+      <span class="card-eyebrow">// FEATURED THIS WEEK</span>
+      <h4>The Aurora Lamp arrives 14 June</h4>
+      <p>A desk lamp that follows your session — dims, cools, and calms with you. Limited first batch.</p>
+      <div class="card-foot"><span>€189 · ships free</span><app-button variant="primary" size="sm">Reserve</app-button></div>
+    </app-card-feature>
+    <app-card-pricing eyebrow="// MEMBERSHIP">
+      <div class="price">€9<small>/month</small></div>
+      <p>Every soundscape, every preset, the lamp at member pricing.</p>
+      <ul>
+        <li>Full library of 240+ soundscapes</li>
+        <li>HRV-aware adaptive sessions</li>
+        <li>Hardware at member pricing</li>
+        <li>Cancel any time, no friction</li>
+      </ul>
+      <app-button variant="primary">Become a member</app-button>
+    </app-card-pricing>
+    <app-card-profile>
+      <div class="card-profile-row">
+        <app-avatar initials="MO"></app-avatar>
+        <div>
+          <h4 style="font-size:16px;">Mira Otieno</h4>
+          <p style="font-size:12px;color:var(--ink-mute);">Studio · Brussels · since 2023</p>
+        </div>
+      </div>
+      <p>Hosts the Friday-night quiet hour. Logs more focused minutes than the rest of the team combined, and is unbearably modest about it.</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        <app-tag [glow]="true">Founding member</app-tag>
+        <app-tag>HRV pro</app-tag>
+        <app-tag>Host</app-tag>
+      </div>
+    </app-card-profile>
+    <app-card-stat eyebrow="// FOCUS THIS WEEK">
+      <div class="num">14h 32m</div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="delta">↑ 18%</span>
+        <span style="font-size:12px;color:var(--ink-mute);">vs last week</span>
+      </div>
+      <app-spark-chart></app-spark-chart>
+    </app-card-stat>
+    <app-card-media>
+      <div class="img"><span class="label">PRESET · 24 MIN</span></div>
+      <div class="body-pad">
+        <span class="card-eyebrow">// SUNDOWN COLLECTION</span>
+        <h4>Pinewood, after the rain</h4>
+        <p>A short transition session for the moment between the workday and the rest of life.</p>
+        <div class="card-foot"><span>3 sounds · 24 min</span><span>Open →</span></div>
+      </div>
+    </app-card-media>
+  </div>
+</section>
+
+<!-- 07 NAV -->
+<section class="section">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">07 / 10</span>
+      <h2>Navigation</h2>
+    </div>
+    <p class="lede">Floating capsules instead of bars; nothing pinned to the edge. The system is mostly elsewhere — you find it when you need it.</p>
+  </header>
+  <div class="demo-row">
+    <div class="demo">
+      <div class="demo-label"><span>// FLOATING NAV CAPSULE</span><span>≥ 768px</span></div>
+      <app-navbar [links]="navLinks"></app-navbar>
+    </div>
+    <div class="demo">
+      <div class="demo-label"><span>// APP SHELL</span><span>MEMBER DASHBOARD</span></div>
+      <div class="shell">
+        <app-sidebar [sections]="sidebarSections"></app-sidebar>
+        <div class="shell-main">
+          <app-breadcrumbs [items]="breadcrumbItems"></app-breadcrumbs>
+          <app-tabs [tabs]="tabItems"></app-tabs>
+          <h4>Slow Tide, North Atlantic</h4>
+          <p style="font-size: 14px; margin-top: 6px;">A 32-minute focus block, paired with low warm light. We'll dim your lamp at minute 10.</p>
+        </div>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="demo-label"><span>// PAGINATION & MOBILE TAB-BAR</span><span>MIXED</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;">
+        <app-pagination [current]="2" [total]="14"></app-pagination>
+        <app-bottom-nav [items]="bottomNavItems"></app-bottom-nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 DATA -->
+<section class="section">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">08 / 10</span>
+      <h2>Data display</h2>
+    </div>
+    <p class="lede">Tables, lists, badges, and key→value blocks — all sitting on glass, all using the same hairline as the rest of the system.</p>
+  </header>
+  <app-table [columns]="tableColumns" [data]="tableData"></app-table>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px;">
+    <app-list>
+      <app-list-item>
+        <div class="list-icon">🌊</div>
+        <div class="list-text"><div class="t">Slow Tide</div><div class="s">North Atlantic · drone + binaural</div></div>
+        <app-badge variant="success">Now</app-badge>
+        <span class="list-meta">32:00</span>
+      </app-list-item>
+      <app-list-item>
+        <div class="list-icon">🌲</div>
+        <div class="list-text"><div class="t">Pinewood, after rain</div><div class="s">Field · ambient</div></div>
+        <app-badge variant="info">Up next</app-badge>
+        <span class="list-meta">24:00</span>
+      </app-list-item>
+      <app-list-item>
+        <div class="list-icon">🪨</div>
+        <div class="list-text"><div class="t">Reef cave pulse</div><div class="s">Synthesized · 60 BPM</div></div>
+        <app-badge>Queued</app-badge>
+        <span class="list-meta">28:00</span>
+      </app-list-item>
+      <app-list-item>
+        <div class="list-icon">🕯</div>
+        <div class="list-text"><div class="t">Sundown ritual</div><div class="s">Lamp dims 30%</div></div>
+        <app-badge variant="warning">18:30</app-badge>
+        <span class="list-meta">Auto</span>
+      </app-list-item>
+    </app-list>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div>
+        <h6 style="margin-bottom:10px;">// TAGS</h6>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <app-tag>ambient</app-tag>
+          <app-tag [glow]="true">members-only</app-tag>
+          <app-tag>drone</app-tag>
+          <app-tag>binaural</app-tag>
+          <app-tag>low-bpm</app-tag>
+          <app-tag>deep-focus</app-tag>
+        </div>
+      </div>
+      <div>
+        <h6 style="margin-bottom:10px;">// COLLABORATORS</h6>
+        <div style="display:flex;gap:14px;align-items:center;">
+          <app-avatar initials="MO" size="lg"></app-avatar>
+          <div style="display:flex;">
+            <app-avatar initials="A" size="sm" style="margin-left:0;margin-left:-8px;"></app-avatar>
+            <app-avatar initials="K" size="sm" style="margin-left:-8px;" bg="linear-gradient(135deg,var(--aurora-3),var(--aurora-2))"></app-avatar>
+            <app-avatar initials="D" size="sm" style="margin-left:-8px;" bg="linear-gradient(135deg,var(--aurora-4),var(--aurora-1))"></app-avatar>
+            <app-avatar initials="+9" size="sm" style="margin-left:-8px;" bg="var(--glass-3)" class="extra-avatar"></app-avatar>
+          </div>
+        </div>
+      </div>
+      <app-key-value [items]="kvItems"></app-key-value>
+    </div>
+  </div>
+  <div style="margin-top:24px;">
+    <app-empty-state title="No sessions today." description="That's allowed. Take it easy — or seed a new soundscape and we'll match it to your evening.">
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px;">
+        <app-button variant="ghost" size="sm">Skip today</app-button>
+        <app-button variant="primary" size="sm">Start a session</app-button>
+      </div>
+    </app-empty-state>
+  </div>
+</section>
+
+<!-- 09 FEEDBACK -->
+<section class="section">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">09 / 10</span>
+      <h2>Feedback & overlays</h2>
+    </div>
+    <p class="lede">Alerts borrow color quietly. Modals dim the world behind them with backdrop blur instead of a black scrim. Toasts whisper.</p>
+  </header>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+    <app-alert variant="success" icon="✓" title="Session saved" subtitle="Slow Tide · 32 min · synced to your watch.">
+      <app-button variant="ghost" size="sm">Open</app-button>
+    </app-alert>
+    <app-alert variant="info" icon="i" title="Aurora Lamp ships 14 June" subtitle="You're in the first batch — number 124 of 500.">
+      <app-button variant="ghost" size="sm">Track</app-button>
+    </app-alert>
+    <app-alert variant="warning" icon="!" title="Watch HRV signal weak" subtitle="Charge the band before tonight's wind-down to keep adaptive lighting on.">
+      <app-button variant="ghost" size="sm">Remind me</app-button>
+    </app-alert>
+    <app-alert variant="danger" icon="x" title="Couldn't reach the lamp" subtitle="It looks like Wi-Fi dropped. We'll keep retrying every 60 seconds.">
+      <app-button variant="ghost" size="sm">Retry now</app-button>
+    </app-alert>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;">
+    <app-modal [open]="true">
+      <h4>End the session?</h4>
+      <p style="margin-top:8px;">You're 11 minutes in. Ending now logs only the time you've completed — your lamp will return to ambient.</p>
+      <div style="display:flex;gap:10px;margin-top:18px;">
+        <app-button variant="ghost">Keep going</app-button>
+        <app-button variant="destructive">End session</app-button>
+      </div>
+    </app-modal>
+    <app-drawer [open]="true">
+      <h5>Session notes</h5>
+      <p style="font-family:var(--mono);font-size:11px;color:var(--ink-mute);margin-bottom:12px;">// SLOW TIDE · 11:48 / 32:00</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="padding:10px 12px;border-radius:10px;background:var(--glass-2);border:1px solid var(--hairline);font-size:13px;"><strong>Mira</strong> · drone is louder than usual — drop 3dB after intro?</div>
+        <div style="padding:10px 12px;border-radius:10px;background:color-mix(in oklab,var(--accent) 18%,var(--glass-2));border:1px solid var(--hairline);font-size:13px;"><strong>Aurora</strong> · noted. Adjusting for tonight at 21:00.</div>
+      </div>
+    </app-drawer>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:24px;">
+    <div>
+      <h6 style="margin-bottom:10px;">// TOAST</h6>
+      <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start;">
+        <app-toast message="Saved 6 seconds ago" icon="✓" actionLabel="Undo"></app-toast>
+        <app-toast message="Lamp connected · ambient mode" icon="⌁" iconBg="var(--success)"></app-toast>
+      </div>
+    </div>
+    <div>
+      <h6 style="margin-bottom:10px;">// PROGRESS & SKELETON</h6>
+      <app-progress [value]="62"></app-progress>
+      <p style="font-family:var(--mono);font-size:11px;color:var(--ink-mute);margin-top:6px;">// SYNCING SESSION · 62% · 14.2 / 22.3 MB</p>
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:6px;">
+        <app-skeleton variant="img"></app-skeleton>
+        <app-skeleton variant="tall" style="width:80%"></app-skeleton>
+        <app-skeleton style="width:60%"></app-skeleton>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 PATTERNS -->
+<section class="section" id="patterns">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">10 / 10</span>
+      <h2>Layout patterns</h2>
+    </div>
+    <p class="lede">A sample dashboard, a feature trio, and a CTA — all using the same six tokens. Nothing here is bespoke.</p>
+  </header>
+  <div class="dash">
+    <div>
+      <div class="hero-eyebrow"><span class="dot"></span> THIS WEEK · WK 19</div>
+      <h3>You went deeper than you noticed.</h3>
+      <p class="subtitle">14h 32m of focus, 7 of them after sundown. Slow Tide accounts for 38%.</p>
+      <div class="dash-stats">
+        <div class="dash-stat"><div class="k">// FOCUS</div><div class="v">14h 32m <small>+18%</small></div></div>
+        <div class="dash-stat"><div class="k">// SESSIONS</div><div class="v">22 <small>×</small></div></div>
+        <div class="dash-stat"><div class="k">// HRV</div><div class="v">68 <small>ms avg</small></div></div>
+      </div>
+    </div>
+    <div class="dash-side">
+      <div class="session-card">
+        <h6>// TONIGHT</h6>
+        <h5>Sundown ritual · 18:30</h5>
+        <p style="font-size:13px;color:var(--ink-mute);">Lamp dims 30%, kettle on, pinewood at low volume for 12 min.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <app-tag>auto</app-tag>
+          <app-tag>lamp</app-tag>
+          <app-tag [glow]="true">recommended</app-tag>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:6px;">
+          <app-button variant="ghost" size="sm">Skip</app-button>
+          <app-button variant="primary" size="sm">Confirm</app-button>
+        </div>
+      </div>
+      <div class="session-card">
+        <h6>// LAMP</h6>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="width:48px;height:48px;border-radius:14px;background: radial-gradient(circle at 30% 30%, var(--aurora-4), var(--aurora-1));"></div>
+          <div>
+            <h5>Aurora Lamp</h5>
+            <p style="font-size:12px;color:var(--ink-mute);">Connected · ambient · 28% brightness</p>
+          </div>
+          <app-icon-button label="Power" style="margin-left:auto;">⏻</app-icon-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="feat-grid">
+    <div class="feat"><div class="ico">01</div><h5>Light follows audio</h5><p>The lamp dims, cools, and lifts in lockstep with the soundscape. 14 ms latency end-to-end.</p></div>
+    <div class="feat"><div class="ico">02</div><h5>Adaptive sessions</h5><p>HRV shapes the session live: longer drones on tense days, brighter rituals when you're flat.</p></div>
+    <div class="feat"><div class="ico">03</div><h5>Quiet by default</h5><p>No streaks, no notifications you didn't ask for, no leaderboards. Calm should not be gamified.</p></div>
+  </div>
+  <div class="cta">
+    <div>
+      <h3>Get the lamp. Get the year.</h3>
+      <p style="color:var(--ink-soft);margin-top:8px;max-width:50ch;">Aurora Lamp + 12-month membership, €189. First batch ships 14 June. We'll send a quiet email when yours leaves the warehouse.</p>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <app-button variant="ghost">Just the membership</app-button>
+      <app-button variant="primary" size="lg">Reserve a lamp</app-button>
+    </div>
+  </div>
+  <footer class="foot">
+    <div>
+      <div class="foot-brand"><div class="brand-glyph"></div><span class="brand-name">aurora</span></div>
+      <p style="margin-top:14px;font-size:13px;max-width:42ch;color:var(--ink-mute);">A small studio in Brussels making calm tools for focus and rest. We answer email slowly, on purpose.</p>
+    </div>
+    <div><h6>PRODUCT</h6><ul><li><a href="#">Sessions</a></li><li><a href="#">Library</a></li><li><a href="#">Hardware</a></li><li><a href="#">Membership</a></li></ul></div>
+    <div><h6>COMPANY</h6><ul><li><a href="#">About</a></li><li><a href="#">Manifesto</a></li><li><a href="#">Press</a></li><li><a href="#">Careers</a></li></ul></div>
+    <div><h6>LEGAL</h6><ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">Cookies</a></li><li><a href="#">DPA</a></li></ul></div>
+  </footer>
+  <div class="colophon">
+    <span>© 2026 AURORA STUDIO · BRUSSELS BE</span>
+    <span>SET IN PLUS JAKARTA SANS · MADE QUIETLY</span>
+  </div>
+</section>

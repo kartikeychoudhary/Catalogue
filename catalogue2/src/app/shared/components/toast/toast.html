@@ -1,0 +1,5 @@
+<div class="toast" [class.-success]="variant === 'success'">
+  <span class="dot" *ngIf="showDot"></span>
+  {{ message }}
+  <button *ngIf="actionLabel" (click)="actionClick.emit()">{{ actionLabel }}</button>
+</div>

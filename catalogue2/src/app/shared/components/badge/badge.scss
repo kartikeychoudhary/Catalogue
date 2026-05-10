@@ -1,0 +1,22 @@
+:host {
+  display: inline-flex;
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    border: 2px solid var(--text);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: var(--surface);
+
+    &.-success { background: var(--success); color: #fff; }
+    &.-warning { background: var(--warning); color: var(--text); }
+    &.-danger { background: var(--danger); color: #fff; }
+    &.-info { background: var(--info); color: #fff; }
+    &.-neutral { background: var(--surface); }
+  }
+}

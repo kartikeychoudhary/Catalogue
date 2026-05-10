@@ -1,0 +1,11 @@
+<div class="field" [class.error]="state === 'error'" [class.success]="state === 'success'">
+  <label *ngIf="label">{{ label }}</label>
+  <input
+    class="input-el"
+    [type]="type"
+    [placeholder]="placeholder"
+    [value]="value"
+    [disabled]="disabled"
+  />
+  <span class="helper" *ngIf="helper">{{ helper }}</span>
+</div>

@@ -1,0 +1,33 @@
+<div class="table-wrap">
+  <table class="tbl">
+    <thead>
+      <tr>
+        @for (col of columns; track col.key) {
+          <th
+            [class.sortable]="col.sortable"
+            (click)="onSort(col)"
+            (keydown.enter)="onSort(col)"
+            (keydown.space)="onSort(col)"
+            [attr.tabindex]="col.sortable ? 0 : null"
+            [attr.role]="col.sortable ? 'columnheader button' : 'columnheader'"
+            [attr.aria-sort]="currentSort?.column === col.key ? currentSort?.direction + 'ending' : null"
+          >
+            {{ col.label }}
+            @if (col.sortable && currentSort?.column === col.key) {
+              <span class="sort-arrow" aria-hidden="true">{{ currentSort?.direction === 'asc' ? '▴' : '▾' }}</span>
+            }
+          </th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (row of rows; track $index) {
+        <tr>
+          @for (col of columns; track col.key) {
+            <td [class.num]="isNum(row[col.key])">{{ row[col.key] }}</td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

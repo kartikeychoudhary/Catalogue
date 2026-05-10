@@ -1,0 +1,13 @@
+<div class="fake-navbar">
+  <span class="brand">{{ brand }}</span>
+  <nav>
+    <a *ngFor="let link of links"
+       [href]="link.href"
+       [class.-active]="link.active"
+       (click)="$event.preventDefault(); linkClicked.emit(link.href)">
+      {{ link.label }}
+    </a>
+  </nav>
+  <app-button *ngIf="ctaLabel" variant="primary" size="sm" (clicked)="ctaClicked.emit()">{{ ctaLabel }}</app-button>
+  <ng-content></ng-content>
+</div>

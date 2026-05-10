@@ -1,0 +1,14 @@
+<button
+  class="icon-btn"
+  [class.-primary]="variant === 'primary'"
+  [class.-secondary]="variant === 'secondary'"
+  [class.-tertiary]="variant === 'tertiary'"
+  [class.-destructive]="variant === 'destructive'"
+  [class.-sm]="size === 'sm'"
+  [class.-md]="size === 'md'"
+  [class.-lg]="size === 'lg'"
+  [disabled]="disabled"
+  [attr.aria-label]="ariaLabel || icon"
+  (click)="clicked.emit($event)">
+  <app-icon [name]="icon" [size]="iconSize"></app-icon>
+</button>

@@ -1,0 +1,10 @@
+<label class="radio" *ngFor="let opt of options">
+  <input
+    type="radio"
+    [name]="name"
+    [value]="opt.value"
+    [checked]="opt.value === value"
+    (change)="onSelect(opt.value)"
+  />
+  {{ opt.label }}
+</label>

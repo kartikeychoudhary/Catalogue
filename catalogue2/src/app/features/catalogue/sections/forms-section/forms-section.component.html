@@ -1,0 +1,38 @@
+<section class="section">
+  <header class="section-head">
+    <span class="section-num">05 / 10</span>
+    <span class="section-title">FORM CONTROLS</span>
+    <span class="section-meta">// INPUTS :: SELECTION :: VALIDATION</span>
+  </header>
+  <div class="form-grid">
+    <app-input label="BAND NAME" value="HARD SHOULDER" helper="Shows up on the merch."></app-input>
+    <app-search placeholder="SEARCH MERCH, SHOWS, TAPES…"></app-search>
+    <app-input label="EMAIL" value="x@@" state="error" helper="THAT'S NOT AN EMAIL, FRIEND."></app-input>
+    <app-input label="HANDLE" value="hard-shoulder" state="success" helper="AVAILABLE. CLAIM IT."></app-input>
+    <app-select label="GENRE" [options]="[{label:'POST-PUNK',value:'post-punk'},{label:'NOISE-ROCK',value:'noise'},{label:'INDUSTRIAL',value:'industrial'}]"></app-select>
+    <app-select label="VENUES (MULTI)" [multiple]="true" [size]="3" [options]="[{label:'BASEMENT',value:'basement'},{label:'WAREHOUSE',value:'warehouse'},{label:'BAR',value:'bar'},{label:'FESTIVAL',value:'festival'}]"></app-select>
+    <app-textarea label="BIO" value="Three loud people from a small town who refuse to soundcheck."></app-textarea>
+    <app-input label="LOCKED" value="MASTER PASSWORD" [disabled]="true" helper="ASK THE LABEL."></app-input>
+    <div>
+      <span class="label-text">FORMAT</span>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;">
+        <app-radio-group name="fmt" [options]="[{label:'VINYL',value:'vinyl'},{label:'TAPE',value:'tape'},{label:'DIGITAL',value:'digital'}]" value="vinyl"></app-radio-group>
+      </div>
+    </div>
+    <div>
+      <span class="label-text">FLAGS</span>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;">
+        <app-checkbox label="EXPLICIT" [checked]="true"></app-checkbox>
+        <app-checkbox label="RADIO EDIT"></app-checkbox>
+        <app-checkbox label="LIMITED" [checked]="true"></app-checkbox>
+      </div>
+    </div>
+    <app-input label="RELEASE DATE" type="date" value="2026-06-13"></app-input>
+    <div>
+      <app-toggle label="ALLOW REMIX SUBMISSIONS" [checked]="true"></app-toggle>
+      <app-toggle label="SEND TO RADIO STATIONS" style="margin-top:12px;"></app-toggle>
+    </div>
+    <app-slider label="VOLUME · SLIDER" [max]="11" [value]="11" helper="It goes to 11."></app-slider>
+    <app-upload label="DROP A 1500×1500 JPG, OR BROWSE FILES"></app-upload>
+  </div>
+</section>

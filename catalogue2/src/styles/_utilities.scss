@@ -1,0 +1,53 @@
+// _utilities.scss — Neo-Brutalist layout utilities
+
+.page {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 900px) {
+  .page { padding: 0 var(--s-4); }
+}
+
+.section {
+  padding: 80px 0;
+  border-top: var(--bw) solid var(--text);
+  position: relative;
+}
+
+.section:first-of-type { border-top: 0; }
+
+.section-head {
+  background: var(--text);
+  color: var(--bg);
+  padding: 14px 20px;
+  margin-bottom: 32px;
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: var(--bw) solid var(--text);
+  box-shadow: var(--shadow);
+  transform: rotate(-0.5deg);
+}
+
+.section-num {
+  font-size: 12px;
+}
+
+.section-title {
+  font-size: clamp(24px, 3.5vw, 40px);
+  color: var(--bg);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.section-meta {
+  font-size: 11px;
+  opacity: 0.7;
+  margin-left: auto;
+}

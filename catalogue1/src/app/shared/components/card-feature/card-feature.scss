@@ -1,0 +1,10 @@
+.card-feature {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+.card-feature ::ng-deep .meta {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+}

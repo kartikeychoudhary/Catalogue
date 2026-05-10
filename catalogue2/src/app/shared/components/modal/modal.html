@@ -1,0 +1,6 @@
+<div class="modal-stage" *ngIf="open" (click)="onStageClick($event)">
+  <div class="modal">
+    <h4>{{ title }}</h4>
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+<div class="upload" (click)="fileInput.click()" (keydown.enter)="fileInput.click()" tabindex="0" role="button" [attr.aria-label]="label">
+  <span>{{ label }}</span>
+  <input #fileInput type="file" [accept]="accept" (change)="onFileSelected($event)" hidden />
+</div>

@@ -1,0 +1,15 @@
+<aside class="fake-side">
+  @for (section of sections; track section.heading) {
+    <h6>{{ section.heading }}</h6>
+    <ul>
+      @for (item of section.items; track item.label) {
+        <li [class.-active]="item.active">
+          <span>{{ item.label }}</span>
+          @if (item.count !== undefined) {
+            <span class="count">{{ item.count }}</span>
+          }
+        </li>
+      }
+    </ul>
+  }
+</aside>

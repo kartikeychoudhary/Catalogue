@@ -1,0 +1,10 @@
+<article class="card">
+  <ng-content select="[slot=eyebrow]"></ng-content>
+  <div class="price">{{ price }}<small *ngIf="period">/{{ period }}</small></div>
+  <p>{{ description }}</p>
+  <ul>
+    <li *ngFor="let feat of features">{{ feat }}</li>
+  </ul>
+  <app-button variant="primary" *ngIf="ctaLabel" (clicked)="ctaClicked.emit()">{{ ctaLabel }}</app-button>
+  <ng-content></ng-content>
+</article>

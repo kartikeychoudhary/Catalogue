@@ -1,0 +1,12 @@
+<div class="slider-field">
+  <label *ngIf="label">{{ label }}</label>
+  <input
+    class="slider-el"
+    type="range"
+    [min]="min"
+    [max]="max"
+    [value]="value"
+    (input)="onInput($event)"
+  />
+  <span class="helper" *ngIf="helper">{{ helper }}</span>
+</div>

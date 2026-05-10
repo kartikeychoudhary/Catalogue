@@ -1,0 +1,37 @@
+:host {
+  display: block;
+
+  .search {
+    position: relative;
+
+    &::before {
+      content: "\2315";
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    input {
+      font-family: var(--sans);
+      font-size: 16px;
+      padding: 12px 14px 12px 42px;
+      min-height: 48px;
+      border: var(--bw) solid var(--text);
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: var(--shadow-sm);
+      width: 100%;
+
+      &:focus {
+        outline: none;
+        background: var(--accent);
+        transform: translate(-1px, -1px);
+        box-shadow: 4px 4px 0 var(--text);
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+// _typography.scss — Swiss Editorial typography
+
+html {
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--sans);
+  font-size: var(--t-body);
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6, .display {
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.display { font-size: var(--t-display); letter-spacing: -0.04em; line-height: 0.92; }
+h1 { font-size: var(--t-h1); letter-spacing: -0.025em; }
+h2 { font-size: var(--t-h2); letter-spacing: -0.02em; }
+h3 { font-size: var(--t-h3); }
+h4 { font-size: var(--t-h4); }
+h5 { font-size: var(--t-h5); }
+h6 { font-size: var(--t-h6); }
+
+p { margin: 0; }
+a { color: var(--accent); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }

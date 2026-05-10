@@ -1,0 +1,29 @@
+:host {
+  display: block;
+
+  .bottom-nav {
+    display: flex;
+    border-top: var(--bw) solid var(--text);
+
+    button {
+      flex: 1;
+      padding: 14px 8px;
+      background: var(--surface);
+      border: 0;
+      border-right: var(--bw) solid var(--text);
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      cursor: pointer;
+
+      &:last-child {
+        border-right: 0;
+      }
+
+      &.-active {
+        background: var(--accent);
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<div class="avatar-group">
+  @for (initials of visibleAvatars; track $index) {
+    <app-avatar [initials]="initials" size="sm"></app-avatar>
+  }
+  @if (overflowCount > 0) {
+    <div class="more">+{{ overflowCount }}</div>
+  }
+</div>

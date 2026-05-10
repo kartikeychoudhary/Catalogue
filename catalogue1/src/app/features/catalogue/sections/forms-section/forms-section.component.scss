@@ -1,0 +1,21 @@
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--s-4);
+  padding: var(--s-4) 0;
+}
+
+.demo {
+  padding: var(--s-5) 0;
+  border-bottom: var(--rule);
+}
+
+.demo-label {
+  font-family: var(--mono);
+  font-size: var(--t-overline);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  display: block;
+  margin-bottom: var(--s-3);
+}

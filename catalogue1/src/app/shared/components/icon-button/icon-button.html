@@ -1,0 +1,11 @@
+<button
+  type="button"
+  class="icon-btn"
+  [class.icon-btn-sm]="size === 'sm'"
+  [class.icon-btn-lg]="size === 'lg'"
+  [class.icon-btn-primary]="variant === 'primary'"
+  [disabled]="disabled || null"
+  [attr.aria-label]="ariaLabel || icon"
+  (click)="clicked.emit($event)">
+  <app-icon [name]="icon" [size]="iconSize"></app-icon>
+</button>

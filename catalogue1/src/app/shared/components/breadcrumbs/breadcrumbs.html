@@ -1,0 +1,8 @@
+<nav class="crumb">
+  @for (crumb of crumbs; track crumb.label; let last = $last) {
+    <a [href]="crumb.href">{{ crumb.label }}</a>
+    @if (!last) {
+      <span class="sep">&rsaquo;</span>
+    }
+  }
+</nav>

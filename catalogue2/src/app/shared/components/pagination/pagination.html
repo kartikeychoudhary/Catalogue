@@ -1,0 +1,13 @@
+<div class="pager">
+  <button (click)="prev()">‹</button>
+  <ng-container *ngFor="let page of pages">
+    <span class="ellipsis" *ngIf="page === '...'">…</span>
+    <button
+      *ngIf="page !== '...'"
+      [class.-active]="page === current"
+      (click)="goTo(page)">
+      {{ page }}
+    </button>
+  </ng-container>
+  <button (click)="next()">›</button>
+</div>

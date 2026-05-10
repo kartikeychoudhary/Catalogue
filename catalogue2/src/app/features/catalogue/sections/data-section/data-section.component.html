@@ -1,0 +1,39 @@
+<section class="section">
+  <header class="section-head">
+    <span class="section-num">08 / 10</span>
+    <span class="section-title">DATA DISPLAY</span>
+    <span class="section-meta">// TABLES :: LISTS :: TAGS :: AVATARS</span>
+  </header>
+  <app-table [columns]="tableColumns" [rows]="tableRows"></app-table>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;">
+    <app-list>
+      <app-list-item icon="▶" title="VOLUME II" subtitle="// 1.2M PLAYS · 4:18" badgeLabel="● LIVE" badgeVariant="success"></app-list-item>
+      <app-list-item icon="●" title="SHEET METAL HEAVEN" subtitle="// EP · 6 TRACKS · 13 JUN" badgeLabel="● PRE" badgeVariant="warning"></app-list-item>
+      <app-list-item icon="↻" title="RADIO 1 SESSION" subtitle="// MAY 21 · BBC LIVE" badgeLabel="● BOOKED" badgeVariant="info"></app-list-item>
+      <app-list-item icon="✕" title="FESTIVAL B" subtitle="// CANCELLED, REFUNDS PROCESSED" badgeLabel="● OFF" badgeVariant="danger"></app-list-item>
+    </app-list>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div>
+        <h6 style="margin-bottom:8px;">// TAGS</h6>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <app-tag>post-punk</app-tag>
+          <app-tag>noise</app-tag>
+          <app-tag>DIY</app-tag>
+          <app-tag>live-tape</app-tag>
+          <app-tag>limited-press</app-tag>
+          <app-tag>2026</app-tag>
+        </div>
+      </div>
+      <div>
+        <h6 style="margin-bottom:8px;">// AVATARS</h6>
+        <app-avatar initials="HS" size="lg"></app-avatar>
+        <app-avatar-group [avatars]="['M','P','D']" [max]="3"></app-avatar-group>
+      </div>
+      <div>
+        <h6 style="margin-bottom:8px;">// KEY → VALUE</h6>
+        <app-key-value [items]="kvItems"></app-key-value>
+      </div>
+    </div>
+  </div>
+  <app-empty-state title="NOTHING HERE YET." description="// Try removing a filter, or upload a new tape." actionLabel="UPLOAD TAPE" style="margin-top:24px;"></app-empty-state>
+</section>

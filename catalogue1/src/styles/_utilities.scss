@@ -1,0 +1,50 @@
+// _utilities.scss — Swiss Editorial layout utilities
+
+.page {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--s-7);
+}
+
+@media (max-width: 900px) {
+  .page { padding: 0 var(--s-4); }
+}
+
+.section {
+  padding: var(--s-9) 0;
+  border-top: var(--rule);
+  position: relative;
+}
+
+.section:first-of-type { border-top: 0; }
+
+.section-head {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: var(--s-5);
+  align-items: baseline;
+  padding-bottom: var(--s-7);
+  margin-bottom: var(--s-7);
+  border-bottom: var(--rule);
+}
+
+.section-num {
+  font-family: var(--mono);
+  font-size: var(--t-caption);
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: var(--t-h2);
+  letter-spacing: -0.02em;
+}
+
+.section-meta {
+  font-family: var(--mono);
+  font-size: var(--t-overline);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}

@@ -1,0 +1,6 @@
+<div class="progress-wrapper" role="progressbar" [attr.aria-valuenow]="value" [attr.aria-valuemax]="max" [attr.aria-label]="label || 'progress'">
+  <div class="progress-label" *ngIf="label">{{ label }}</div>
+  <div class="progress">
+    <span [style.width.%]="percentage"></span>
+  </div>
+</div>

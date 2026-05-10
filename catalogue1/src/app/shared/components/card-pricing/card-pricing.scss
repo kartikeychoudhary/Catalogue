@@ -1,0 +1,70 @@
+.card-pricing {
+  padding: var(--s-7) var(--s-5);
+}
+
+.price {
+  font-family: var(--serif);
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+.price small {
+  font-family: var(--sans);
+  font-size: var(--t-body-sm);
+  color: var(--text-muted);
+}
+
+.description {
+  font-size: var(--t-body);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--s-4) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+li {
+  font-size: var(--t-body-sm);
+  padding-left: 18px;
+  position: relative;
+  color: var(--text);
+}
+
+li::before {
+  content: "\2014";
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+}
+
+.btn-cta {
+  margin-top: var(--s-5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  font-family: var(--sans);
+  font-size: var(--t-body-sm);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  background: var(--accent);
+  color: var(--accent-fg);
+  transition: filter 120ms ease;
+  min-height: 44px;
+}
+
+.btn-cta:hover {
+  filter: brightness(0.92);
+}

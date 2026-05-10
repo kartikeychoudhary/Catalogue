@@ -1,0 +1,34 @@
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: var(--sans);
+  color: var(--text);
+}
+
+.check input[type='checkbox'] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--text);
+  background: var(--surface);
+  cursor: pointer;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.check input[type='checkbox']:checked {
+  background: var(--text);
+}
+
+.check input[type='checkbox']:checked::after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 10px;
+  border: solid var(--surface);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translate(4px, -1px);
+}

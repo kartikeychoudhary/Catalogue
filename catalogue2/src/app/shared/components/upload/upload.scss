@@ -1,0 +1,24 @@
+:host {
+  display: block;
+
+  .upload {
+    border: var(--bw) dashed var(--text);
+    padding: 24px;
+    text-align: center;
+    background: var(--surface);
+    cursor: pointer;
+    font-weight: 700;
+
+    &:hover {
+      background: var(--accent);
+    }
+
+    input {
+      display: none;
+    }
+
+    strong {
+      text-decoration: underline;
+    }
+  }
+}

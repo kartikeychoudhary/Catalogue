@@ -1,0 +1,21 @@
+.aurora {
+  position: fixed; inset: -10vh -10vw; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(1100px 700px at 12% 8%, color-mix(in oklab, var(--aurora-1) 70%, transparent), transparent 60%),
+    radial-gradient(900px 700px at 88% 18%, color-mix(in oklab, var(--aurora-2) 70%, transparent), transparent 60%),
+    radial-gradient(800px 600px at 24% 92%, color-mix(in oklab, var(--aurora-3) 60%, transparent), transparent 60%),
+    radial-gradient(700px 500px at 84% 78%, color-mix(in oklab, var(--aurora-4) 50%, transparent), transparent 60%);
+  filter: blur(40px) saturate(120%);
+  opacity: 0.55;
+  animation: drift 40s ease-in-out infinite alternate;
+}
+[data-theme="light"] .aurora { opacity: 0.45; filter: blur(60px) saturate(120%); }
+@keyframes drift {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  100% { transform: translate3d(-3%, 2%, 0) scale(1.05); }
+}
+.grain {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 3px 3px; mix-blend-mode: overlay;
+}

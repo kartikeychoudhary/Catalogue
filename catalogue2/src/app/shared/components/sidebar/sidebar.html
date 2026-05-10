@@ -1,0 +1,12 @@
+<aside class="fake-side">
+  <ng-container *ngFor="let section of sections">
+    <h6>{{ section.heading }}</h6>
+    <ul>
+      <li *ngFor="let item of section.items"
+          [class.-active]="item.active">
+        {{ item.label }}
+        <span *ngIf="item.count !== undefined">{{ item.count }}</span>
+      </li>
+    </ul>
+  </ng-container>
+</aside>

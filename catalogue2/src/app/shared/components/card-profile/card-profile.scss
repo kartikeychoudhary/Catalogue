@@ -1,0 +1,29 @@
+:host {
+  display: block;
+
+  .card {
+    background: var(--surface);
+    border: var(--bw) solid var(--text);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+  }
+
+  .card-profile {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}

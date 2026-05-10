@@ -1,0 +1,43 @@
+:host {
+  display: block;
+
+  .fake-navbar {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    gap: 16px;
+    border-bottom: var(--bw) solid var(--text);
+
+    .brand {
+      font-weight: 700;
+      font-size: 20px;
+      padding: 4px 8px;
+      background: var(--accent);
+      border: 2px solid var(--text);
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      margin-left: auto;
+
+      a {
+        font-family: var(--mono);
+        font-size: 12px;
+        text-transform: uppercase;
+        padding: 6px 10px;
+        border: 2px solid transparent;
+        text-decoration: none;
+
+        &.-active {
+          background: var(--text);
+          color: var(--bg);
+        }
+
+        &:not(.-active):hover {
+          border-color: var(--text);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div class="list-item">
+  <div class="list-icon" aria-hidden="true">{{ icon }}</div>
+  <div class="list-text">
+    <span class="list-title">{{ title }}</span>
+    @if (subtitle) {
+      <small class="list-subtitle">{{ subtitle }}</small>
+    }
+  </div>
+  @if (badgeLabel) {
+    <div class="list-badge">
+      <app-badge [variant]="badgeVariant">{{ badgeLabel }}</app-badge>
+    </div>
+  }
+</div>

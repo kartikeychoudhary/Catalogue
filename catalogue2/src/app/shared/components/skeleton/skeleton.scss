@@ -1,0 +1,24 @@
+:host {
+  display: block;
+
+  .skel {
+    background: linear-gradient(90deg, var(--surface-2), color-mix(in oklab, var(--surface-2) 50%, var(--surface)), var(--surface-2));
+    background-size: 200% 100%;
+    animation: shimmer 1.4s linear infinite;
+    height: 14px;
+    border: 2px solid var(--text);
+
+    &.-tall {
+      height: 32px;
+    }
+
+    &.-img {
+      height: 140px;
+    }
+  }
+}
+
+@keyframes shimmer {
+  from { background-position: 0 0; }
+  to { background-position: -200% 0; }
+}

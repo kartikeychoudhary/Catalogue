@@ -1,0 +1,10 @@
+// _reset.scss — Glassmorphic Spatial reset
+*, *::before, *::after { box-sizing: border-box; }
+html, body { background: var(--bg-deep); }
+body {
+  margin: 0;
+  color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.005em;
+  position: relative; overflow-x: hidden;
+}

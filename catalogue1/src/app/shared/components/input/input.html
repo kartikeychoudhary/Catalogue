@@ -1,0 +1,12 @@
+<div class="field" [class.error]="state === 'error'" [class.success]="state === 'success'">
+  <label *ngIf="label">{{ label }}</label>
+  <input
+    class="input"
+    [type]="type"
+    [placeholder]="placeholder"
+    [value]="value"
+    [disabled]="disabled || null"
+    [attr.aria-label]="label || placeholder || null"
+  />
+  <span class="helper" *ngIf="helper">{{ helper }}</span>
+</div>

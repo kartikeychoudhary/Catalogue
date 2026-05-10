@@ -1,0 +1,15 @@
+<button
+  [type]="type"
+  class="btn"
+  [class.btn-primary]="variant === 'primary'"
+  [class.btn-secondary]="variant === 'secondary'"
+  [class.btn-tertiary]="variant === 'tertiary'"
+  [class.btn-destructive]="variant === 'destructive'"
+  [class.btn-sm]="size === 'sm'"
+  [class.btn-lg]="size === 'lg'"
+  [class.-loading]="loading"
+  [disabled]="disabled || loading || null"
+  [attr.aria-label]="ariaLabel || null"
+  (click)="clicked.emit($event)">
+  <ng-content></ng-content>
+</button>

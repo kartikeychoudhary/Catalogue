@@ -1,0 +1,35 @@
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--sans); font-weight: 600; font-size: 14px; letter-spacing: -0.005em;
+  padding: 11px 18px; min-height: 40px; border-radius: 999px; cursor: pointer; border: 1px solid var(--hairline-bold);
+  background: var(--glass-2); color: var(--ink);
+  transition: transform 120ms, box-shadow 120ms, background 120ms;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary {
+  background: linear-gradient(180deg, var(--accent), color-mix(in oklab, var(--accent) 60%, var(--accent-2)));
+  color: white; border-color: color-mix(in oklab, var(--accent) 60%, transparent);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 10px 30px -10px color-mix(in oklab, var(--accent) 70%, transparent);
+}
+.btn-primary:hover { box-shadow: 0 1px 0 rgba(255,255,255,0.45) inset, 0 14px 40px -10px color-mix(in oklab, var(--accent) 80%, transparent); }
+.btn-secondary { background: var(--glass-3); }
+.btn-ghost { background: transparent; border: 1px solid var(--hairline); }
+.btn-ghost:hover { background: var(--glass-2); }
+.btn-destructive { background: color-mix(in oklab, var(--danger) 35%, transparent); border-color: color-mix(in oklab, var(--danger) 50%, transparent); color: var(--ink); }
+.btn-destructive:hover { background: color-mix(in oklab, var(--danger) 55%, transparent); }
+.btn[disabled] { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
+.btn.-loading { color: transparent; position: relative; }
+.btn.-loading::after { content:""; position: absolute; inset: 0; margin: auto; width: 16px; height: 16px; border: 2px solid currentColor; color: white; border-top-color: transparent; border-radius: 50%; animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.btn-sm { font-size: 12px; padding: 7px 12px; min-height: 32px; }
+.btn-lg { font-size: 15px; padding: 14px 22px; min-height: 48px; }
+.btn-icon { width: 40px; padding: 0; }
+.btn-glow {
+  background: var(--glass-2); position: relative;
+}
+.btn-glow::before {
+  content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1px;
+  background: linear-gradient(120deg, var(--aurora-1), var(--aurora-2), var(--aurora-3));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}

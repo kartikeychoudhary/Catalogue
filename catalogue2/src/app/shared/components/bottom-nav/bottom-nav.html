@@ -1,0 +1,8 @@
+<div class="bottom-nav">
+  <button
+    *ngFor="let item of items"
+    [class.-active]="item.active"
+    (click)="itemClick.emit(item.label)">
+    {{ item.label }}
+  </button>
+</div>

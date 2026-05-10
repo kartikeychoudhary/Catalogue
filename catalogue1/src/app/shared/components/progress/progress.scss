@@ -1,0 +1,25 @@
+.progress-wrapper {
+  width: 100%;
+}
+
+.progress-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--s-2);
+}
+
+.progress {
+  background: var(--surface-2);
+  height: 4px;
+  position: relative;
+  border: var(--rule);
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}

@@ -1,0 +1,47 @@
+.pager {
+  display: flex;
+  gap: 0;
+  padding: var(--s-3) var(--s-4);
+  align-items: center;
+}
+
+button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--hairline);
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 12px;
+  cursor: pointer;
+  margin-left: -1px;
+}
+
+button:first-child {
+  margin-left: 0;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.-active {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+.ellipsis {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--hairline);
+  background: var(--surface);
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 12px;
+  margin-left: -1px;
+}

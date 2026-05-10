@@ -1,0 +1,1323 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-aurora="dawn">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Catalogue 03 — Glassmorphic / Spatial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  /* Dawn aurora (default) */
+  --aurora-1: #ff5fb3;
+  --aurora-2: #6e5cff;
+  --aurora-3: #2dd4ff;
+  --aurora-4: #ffd166;
+
+  --accent: #8b7bff;
+  --accent-2: #2dd4ff;
+
+  /* Dark spatial */
+  --bg-deep: #06070d;
+  --bg-mid:  #0c0e1a;
+  --ink: #ffffff;
+  --ink-soft: rgba(255,255,255,0.78);
+  --ink-mute: rgba(255,255,255,0.55);
+  --ink-faint: rgba(255,255,255,0.32);
+
+  --glass-1: rgba(255,255,255,0.06);
+  --glass-2: rgba(255,255,255,0.10);
+  --glass-3: rgba(255,255,255,0.14);
+  --glass-strong: rgba(255,255,255,0.22);
+
+  --hairline: rgba(255,255,255,0.10);
+  --hairline-bold: rgba(255,255,255,0.18);
+  --hairline-glow: rgba(255,255,255,0.45);
+
+  --success: #2bd9a3;
+  --warning: #ffb547;
+  --danger:  #ff6e7a;
+  --info:    #6bb8ff;
+
+  --shadow-1: 0 1px 0 rgba(255,255,255,0.06) inset, 0 30px 60px -20px rgba(0,0,0,0.55);
+  --shadow-2: 0 1px 0 rgba(255,255,255,0.10) inset, 0 40px 90px -30px rgba(0,0,0,0.7), 0 0 0 1px var(--hairline);
+  --shadow-pop: 0 30px 60px -20px rgba(139,123,255,0.35);
+
+  --r-1: 8px; --r-2: 12px; --r-3: 16px; --r-4: 20px; --r-5: 28px; --r-6: 36px;
+  --pad: clamp(20px, 3vw, 40px);
+
+  --bx: 16px; /* base spacing */
+}
+[data-aurora="reef"] {
+  --aurora-1: #00e1c4;
+  --aurora-2: #2c5cff;
+  --aurora-3: #b54bff;
+  --aurora-4: #ffd166;
+  --accent: #2dd4ff;
+  --accent-2: #b54bff;
+}
+[data-aurora="ember"] {
+  --aurora-1: #ff7a4c;
+  --aurora-2: #ff3d77;
+  --aurora-3: #ffd166;
+  --aurora-4: #6e5cff;
+  --accent: #ff7a4c;
+  --accent-2: #ff3d77;
+}
+[data-aurora="forest"] {
+  --aurora-1: #4ad991;
+  --aurora-2: #00b4a4;
+  --aurora-3: #6e5cff;
+  --aurora-4: #ffd166;
+  --accent: #4ad991;
+  --accent-2: #00b4a4;
+}
+
+[data-theme="light"] {
+  --bg-deep: #eef0f5;
+  --bg-mid: #dde0ea;
+  --ink: #0b0d18;
+  --ink-soft: rgba(11,13,24,0.78);
+  --ink-mute: rgba(11,13,24,0.58);
+  --ink-faint: rgba(11,13,24,0.32);
+  --glass-1: rgba(255,255,255,0.55);
+  --glass-2: rgba(255,255,255,0.70);
+  --glass-3: rgba(255,255,255,0.82);
+  --glass-strong: rgba(255,255,255,0.92);
+  --hairline: rgba(11,13,24,0.08);
+  --hairline-bold: rgba(11,13,24,0.14);
+  --hairline-glow: rgba(11,13,24,0.32);
+  --shadow-1: 0 1px 0 rgba(255,255,255,0.7) inset, 0 30px 60px -20px rgba(20,30,80,0.18);
+  --shadow-2: 0 1px 0 rgba(255,255,255,0.7) inset, 0 40px 90px -30px rgba(20,30,80,0.25), 0 0 0 1px var(--hairline);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { background: var(--bg-deep); }
+body {
+  margin: 0;
+  color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.005em;
+  position: relative; overflow-x: hidden;
+}
+
+/* aurora ambient background */
+.aurora {
+  position: fixed; inset: -10vh -10vw; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(1100px 700px at 12% 8%, color-mix(in oklab, var(--aurora-1) 70%, transparent), transparent 60%),
+    radial-gradient(900px 700px at 88% 18%, color-mix(in oklab, var(--aurora-2) 70%, transparent), transparent 60%),
+    radial-gradient(800px 600px at 24% 92%, color-mix(in oklab, var(--aurora-3) 60%, transparent), transparent 60%),
+    radial-gradient(700px 500px at 84% 78%, color-mix(in oklab, var(--aurora-4) 50%, transparent), transparent 60%);
+  filter: blur(40px) saturate(120%);
+  opacity: 0.55;
+  animation: drift 40s ease-in-out infinite alternate;
+}
+[data-theme="light"] .aurora { opacity: 0.45; filter: blur(60px) saturate(120%); }
+@keyframes drift {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  100% { transform: translate3d(-3%, 2%, 0) scale(1.05); }
+}
+.grain {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 3px 3px; mix-blend-mode: overlay;
+}
+
+h1,h2,h3,h4,h5,h6 { font-family: var(--display); font-weight: 600; margin: 0; line-height: 1.05; letter-spacing: -0.025em; }
+h1 { font-size: clamp(40px, 5vw, 72px); font-weight: 500; letter-spacing: -0.035em; }
+h2 { font-size: clamp(28px, 3.5vw, 44px); font-weight: 500; letter-spacing: -0.03em; }
+h3 { font-size: 28px; font-weight: 500; }
+h4 { font-size: 20px; font-weight: 600; }
+h5 { font-size: 17px; font-weight: 600; }
+h6 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-mute); }
+p { margin: 0; color: var(--ink-soft); }
+a { color: inherit; }
+::selection { background: color-mix(in oklab, var(--accent) 60%, transparent); color: white; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.page { max-width: 1280px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+.section { padding: 96px 0; }
+.section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 32px; flex-wrap: wrap; }
+.section-head .meta { display: flex; gap: 14px; align-items: baseline; }
+.section-head .num { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); }
+.section-head h2 { max-width: 24ch; }
+.section-head .lede { color: var(--ink-mute); max-width: 38ch; font-size: 15px; }
+
+/* --- glass primitives --- */
+.glass {
+  background: var(--glass-1);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-4);
+  backdrop-filter: blur(28px) saturate(140%);
+  -webkit-backdrop-filter: blur(28px) saturate(140%);
+  box-shadow: var(--shadow-2);
+  position: relative;
+  overflow: hidden;
+}
+.glass::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0) 35%);
+  mix-blend-mode: overlay;
+}
+.glass-thin {
+  background: var(--glass-2);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-3);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+.glass-pill {
+  background: var(--glass-2);
+  border: 1px solid var(--hairline-bold);
+  border-radius: 999px;
+  backdrop-filter: blur(20px) saturate(140%);
+}
+
+/* topbar */
+.topbar {
+  position: sticky; top: 14px; z-index: 50;
+  margin: 14px auto 0; max-width: 1280px;
+}
+.topbar-inner {
+  display: flex; align-items: center; gap: 16px;
+  padding: 12px 14px 12px 18px; margin: 0 24px;
+  background: var(--glass-2); border: 1px solid var(--hairline-bold); border-radius: 999px;
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  box-shadow: var(--shadow-1);
+}
+.brand-glyph {
+  width: 32px; height: 32px; border-radius: 12px;
+  background: conic-gradient(from 200deg, var(--aurora-1), var(--aurora-2), var(--aurora-3), var(--aurora-4), var(--aurora-1));
+  filter: blur(0.4px) saturate(140%);
+  box-shadow: 0 0 0 1px var(--hairline-bold), 0 6px 20px -4px color-mix(in oklab, var(--accent) 60%, transparent);
+}
+.brand-name { font-weight: 600; letter-spacing: -0.02em; font-size: 17px; }
+.brand-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); padding-left: 12px; border-left: 1px solid var(--hairline); }
+.nav-links { display: flex; gap: 4px; margin-left: auto; }
+.nav-links a { padding: 8px 14px; border-radius: 999px; text-decoration: none; color: var(--ink-soft); font-size: 14px; font-weight: 500; }
+.nav-links a:hover { background: var(--glass-2); color: var(--ink); }
+@media (max-width: 900px) { .nav-links { display: none; } }
+.cta-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 16px; border-radius: 999px;
+  background: linear-gradient(180deg, var(--accent), color-mix(in oklab, var(--accent) 70%, var(--accent-2)));
+  color: white; font-size: 14px; font-weight: 600; border: 0;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 10px 30px -10px color-mix(in oklab, var(--accent) 70%, transparent);
+  cursor: pointer;
+}
+.icon-btn {
+  width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--hairline);
+  background: var(--glass-2); color: var(--ink); cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 14px;
+}
+
+/* settings panel */
+.panel {
+  position: fixed; top: 84px; right: 24px; z-index: 60;
+  width: 320px; padding: 18px; display: none;
+  background: var(--glass-3); border: 1px solid var(--hairline-bold); border-radius: var(--r-4);
+  backdrop-filter: blur(36px) saturate(160%);
+  -webkit-backdrop-filter: blur(36px) saturate(160%);
+  box-shadow: var(--shadow-2);
+}
+.panel.open { display: block; }
+.panel section + section { margin-top: 16px; }
+.panel h6 { margin-bottom: 8px; }
+.seg { display: flex; gap: 4px; padding: 4px; background: var(--glass-1); border: 1px solid var(--hairline); border-radius: 999px; }
+.seg button {
+  flex: 1; padding: 7px 10px; border-radius: 999px; border: 0; cursor: pointer;
+  background: transparent; color: var(--ink-soft); font-size: 12px; font-weight: 500;
+}
+.seg button[aria-pressed="true"] { background: var(--glass-strong); color: var(--ink); box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset; }
+.aurora-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+.aurora-btn {
+  aspect-ratio: 1.1/1; border-radius: 14px; border: 1px solid var(--hairline-bold); cursor: pointer; padding: 0;
+  position: relative; overflow: hidden;
+}
+.aurora-btn::after {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 30%, var(--c1), transparent 60%), radial-gradient(circle at 70% 70%, var(--c2), transparent 60%), radial-gradient(circle at 80% 20%, var(--c3), transparent 60%);
+  filter: saturate(140%);
+}
+.aurora-btn[aria-pressed="true"] { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* IDENTITY HERO */
+.hero { padding: 56px 0 96px; }
+.hero-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 32px; align-items: stretch; }
+@media (max-width: 1024px) { .hero-grid { grid-template-columns: 1fr; } }
+.hero-card {
+  padding: clamp(28px, 4vw, 56px);
+  border-radius: var(--r-6);
+  position: relative;
+}
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 6px 12px 6px 8px; border-radius: 999px; background: var(--glass-2); border: 1px solid var(--hairline); font-size: 12px; font-family: var(--mono); color: var(--ink-soft); margin-bottom: 24px; }
+.hero-eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+.hero h1 .grad {
+  background: linear-gradient(120deg, var(--aurora-1), var(--aurora-2) 40%, var(--aurora-3) 75%, var(--aurora-4));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: saturate(120%);
+}
+.hero p.lede { font-size: 18px; max-width: 50ch; margin-top: 18px; }
+.hero-actions { display: flex; gap: 10px; margin-top: 32px; flex-wrap: wrap; }
+.hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 40px; }
+.hero-stat .k { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); }
+.hero-stat .v { font-size: 28px; font-weight: 500; letter-spacing: -0.02em; margin-top: 4px; }
+.hero-stat .v small { font-size: 13px; color: var(--ink-mute); margin-left: 4px; }
+
+.hero-side { display: flex; flex-direction: column; gap: 18px; }
+.now-playing {
+  padding: 22px; border-radius: var(--r-4); display: flex; flex-direction: column; gap: 14px;
+}
+.np-art {
+  height: 168px; border-radius: var(--r-3); position: relative; overflow: hidden;
+  background:
+    radial-gradient(circle at 30% 30%, color-mix(in oklab, var(--aurora-1) 70%, transparent), transparent 55%),
+    radial-gradient(circle at 70% 70%, color-mix(in oklab, var(--aurora-2) 70%, transparent), transparent 55%),
+    radial-gradient(circle at 80% 20%, color-mix(in oklab, var(--aurora-3) 60%, transparent), transparent 55%);
+  filter: saturate(140%);
+}
+.np-art::after {
+  content: ""; position: absolute; inset: 0; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.4));
+  border-radius: inherit;
+}
+.np-art .label { position: absolute; left: 14px; bottom: 14px; z-index: 2; font-family: var(--mono); font-size: 11px; padding: 4px 8px; background: rgba(0,0,0,0.4); border-radius: 999px; color: white; }
+.np-meta { display: flex; align-items: center; justify-content: space-between; }
+.np-title { font-weight: 600; font-size: 16px; }
+.np-sub { font-size: 12px; color: var(--ink-mute); margin-top: 2px; }
+.np-controls { display: flex; gap: 10px; align-items: center; justify-content: center; }
+.np-controls button { width: 38px; height: 38px; border-radius: 999px; border: 1px solid var(--hairline); background: var(--glass-2); color: var(--ink); cursor: pointer; }
+.np-controls .play { width: 50px; height: 50px; background: var(--ink); color: var(--bg-deep); border: 0; }
+.np-progress { height: 4px; background: var(--glass-2); border-radius: 999px; overflow: hidden; }
+.np-progress > span { display: block; height: 100%; width: 38%; background: linear-gradient(90deg, var(--aurora-1), var(--aurora-3)); border-radius: 999px; }
+.np-time { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; color: var(--ink-mute); }
+
+.signal-card { padding: 18px 20px; display: flex; align-items: center; gap: 16px; border-radius: var(--r-4); }
+.signal-ring {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: conic-gradient(var(--accent) 220deg, var(--glass-2) 0);
+  display: grid; place-items: center; mask: radial-gradient(circle, transparent 50%, black 51%);
+  position: relative;
+}
+.signal-ring::after { content: "78"; position: absolute; inset: 0; -webkit-mask: none; display: grid; place-items: center; font-family: var(--mono); font-size: 14px; color: var(--ink); }
+
+/* COLOR */
+.swatch-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+@media (max-width: 720px) { .swatch-grid { grid-template-columns: 1fr 1fr; } }
+.swatch {
+  border-radius: var(--r-3); overflow: hidden; border: 1px solid var(--hairline);
+  background: var(--glass-1); padding: 10px; display: flex; flex-direction: column; gap: 10px;
+}
+.swatch .chip { height: 100px; border-radius: var(--r-2); border: 1px solid var(--hairline); position: relative; }
+.swatch .chip.gradient { background: linear-gradient(135deg, var(--aurora-1), var(--aurora-2) 50%, var(--aurora-3)); }
+.swatch .chip.glass-chip {
+  background: linear-gradient(135deg, color-mix(in oklab, var(--aurora-1) 35%, transparent), color-mix(in oklab, var(--aurora-2) 35%, transparent));
+}
+.swatch .chip.glass-chip::after {
+  content:""; position:absolute; inset:0; backdrop-filter: blur(0); border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0));
+}
+.swatch-info { padding: 4px 6px; }
+.swatch-name { font-weight: 600; font-size: 14px; }
+.swatch-hex { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); }
+
+.aurora-strip { margin-top: 24px; height: 120px; border-radius: var(--r-4); border: 1px solid var(--hairline-bold);
+  background: linear-gradient(120deg, var(--aurora-1), var(--aurora-2) 35%, var(--aurora-3) 70%, var(--aurora-4));
+  filter: saturate(130%);
+  display: flex; align-items: flex-end; padding: 14px;
+}
+.aurora-strip .stops { display: flex; gap: 12px; font-family: var(--mono); font-size: 11px; color: white; backdrop-filter: blur(10px); padding: 6px 10px; border-radius: 999px; background: rgba(0,0,0,0.25); }
+
+.semantic-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 24px; }
+@media (max-width: 720px) { .semantic-grid { grid-template-columns: 1fr 1fr; } }
+.semantic { padding: 14px 16px; border-radius: var(--r-3); border: 1px solid var(--hairline); background: var(--glass-1); display: flex; align-items: center; gap: 12px; }
+.semantic .sw { width: 32px; height: 32px; border-radius: 10px; border: 1px solid var(--hairline-bold); }
+.semantic .name { font-weight: 600; font-size: 14px; }
+.semantic .tok { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); }
+.token-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 24px; }
+@media (max-width: 720px) { .token-grid { grid-template-columns: 1fr 1fr; } }
+.token-card { padding: 14px; border-radius: var(--r-3); border: 1px solid var(--hairline); background: var(--glass-1); }
+.token-card h6 { color: var(--ink-faint); font-size: 11px; margin-bottom: 6px; }
+.token-card code { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); }
+
+/* TYPE */
+.type-row { display: grid; grid-template-columns: 160px 1fr 200px; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--hairline); align-items: baseline; }
+@media (max-width: 900px) { .type-row { grid-template-columns: 1fr; gap: 6px; } }
+.type-label { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); }
+.type-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); }
+
+/* BUTTONS */
+.btn-grid { display: grid; grid-template-columns: 140px 1fr; gap: 18px 24px; align-items: center; padding: 20px; border-radius: var(--r-4); border: 1px solid var(--hairline); background: var(--glass-1); }
+@media (max-width: 720px) { .btn-grid { grid-template-columns: 1fr; padding: 16px; } }
+.btn-grid .lab { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); }
+.btn-cluster { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--sans); font-weight: 600; font-size: 14px; letter-spacing: -0.005em;
+  padding: 11px 18px; min-height: 40px; border-radius: 999px; cursor: pointer; border: 1px solid var(--hairline-bold);
+  background: var(--glass-2); color: var(--ink);
+  transition: transform 120ms, box-shadow 120ms, background 120ms;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary {
+  background: linear-gradient(180deg, var(--accent), color-mix(in oklab, var(--accent) 60%, var(--accent-2)));
+  color: white; border-color: color-mix(in oklab, var(--accent) 60%, transparent);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 10px 30px -10px color-mix(in oklab, var(--accent) 70%, transparent);
+}
+.btn-primary:hover { box-shadow: 0 1px 0 rgba(255,255,255,0.45) inset, 0 14px 40px -10px color-mix(in oklab, var(--accent) 80%, transparent); }
+.btn-secondary { background: var(--glass-3); }
+.btn-ghost { background: transparent; border: 1px solid var(--hairline); }
+.btn-ghost:hover { background: var(--glass-2); }
+.btn-destructive { background: color-mix(in oklab, var(--danger) 35%, transparent); border-color: color-mix(in oklab, var(--danger) 50%, transparent); color: var(--ink); }
+.btn-destructive:hover { background: color-mix(in oklab, var(--danger) 55%, transparent); }
+.btn[disabled] { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
+.btn.-loading { color: transparent; position: relative; }
+.btn.-loading::after { content:""; position: absolute; inset: 0; margin: auto; width: 16px; height: 16px; border: 2px solid currentColor; color: white; border-top-color: transparent; border-radius: 50%; animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.btn-sm { font-size: 12px; padding: 7px 12px; min-height: 32px; }
+.btn-lg { font-size: 15px; padding: 14px 22px; min-height: 48px; }
+.btn-icon { width: 40px; padding: 0; }
+.btn-glow {
+  background: var(--glass-2); position: relative;
+}
+.btn-glow::before {
+  content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1px;
+  background: linear-gradient(120deg, var(--aurora-1), var(--aurora-2), var(--aurora-3));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+
+/* FORMS */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 24px; border-radius: var(--r-4); border: 1px solid var(--hairline); background: var(--glass-1); }
+@media (max-width: 720px) { .form-grid { grid-template-columns: 1fr; } }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label, .field .label-text { font-size: 12px; color: var(--ink-mute); font-weight: 500; }
+.input, .textarea, .select {
+  font-family: var(--sans); font-size: 14px; color: var(--ink);
+  padding: 12px 14px; min-height: 42px;
+  background: var(--glass-2); border: 1px solid var(--hairline); border-radius: var(--r-2);
+  backdrop-filter: blur(20px);
+  transition: border-color 120ms, box-shadow 120ms, background 120ms;
+}
+.input::placeholder, .textarea::placeholder { color: var(--ink-faint); }
+.input:focus, .textarea:focus, .select:focus { outline: none; border-color: color-mix(in oklab, var(--accent) 70%, transparent); box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent); background: var(--glass-3); }
+.textarea { min-height: 96px; resize: vertical; }
+.input[disabled], .textarea[disabled] { opacity: 0.5; cursor: not-allowed; }
+.field.error .input { border-color: var(--danger); box-shadow: 0 0 0 3px color-mix(in oklab, var(--danger) 25%, transparent); }
+.field.error .helper { color: var(--danger); }
+.field.success .input { border-color: var(--success); }
+.helper { font-size: 12px; color: var(--ink-mute); }
+
+.search { position: relative; }
+.search .input { padding-left: 40px; }
+.search::before { content: "⌕"; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--ink-mute); font-family: var(--mono); }
+
+.check, .radio { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; cursor: pointer; }
+.check input, .radio input {
+  appearance: none; width: 20px; height: 20px;
+  background: var(--glass-2); border: 1px solid var(--hairline-bold); cursor: pointer; position: relative;
+  border-radius: 6px;
+}
+.radio input { border-radius: 50%; }
+.check input:checked, .radio input:checked { background: linear-gradient(180deg, var(--accent), color-mix(in oklab, var(--accent) 60%, var(--accent-2))); border-color: transparent; }
+.check input:checked::after { content: "✓"; position: absolute; inset: 0; display: grid; place-items: center; color: white; font-size: 13px; font-weight: 700; }
+.radio input:checked::after { content: ""; position: absolute; inset: 5px; background: white; border-radius: 50%; }
+
+.toggle { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+.toggle input {
+  appearance: none; width: 44px; height: 26px; border-radius: 999px;
+  background: var(--glass-2); border: 1px solid var(--hairline-bold); position: relative; cursor: pointer; transition: 200ms;
+}
+.toggle input::after { content: ""; position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%; background: var(--ink); transition: 200ms; }
+.toggle input:checked { background: linear-gradient(180deg, var(--accent), color-mix(in oklab, var(--accent) 60%, var(--accent-2))); border-color: transparent; }
+.toggle input:checked::after { left: 20px; background: white; }
+
+.slider { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; background: var(--glass-3); border-radius: 999px; }
+.slider::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: white; border: 1px solid var(--hairline-bold); box-shadow: 0 4px 12px rgba(0,0,0,0.4); cursor: pointer; }
+.slider::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: white; border: 1px solid var(--hairline-bold); cursor: pointer; }
+
+.upload { border: 1px dashed var(--hairline-bold); background: var(--glass-1); padding: 24px; text-align: center; border-radius: var(--r-3); cursor: pointer; }
+.upload:hover { background: var(--glass-2); }
+.upload strong { color: var(--accent); }
+
+/* CARDS */
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 1024px) { .card-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 720px) { .card-grid { grid-template-columns: 1fr; } }
+.card {
+  padding: 20px; border-radius: var(--r-4); border: 1px solid var(--hairline);
+  background: var(--glass-1); backdrop-filter: blur(28px) saturate(140%);
+  display: flex; flex-direction: column; gap: 14px; position: relative; overflow: hidden;
+  box-shadow: var(--shadow-1);
+}
+.card::before { content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(255,255,255,0.08), transparent 30%); pointer-events:none; }
+.card-eyebrow { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); }
+.card h4 { font-size: 18px; line-height: 1.2; }
+.card p { font-size: 14px; color: var(--ink-soft); }
+.card-feature {
+  background:
+    radial-gradient(600px 280px at 0% 0%, color-mix(in oklab, var(--aurora-2) 50%, transparent), transparent 60%),
+    radial-gradient(500px 280px at 100% 100%, color-mix(in oklab, var(--aurora-1) 50%, transparent), transparent 60%),
+    var(--glass-1);
+}
+.card .card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid var(--hairline); font-size: 13px; color: var(--ink-mute); }
+
+.card-pricing .price { font-size: 56px; font-weight: 500; letter-spacing: -0.04em; }
+.card-pricing .price small { font-size: 14px; font-weight: 400; color: var(--ink-mute); margin-left: 4px; }
+.card-pricing ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: var(--ink-soft); }
+.card-pricing li { display: flex; align-items: center; gap: 10px; }
+.card-pricing li::before { content: "✓"; color: var(--accent); font-weight: 700; }
+
+.card-profile-row { display: grid; grid-template-columns: 56px 1fr; gap: 14px; align-items: center; }
+.avatar {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: conic-gradient(from 200deg, var(--aurora-1), var(--aurora-2), var(--aurora-3), var(--aurora-1));
+  display: grid; place-items: center; color: white; font-weight: 600; font-size: 18px; letter-spacing: -0.02em;
+  border: 1px solid var(--hairline-bold);
+}
+.avatar.lg { width: 72px; height: 72px; font-size: 22px; }
+.avatar.sm { width: 36px; height: 36px; font-size: 13px; }
+
+.card-stat .num { font-size: 56px; font-weight: 500; letter-spacing: -0.04em; line-height: 1; }
+.card-stat .delta { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: color-mix(in oklab, var(--success) 30%, transparent); color: var(--success); font-family: var(--mono); font-size: 12px; }
+.card-stat .delta.-neg { background: color-mix(in oklab, var(--danger) 30%, transparent); color: var(--danger); }
+.spark { height: 56px; border-radius: var(--r-2); background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 30%, transparent), transparent); position: relative; overflow: hidden; }
+.spark svg { width: 100%; height: 100%; }
+
+.card-media { padding: 0; }
+.card-media .img {
+  height: 180px; position: relative; overflow: hidden;
+  background:
+    radial-gradient(circle at 30% 30%, color-mix(in oklab, var(--aurora-1) 70%, transparent), transparent 55%),
+    radial-gradient(circle at 70% 70%, color-mix(in oklab, var(--aurora-2) 70%, transparent), transparent 55%);
+  filter: saturate(140%);
+}
+.card-media .img::after { content:""; position: absolute; inset: 0; backdrop-filter: blur(30px); background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.3)); }
+.card-media .img .label { position: absolute; left: 14px; bottom: 14px; z-index: 2; font-family: var(--mono); font-size: 11px; color: white; padding: 4px 10px; background: rgba(0,0,0,0.4); backdrop-filter: blur(10px); border-radius: 999px; }
+.card-media .body-pad { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; }
+
+/* NAV */
+.demo-row { display: flex; flex-direction: column; gap: 18px; }
+.demo {
+  padding: 18px; border-radius: var(--r-4); border: 1px solid var(--hairline); background: var(--glass-1); backdrop-filter: blur(28px) saturate(140%);
+}
+.demo-label { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; color: var(--ink-faint); margin-bottom: 14px; }
+
+.fake-nav {
+  display: flex; align-items: center; gap: 14px; padding: 10px 14px;
+  border: 1px solid var(--hairline-bold); border-radius: 999px; background: var(--glass-2);
+}
+.fake-nav .brand-glyph { width: 28px; height: 28px; }
+.fake-nav .brand-name { font-size: 15px; }
+.fake-nav nav { display: flex; gap: 4px; margin-left: auto; }
+.fake-nav nav a { padding: 6px 12px; border-radius: 999px; text-decoration: none; color: var(--ink-soft); font-size: 13px; }
+.fake-nav nav a.-active { background: var(--glass-strong); color: var(--ink); }
+
+.shell { display: grid; grid-template-columns: 240px 1fr; gap: 14px; min-height: 360px; }
+@media (max-width: 720px) { .shell { grid-template-columns: 1fr; } .shell-side { display:none; } }
+.shell-side {
+  padding: 18px; border-radius: var(--r-4); border: 1px solid var(--hairline); background: var(--glass-1);
+}
+.shell-side h6 { margin-bottom: 8px; }
+.shell-side ul { list-style: none; padding: 0; margin: 0 0 14px; display: flex; flex-direction: column; gap: 2px; }
+.shell-side li { padding: 8px 12px; border-radius: 10px; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 10px; color: var(--ink-soft); }
+.shell-side li:hover { background: var(--glass-2); color: var(--ink); }
+.shell-side li.-active { background: var(--glass-strong); color: var(--ink); }
+.shell-side li .badge-mini { margin-left: auto; font-family: var(--mono); font-size: 11px; color: var(--ink-mute); }
+.shell-main { padding: 18px; border-radius: var(--r-4); border: 1px solid var(--hairline); background: var(--glass-1); }
+.tabs { display: flex; gap: 4px; padding: 4px; background: var(--glass-2); border: 1px solid var(--hairline); border-radius: 999px; width: fit-content; margin-bottom: 16px; }
+.tab { padding: 6px 14px; border-radius: 999px; border: 0; background: transparent; color: var(--ink-soft); font-size: 13px; font-weight: 500; cursor: pointer; }
+.tab.-active { background: var(--glass-strong); color: var(--ink); }
+
+.crumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-mute); margin-bottom: 14px; }
+.crumb a { text-decoration: none; padding: 4px 8px; border-radius: 8px; }
+.crumb a:hover { background: var(--glass-2); color: var(--ink); }
+.crumb .sep { color: var(--ink-faint); }
+
+.pager { display: flex; gap: 4px; align-items: center; padding: 4px; background: var(--glass-2); border: 1px solid var(--hairline); border-radius: 999px; width: fit-content; }
+.pager button { width: 32px; height: 32px; border-radius: 999px; border: 0; background: transparent; color: var(--ink-soft); font-family: var(--mono); font-size: 12px; cursor: pointer; }
+.pager button.-active { background: var(--ink); color: var(--bg-deep); }
+.pager button:not(.-active):hover { background: var(--glass-strong); color: var(--ink); }
+.pager .ellipsis { width: 16px; text-align: center; color: var(--ink-faint); }
+
+.mob-nav {
+  display: flex; padding: 6px; border: 1px solid var(--hairline-bold); border-radius: 999px; background: var(--glass-2); width: fit-content; margin: 0 auto;
+}
+.mob-nav button { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 16px; border: 0; background: transparent; color: var(--ink-mute); font-size: 11px; cursor: pointer; border-radius: 999px; min-width: 64px; }
+.mob-nav button .ico { width: 18px; height: 18px; border-radius: 6px; background: currentColor; opacity: 0.4; }
+.mob-nav button.-active { background: var(--glass-strong); color: var(--ink); }
+.mob-nav button.-active .ico { background: var(--accent); opacity: 1; }
+
+/* DATA */
+.tbl-wrap { border-radius: var(--r-4); border: 1px solid var(--hairline); background: var(--glass-1); overflow: hidden; backdrop-filter: blur(28px); }
+.tbl { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 640px; }
+.tbl th, .tbl td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--hairline); }
+.tbl th { font-family: var(--mono); font-weight: 500; font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.08em; background: var(--glass-2); }
+.tbl tr:last-child td { border-bottom: 0; }
+.tbl tr:hover td { background: var(--glass-2); }
+.tbl .num { font-family: var(--mono); text-align: right; }
+
+.badge { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 500; background: var(--glass-2); border: 1px solid var(--hairline); color: var(--ink-soft); }
+.badge .d { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.badge.-success { color: var(--success); background: color-mix(in oklab, var(--success) 18%, transparent); border-color: color-mix(in oklab, var(--success) 35%, transparent); }
+.badge.-warning { color: var(--warning); background: color-mix(in oklab, var(--warning) 18%, transparent); border-color: color-mix(in oklab, var(--warning) 35%, transparent); }
+.badge.-danger { color: var(--danger); background: color-mix(in oklab, var(--danger) 18%, transparent); border-color: color-mix(in oklab, var(--danger) 35%, transparent); }
+.badge.-info { color: var(--info); background: color-mix(in oklab, var(--info) 18%, transparent); border-color: color-mix(in oklab, var(--info) 35%, transparent); }
+
+.tag { display: inline-flex; padding: 4px 10px; border-radius: 999px; font-size: 12px; background: var(--glass-2); border: 1px solid var(--hairline); color: var(--ink-soft); }
+.tag.-glow { background: color-mix(in oklab, var(--accent) 25%, transparent); border-color: color-mix(in oklab, var(--accent) 40%, transparent); color: var(--ink); }
+
+.list { border-radius: var(--r-4); border: 1px solid var(--hairline); background: var(--glass-1); overflow: hidden; }
+.list-item { display: grid; grid-template-columns: 44px 1fr auto auto; gap: 14px; padding: 14px 18px; border-bottom: 1px solid var(--hairline); align-items: center; }
+.list-item:last-child { border-bottom: 0; }
+.list-icon { width: 36px; height: 36px; border-radius: 12px; background: var(--glass-2); border: 1px solid var(--hairline); display: grid; place-items: center; font-size: 14px; }
+.list-text .t { font-size: 14px; font-weight: 500; }
+.list-text .s { font-size: 12px; color: var(--ink-mute); margin-top: 2px; }
+.list-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-mute); }
+
+.kv { border-radius: var(--r-4); border: 1px solid var(--hairline); background: var(--glass-1); overflow: hidden; padding: 4px 0; margin: 0; }
+.kv .row { display: grid; grid-template-columns: 130px 1fr; padding: 10px 16px; gap: 12px; }
+.kv dt { font-size: 12px; color: var(--ink-mute); margin: 0; }
+.kv dd { font-size: 14px; font-weight: 500; margin: 0; }
+
+.empty { padding: 40px; border-radius: var(--r-4); border: 1px dashed var(--hairline-bold); background: var(--glass-1); text-align: center; }
+.empty h5 { margin-bottom: 6px; }
+.empty p { font-size: 14px; color: var(--ink-mute); }
+
+/* FEEDBACK */
+.alert { padding: 14px 18px; border-radius: var(--r-3); border: 1px solid var(--hairline); background: var(--glass-1); display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; backdrop-filter: blur(28px); }
+.alert .icon { width: 32px; height: 32px; border-radius: 999px; display: grid; place-items: center; background: var(--glass-2); border: 1px solid var(--hairline); font-weight: 700; }
+.alert.-success { border-color: color-mix(in oklab, var(--success) 40%, transparent); background: color-mix(in oklab, var(--success) 10%, var(--glass-1)); }
+.alert.-success .icon { background: color-mix(in oklab, var(--success) 30%, transparent); color: var(--success); }
+.alert.-warning { border-color: color-mix(in oklab, var(--warning) 40%, transparent); background: color-mix(in oklab, var(--warning) 10%, var(--glass-1)); }
+.alert.-warning .icon { background: color-mix(in oklab, var(--warning) 30%, transparent); color: var(--warning); }
+.alert.-danger { border-color: color-mix(in oklab, var(--danger) 40%, transparent); background: color-mix(in oklab, var(--danger) 10%, var(--glass-1)); }
+.alert.-danger .icon { background: color-mix(in oklab, var(--danger) 30%, transparent); color: var(--danger); }
+.alert.-info { border-color: color-mix(in oklab, var(--info) 40%, transparent); background: color-mix(in oklab, var(--info) 10%, var(--glass-1)); }
+.alert.-info .icon { background: color-mix(in oklab, var(--info) 30%, transparent); color: var(--info); }
+.alert .t { font-weight: 600; font-size: 14px; }
+.alert .s { font-size: 13px; color: var(--ink-soft); margin-top: 2px; }
+
+.toast { display: inline-flex; align-items: center; gap: 12px; padding: 10px 14px 10px 12px; border-radius: 999px; background: var(--glass-3); border: 1px solid var(--hairline-bold); backdrop-filter: blur(28px); box-shadow: var(--shadow-1); }
+.toast .ico { width: 24px; height: 24px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; color: white; font-size: 12px; }
+.toast .t { font-size: 13px; }
+.toast button { margin-left: 6px; background: transparent; border: 0; color: var(--ink-mute); font-size: 13px; cursor: pointer; padding: 4px 8px; }
+.toast button:hover { color: var(--ink); }
+
+.modal-stage { padding: 24px; border-radius: var(--r-4); border: 1px solid var(--hairline); background: var(--glass-1); position: relative; min-height: 280px; overflow: hidden; }
+.modal-stage::before { content:""; position: absolute; inset: 0; backdrop-filter: blur(40px); background: rgba(0,0,0,0.2); }
+[data-theme="light"] .modal-stage::before { background: rgba(255,255,255,0.4); }
+.modal { position: relative; max-width: 420px; padding: 24px; border-radius: var(--r-4); background: var(--glass-3); border: 1px solid var(--hairline-bold); box-shadow: var(--shadow-2); }
+.modal .actions { display: flex; gap: 10px; margin-top: 18px; }
+
+.drawer-stage { height: 280px; border-radius: var(--r-4); border: 1px solid var(--hairline); background: var(--glass-1); position: relative; overflow: hidden; }
+.drawer { position: absolute; top: 8px; right: 8px; bottom: 8px; width: 60%; padding: 18px; border-radius: var(--r-3); background: var(--glass-3); border: 1px solid var(--hairline-bold); backdrop-filter: blur(36px); }
+.drawer h5 { margin-bottom: 4px; }
+
+.tooltip-anchor { position: relative; display: inline-block; }
+.tooltip { position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); padding: 6px 10px; border-radius: 8px; background: var(--ink); color: var(--bg-deep); font-size: 12px; white-space: nowrap; }
+
+.popover { position: relative; display: inline-block; }
+.popover-card { position: absolute; top: calc(100% + 8px); left: 0; padding: 14px; border-radius: var(--r-3); background: var(--glass-3); border: 1px solid var(--hairline-bold); width: 240px; backdrop-filter: blur(28px); box-shadow: var(--shadow-2); }
+.popover-card h6 { margin-bottom: 6px; }
+.popover-card p { font-size: 13px; }
+
+.progress { height: 8px; border-radius: 999px; background: var(--glass-2); border: 1px solid var(--hairline); overflow: hidden; }
+.progress > span { display: block; height: 100%; background: linear-gradient(90deg, var(--aurora-1), var(--aurora-3)); }
+.skel { background: linear-gradient(90deg, var(--glass-1), var(--glass-3), var(--glass-1)); background-size: 200% 100%; animation: shimmer 1.6s linear infinite; height: 14px; border-radius: 8px; }
+.skel.-tall { height: 28px; } .skel.-img { height: 120px; border-radius: var(--r-3); }
+@keyframes shimmer { from { background-position: 0 0; } to { background-position: -200% 0; } }
+
+/* PATTERNS */
+.dash {
+  padding: clamp(20px, 3vw, 36px); border-radius: var(--r-5); border: 1px solid var(--hairline); background: var(--glass-1); backdrop-filter: blur(28px); display: grid; grid-template-columns: 7fr 5fr; gap: 28px;
+}
+@media (max-width: 1024px) { .dash { grid-template-columns: 1fr; } }
+.dash h3 { font-size: 28px; }
+.dash .subtitle { color: var(--ink-mute); font-size: 14px; margin-top: 4px; }
+.dash-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 20px; }
+.dash-stat { padding: 14px; border-radius: var(--r-3); background: var(--glass-2); border: 1px solid var(--hairline); }
+.dash-stat .k { font-size: 11px; color: var(--ink-mute); font-family: var(--mono); }
+.dash-stat .v { font-size: 24px; font-weight: 500; margin-top: 4px; letter-spacing: -0.02em; }
+.dash-stat .v small { font-size: 12px; color: var(--ink-mute); }
+.chart {
+  margin-top: 20px; height: 180px; padding: 16px; border-radius: var(--r-3); border: 1px solid var(--hairline); background: var(--glass-2); position: relative; overflow: hidden;
+}
+.chart svg { width: 100%; height: 100%; }
+.chart-legend { position: absolute; top: 12px; right: 14px; display: flex; gap: 12px; font-family: var(--mono); font-size: 11px; color: var(--ink-mute); }
+.chart-legend .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+
+.dash-side { display: flex; flex-direction: column; gap: 14px; }
+.session-card { padding: 18px; border-radius: var(--r-3); border: 1px solid var(--hairline); background: var(--glass-2); display: flex; flex-direction: column; gap: 10px; }
+.session-card h5 { font-size: 16px; }
+
+.feat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 32px; }
+@media (max-width: 720px) { .feat-grid { grid-template-columns: 1fr; } }
+.feat { padding: 24px; border-radius: var(--r-4); border: 1px solid var(--hairline); background: var(--glass-1); display: flex; flex-direction: column; gap: 10px; }
+.feat .ico { width: 44px; height: 44px; border-radius: 14px; background: linear-gradient(135deg, var(--aurora-1), var(--aurora-2)); display: grid; place-items: center; color: white; font-weight: 600; font-family: var(--mono); }
+.feat h5 { font-size: 18px; }
+
+.cta {
+  margin-top: 32px; padding: clamp(28px, 4vw, 56px); border-radius: var(--r-5); border: 1px solid var(--hairline-bold); position: relative; overflow: hidden;
+  background:
+    radial-gradient(800px 400px at 100% 0%, color-mix(in oklab, var(--aurora-2) 60%, transparent), transparent 60%),
+    radial-gradient(800px 400px at 0% 100%, color-mix(in oklab, var(--aurora-1) 50%, transparent), transparent 60%),
+    var(--glass-1);
+  display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
+}
+@media (max-width: 720px) { .cta { grid-template-columns: 1fr; } }
+.cta h3 { font-size: clamp(24px, 3.5vw, 40px); max-width: 24ch; }
+.cta p { color: var(--ink-soft); margin-top: 8px; max-width: 50ch; }
+
+.foot {
+  margin-top: 56px; padding: 32px 0; border-top: 1px solid var(--hairline);
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 24px;
+}
+@media (max-width: 720px) { .foot { grid-template-columns: 1fr 1fr; } }
+.foot h6 { margin-bottom: 10px; }
+.foot ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: var(--ink-soft); }
+.foot a { text-decoration: none; }
+.foot a:hover { color: var(--ink); }
+.foot-brand { display: flex; align-items: center; gap: 10px; }
+.colophon { padding: 18px 0 32px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-family: var(--mono); font-size: 11px; color: var(--ink-faint); }
+</style>
+</head>
+<body>
+
+<div class="aurora"></div>
+<div class="grain"></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand-glyph"></div>
+    <span class="brand-name">AURORA</span>
+    <span class="brand-meta">CATALOGUE Nº 03</span>
+    <nav class="nav-links">
+      <a href="#identity">Identity</a>
+      <a href="#color">Color</a>
+      <a href="#type">Type</a>
+      <a href="#components">Components</a>
+      <a href="#patterns">Patterns</a>
+    </nav>
+    <button class="icon-btn" id="panelToggle" aria-label="Settings">⚙</button>
+    <button class="cta-pill">Try free</button>
+  </div>
+</header>
+
+<aside class="panel" id="panel">
+  <section><h6>THEME</h6>
+    <div class="seg" data-group="theme">
+      <button data-theme="dark" aria-pressed="true">Dark</button>
+      <button data-theme="light" aria-pressed="false">Light</button>
+    </div>
+  </section>
+  <section><h6>AURORA</h6>
+    <div class="aurora-row">
+      <button class="aurora-btn" data-aurora="dawn" aria-pressed="true" style="--c1:#ff5fb3;--c2:#6e5cff;--c3:#2dd4ff"></button>
+      <button class="aurora-btn" data-aurora="reef" style="--c1:#00e1c4;--c2:#2c5cff;--c3:#b54bff"></button>
+      <button class="aurora-btn" data-aurora="ember" style="--c1:#ff7a4c;--c2:#ff3d77;--c3:#ffd166"></button>
+      <button class="aurora-btn" data-aurora="forest" style="--c1:#4ad991;--c2:#00b4a4;--c3:#6e5cff"></button>
+    </div>
+  </section>
+  <section><h6>RADIUS</h6>
+    <div class="seg" data-group="radius">
+      <button data-radius="soft" aria-pressed="true">Soft</button>
+      <button data-radius="round">Round</button>
+      <button data-radius="sharp">Sharp</button>
+    </div>
+  </section>
+</aside>
+
+<main class="page">
+
+<!-- 01 IDENTITY -->
+<section class="hero" id="identity">
+  <div class="hero-grid">
+    <div class="glass hero-card">
+      <div class="hero-eyebrow"><span class="dot"></span> CATALOGUE Nº 03 · STYLE C</div>
+      <h1>Calm <span class="grad">spatial</span> surfaces<br/>that hold attention.</h1>
+      <p class="lede">A premium glass-and-light system for ambient products — focus, music, well-being, calm AI. Translucency, depth, and ambient color do the heavy lifting; everything else gets out of the way.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg">Begin a session</button>
+        <button class="btn btn-ghost btn-lg">Watch a 90-second tour</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="k">// PHILOSOPHY</div><div class="v">Less, but softer</div></div>
+        <div class="hero-stat"><div class="k">// SIGNATURE</div><div class="v">Backdrop blur 28<small>px</small></div></div>
+        <div class="hero-stat"><div class="k">// VOICE</div><div class="v">Considered, quiet</div></div>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="glass now-playing">
+        <div class="np-art"><span class="label">NOW PLAYING · BINAURAL</span></div>
+        <div class="np-meta">
+          <div>
+            <div class="np-title">Slow Tide, North Atlantic</div>
+            <div class="np-sub">Aurora Sessions · 32 min focus block</div>
+          </div>
+          <button class="icon-btn" aria-label="Heart">♡</button>
+        </div>
+        <div class="np-progress"><span></span></div>
+        <div class="np-time"><span>11:48</span><span>−20:12</span></div>
+        <div class="np-controls">
+          <button>⏮</button>
+          <button class="play">▶</button>
+          <button>⏭</button>
+        </div>
+      </div>
+      <div class="glass signal-card">
+        <div class="signal-ring"></div>
+        <div>
+          <h6 style="margin-bottom:2px;">FOCUS SIGNAL</h6>
+          <div style="font-size: 14px;">78 / 100 — Deep, sustained.</div>
+          <p style="font-size:12px;color:var(--ink-mute);margin-top:4px;">Heart-rate variability is up; we'll dim the lamp at 18:30.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 COLOR -->
+<section class="section" id="color">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">02 / 10</span>
+      <h2>Color &amp; ambience</h2>
+    </div>
+    <p class="lede">Two solid surfaces, four glass tints, four aurora hues, and a quietly opinionated semantic set. Color shows up as light, not as paint.</p>
+  </header>
+  <div class="swatch-grid">
+    <div class="swatch"><div class="chip" style="background: var(--bg-deep)"></div><div class="swatch-info"><div class="swatch-name">Bg deep</div><div class="swatch-hex" data-token="bg-deep">--bg-deep</div></div></div>
+    <div class="swatch"><div class="chip" style="background: var(--bg-mid)"></div><div class="swatch-info"><div class="swatch-name">Bg mid</div><div class="swatch-hex" data-token="bg-mid">--bg-mid</div></div></div>
+    <div class="swatch"><div class="chip glass-chip"></div><div class="swatch-info"><div class="swatch-name">Glass 1 / 2</div><div class="swatch-hex">α 0.06 / 0.10</div></div></div>
+    <div class="swatch"><div class="chip" style="background: var(--ink)"></div><div class="swatch-info"><div class="swatch-name">Ink</div><div class="swatch-hex" data-token="ink">--ink</div></div></div>
+    <div class="swatch"><div class="chip" style="background: linear-gradient(135deg, var(--aurora-1), var(--aurora-2))"></div><div class="swatch-info"><div class="swatch-name">Aurora 1→2</div><div class="swatch-hex">--aurora-1, --aurora-2</div></div></div>
+    <div class="swatch"><div class="chip" style="background: linear-gradient(135deg, var(--aurora-2), var(--aurora-3))"></div><div class="swatch-info"><div class="swatch-name">Aurora 2→3</div><div class="swatch-hex">--aurora-2, --aurora-3</div></div></div>
+    <div class="swatch"><div class="chip" style="background: var(--accent)"></div><div class="swatch-info"><div class="swatch-name">Accent</div><div class="swatch-hex" data-token="accent">--accent</div></div></div>
+    <div class="swatch"><div class="chip" style="background: var(--accent-2)"></div><div class="swatch-info"><div class="swatch-name">Accent 2</div><div class="swatch-hex" data-token="accent-2">--accent-2</div></div></div>
+  </div>
+  <div class="aurora-strip">
+    <div class="stops">aurora-1 · aurora-2 · aurora-3 · aurora-4</div>
+  </div>
+  <div class="semantic-grid">
+    <div class="semantic"><div class="sw" style="background:var(--success)"></div><div><div class="name">Success</div><div class="tok">--success</div></div></div>
+    <div class="semantic"><div class="sw" style="background:var(--warning)"></div><div><div class="name">Warning</div><div class="tok">--warning</div></div></div>
+    <div class="semantic"><div class="sw" style="background:var(--danger)"></div><div><div class="name">Danger</div><div class="tok">--danger</div></div></div>
+    <div class="semantic"><div class="sw" style="background:var(--info)"></div><div><div class="name">Info</div><div class="tok">--info</div></div></div>
+  </div>
+  <div class="token-grid">
+    <div class="token-card"><h6>BLUR</h6><code>20 / 28 / 36 / 40 px</code></div>
+    <div class="token-card"><h6>RADIUS</h6><code>8 · 12 · 16 · 20 · 28 · 36</code></div>
+    <div class="token-card"><h6>SPACING</h6><code>4 · 8 · 12 · 16 · 24 · 32 · 48 · 64</code></div>
+    <div class="token-card"><h6>ELEVATION</h6><code>shadow-1 · shadow-2 · shadow-pop</code></div>
+  </div>
+</section>
+
+<!-- 03 TYPE -->
+<section class="section" id="type">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">03 / 10</span>
+      <h2>Typography</h2>
+    </div>
+    <p class="lede">Plus Jakarta Sans across the system. Light weights for display, mono for telemetry. Tightened tracking on big sizes; never below 13 in the body.</p>
+  </header>
+  <div class="type-row"><span class="type-label">DISPLAY</span><span style="font-size:clamp(48px,7vw,96px);font-weight:300;letter-spacing:-0.04em;line-height:1.0;">A softer kind of focus.</span><span class="type-meta">JAKARTA · 300 · -0.04em</span></div>
+  <div class="type-row"><span class="type-label">H1</span><span style="font-size:56px;font-weight:500;letter-spacing:-0.035em;line-height:1.05;">Built for long, quiet sessions.</span><span class="type-meta">JAKARTA · 500 · -0.035em</span></div>
+  <div class="type-row"><span class="type-label">H2</span><span style="font-size:36px;font-weight:500;letter-spacing:-0.03em;">Dim the lamp at sundown</span><span class="type-meta">JAKARTA · 500 · -0.03em</span></div>
+  <div class="type-row"><span class="type-label">H3</span><span style="font-size:28px;font-weight:500;letter-spacing:-0.02em;">A heading at reading distance</span><span class="type-meta">JAKARTA · 500 · -0.02em</span></div>
+  <div class="type-row"><span class="type-label">H4</span><span style="font-size:20px;font-weight:600;">Subhead with weight</span><span class="type-meta">JAKARTA · 600 · 20</span></div>
+  <div class="type-row"><span class="type-label">H5</span><span style="font-size:17px;font-weight:600;">Section title</span><span class="type-meta">JAKARTA · 600 · 17</span></div>
+  <div class="type-row"><span class="type-label">EYEBROW</span><span style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;color:var(--ink-mute);">CATEGORY · LABEL · KICKER</span><span class="type-meta">JAKARTA · 600 · 12 · 0.14em</span></div>
+  <div class="type-row"><span class="type-label">BODY LG</span><span style="font-size:18px;line-height:1.55;color:var(--ink-soft);">A larger paragraph for landings — generous but not loud, with breath between lines and a soft contrast that works against any aurora.</span><span class="type-meta">JAKARTA · 400 · 18 · 1.55</span></div>
+  <div class="type-row"><span class="type-label">BODY</span><span style="font-size:15px;line-height:1.55;color:var(--ink-soft);">Standard running text. Works on glass; cap text at ~70 characters per line and the system holds together at any zoom.</span><span class="type-meta">JAKARTA · 400 · 15 · 1.55</span></div>
+  <div class="type-row"><span class="type-label">BODY SM</span><span style="font-size:13px;line-height:1.5;color:var(--ink-mute);">Tertiary text for tables, helpers, and metadata.</span><span class="type-meta">JAKARTA · 400 · 13 · 1.5</span></div>
+  <div class="type-row"><span class="type-label">CAPTION</span><span style="font-size:12px;color:var(--ink-mute);">Caption · Aurora Sessions · 32 min focus</span><span class="type-meta">JAKARTA · 400 · 12</span></div>
+  <div class="type-row"><span class="type-label">MONO</span><span style="font-family:var(--mono);font-size:13px;color:var(--ink-mute);">// telemetry · uptime 99.97% · region eu-west</span><span class="type-meta">JBM · 400 · 13</span></div>
+  <div class="type-row"><span class="type-label">CODE</span><span style="font-family:var(--mono);font-size:13px;color:var(--ink);background:var(--glass-2);padding:6px 10px;border-radius:8px;border:1px solid var(--hairline);">backdrop-filter: blur(28px);</span><span class="type-meta">JBM · 400 · 13</span></div>
+</section>
+
+<!-- 04 BUTTONS -->
+<section class="section" id="components">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">04 / 10</span>
+      <h2>Buttons</h2>
+    </div>
+    <p class="lede">A pill-shaped baseline with one luminous primary, two glass tones, and a low-noise destructive. Everything has a barely-there border highlight on top.</p>
+  </header>
+  <div class="btn-grid">
+    <span class="lab">PRIMARY</span>
+    <div class="btn-cluster">
+      <button class="btn btn-primary btn-sm">Begin session</button>
+      <button class="btn btn-primary">Begin session</button>
+      <button class="btn btn-primary btn-lg">Begin session</button>
+      <button class="btn btn-primary -loading">Begin</button>
+      <button class="btn btn-primary" disabled>Disabled</button>
+    </div>
+    <span class="lab">SECONDARY</span>
+    <div class="btn-cluster">
+      <button class="btn btn-secondary btn-sm">Save preset</button>
+      <button class="btn btn-secondary">Save preset</button>
+      <button class="btn btn-secondary btn-lg">Save preset</button>
+    </div>
+    <span class="lab">GHOST</span>
+    <div class="btn-cluster">
+      <button class="btn btn-ghost">Maybe later</button>
+      <button class="btn btn-ghost btn-sm">Cancel</button>
+      <button class="btn btn-ghost" disabled>Locked</button>
+    </div>
+    <span class="lab">DESTRUCTIVE</span>
+    <div class="btn-cluster">
+      <button class="btn btn-destructive">Delete session</button>
+      <button class="btn btn-destructive btn-sm">Remove</button>
+    </div>
+    <span class="lab">GLOW · OUTLINE</span>
+    <div class="btn-cluster">
+      <button class="btn btn-glow">Aurora outline</button>
+      <button class="btn btn-glow btn-lg">Get the lamp</button>
+    </div>
+    <span class="lab">ICON</span>
+    <div class="btn-cluster">
+      <button class="btn btn-secondary btn-icon">♡</button>
+      <button class="btn btn-secondary btn-icon">⌕</button>
+      <button class="btn btn-secondary btn-icon">⏻</button>
+      <button class="btn btn-primary btn-icon">＋</button>
+    </div>
+  </div>
+</section>
+
+<!-- 05 FORMS -->
+<section class="section">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">05 / 10</span>
+      <h2>Form controls</h2>
+    </div>
+    <p class="lede">Inputs sit on glass, focus to a halo, and never raise their voice. Validation is a tinted halo, not a red banner.</p>
+  </header>
+  <div class="form-grid">
+    <div class="field"><label>Display name</label><input class="input" value="Mira O." /><span class="helper">Visible to your circle and any sessions you host.</span></div>
+    <div class="field"><label>Search</label><div class="search"><input class="input" placeholder="Search sessions, sounds, presets…" /></div></div>
+    <div class="field error"><label>Email</label><input class="input" value="mira@@" /><span class="helper">That's not quite a valid address.</span></div>
+    <div class="field success"><label>Username</label><input class="input" value="mira-aurora" /><span class="helper">✓ Available.</span></div>
+    <div class="field"><label>Soundscape</label><select class="select"><option>North Atlantic — slow tide</option><option>Pinewood — quiet rain</option><option>Reef cave — pulse</option></select></div>
+    <div class="field"><label>Room</label><select class="select" multiple size="3"><option selected>Studio</option><option selected>Bedroom</option><option>Cabin</option></select></div>
+    <div class="field"><label>Intention</label><textarea class="textarea">Wrap up the q3 wind-down doc without breaking concentration. Easy on the binaural beats.</textarea></div>
+    <div class="field"><label>Locked</label><input class="input" value="org-master-key" disabled /><span class="helper">Managed by your organization.</span></div>
+    <div class="field"><span class="label-text">Lighting</span>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;">
+        <label class="radio"><input type="radio" name="ll" checked /> Dim</label>
+        <label class="radio"><input type="radio" name="ll" /> Ember</label>
+        <label class="radio"><input type="radio" name="ll" /> Off</label>
+      </div>
+    </div>
+    <div class="field"><span class="label-text">Notifications</span>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;">
+        <label class="check"><input type="checkbox" checked /> Daily digest</label>
+        <label class="check"><input type="checkbox" /> New sounds</label>
+        <label class="check"><input type="checkbox" checked /> Session reminders</label>
+      </div>
+    </div>
+    <div class="field"><label>Wake time</label><input class="input" type="time" value="06:45" /></div>
+    <div class="field">
+      <label class="toggle"><input type="checkbox" checked /> <span>Sync HRV from watch</span></label>
+      <label class="toggle" style="margin-top:10px;"><input type="checkbox" /> <span>Auto-dim lamps after 22:00</span></label>
+    </div>
+    <div class="field"><label>Volume</label><input class="slider" type="range" min="0" max="100" value="62" /><span class="helper">62 / 100 — calm but present.</span></div>
+    <div class="field"><label>Cover image</label><div class="upload">Drop a 1200×1200 image, or <strong>browse files</strong></div></div>
+  </div>
+</section>
+
+<!-- 06 CARDS -->
+<section class="section">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">06 / 10</span>
+      <h2>Cards &amp; surfaces</h2>
+    </div>
+    <p class="lede">Cards float on the page, never against it. Each carries a soft top highlight; backgrounds borrow color from the aurora behind them.</p>
+  </header>
+  <div class="card-grid">
+    <article class="card">
+      <span class="card-eyebrow">// SESSION · 32 MIN</span>
+      <h4>Slow Tide, North Atlantic</h4>
+      <p>A drone-and-binaural pairing for long writing blocks. Trade the espresso.</p>
+      <div class="card-foot"><span>Ambient · Drone</span><span>4.7 ★ · 12k saved</span></div>
+    </article>
+    <article class="card card-feature">
+      <span class="card-eyebrow">// FEATURED THIS WEEK</span>
+      <h4>The Aurora Lamp arrives 14 June</h4>
+      <p>A desk lamp that follows your session — dims, cools, and calms with you. Limited first batch.</p>
+      <div class="card-foot"><span>€189 · ships free</span><button class="btn btn-primary btn-sm">Reserve</button></div>
+    </article>
+    <article class="card card-pricing">
+      <span class="card-eyebrow">// MEMBERSHIP</span>
+      <div class="price">€9<small>/month</small></div>
+      <p>Every soundscape, every preset, the lamp at member pricing.</p>
+      <ul>
+        <li>Full library of 240+ soundscapes</li>
+        <li>HRV-aware adaptive sessions</li>
+        <li>Hardware at member pricing</li>
+        <li>Cancel any time, no friction</li>
+      </ul>
+      <button class="btn btn-primary">Become a member</button>
+    </article>
+    <article class="card">
+      <div class="card-profile-row">
+        <div class="avatar">MO</div>
+        <div>
+          <h4 style="font-size:16px;">Mira Otieno</h4>
+          <p style="font-size:12px;color:var(--ink-mute);">Studio · Brussels · since 2023</p>
+        </div>
+      </div>
+      <p>Hosts the Friday-night quiet hour. Logs more focused minutes than the rest of the team combined, and is unbearably modest about it.</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;"><span class="tag -glow">Founding member</span><span class="tag">HRV pro</span><span class="tag">Host</span></div>
+    </article>
+    <article class="card card-stat">
+      <span class="card-eyebrow">// FOCUS THIS WEEK</span>
+      <div class="num">14h 32m</div>
+      <div style="display:flex;align-items:center;gap:10px;"><span class="delta">↑ 18%</span><span style="font-size:12px;color:var(--ink-mute);">vs last week</span></div>
+      <div class="spark">
+        <svg viewBox="0 0 200 56" preserveAspectRatio="none"><path d="M0,40 C20,30 30,18 50,22 C70,26 90,40 110,32 C130,24 150,8 170,14 L200,10 L200,56 L0,56 Z" fill="url(#g)"/><path d="M0,40 C20,30 30,18 50,22 C70,26 90,40 110,32 C130,24 150,8 170,14 L200,10" fill="none" stroke="white" stroke-width="1.5"/><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="white" stop-opacity="0.4"/><stop offset="100%" stop-color="white" stop-opacity="0"/></linearGradient></defs></svg>
+      </div>
+    </article>
+    <article class="card card-media">
+      <div class="img"><span class="label">PRESET · 24 MIN</span></div>
+      <div class="body-pad">
+        <span class="card-eyebrow">// SUNDOWN COLLECTION</span>
+        <h4>Pinewood, after the rain</h4>
+        <p>A short transition session for the moment between the workday and the rest of life.</p>
+        <div class="card-foot"><span>3 sounds · 24 min</span><span>Open →</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 07 NAV -->
+<section class="section">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">07 / 10</span>
+      <h2>Navigation</h2>
+    </div>
+    <p class="lede">Floating capsules instead of bars; nothing pinned to the edge. The system is mostly elsewhere — you find it when you need it.</p>
+  </header>
+  <div class="demo-row">
+    <div class="demo">
+      <div class="demo-label"><span>// FLOATING NAV CAPSULE</span><span>≥ 768px</span></div>
+      <div class="fake-nav">
+        <div class="brand-glyph"></div>
+        <span class="brand-name">aurora</span>
+        <nav>
+          <a href="#" class="-active">Today</a>
+          <a href="#">Library</a>
+          <a href="#">Sessions</a>
+          <a href="#">Hardware</a>
+        </nav>
+        <button class="btn btn-ghost btn-sm">Sign in</button>
+        <button class="btn btn-primary btn-sm">Try free</button>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="demo-label"><span>// APP SHELL</span><span>MEMBER DASHBOARD</span></div>
+      <div class="shell">
+        <aside class="shell-side">
+          <h6>LIBRARY</h6>
+          <ul>
+            <li class="-active">Today's sessions <span class="badge-mini">3</span></li>
+            <li>My presets <span class="badge-mini">12</span></li>
+            <li>Sound library <span class="badge-mini">240</span></li>
+            <li>Sleep sounds <span class="badge-mini">42</span></li>
+          </ul>
+          <h6>HARDWARE</h6>
+          <ul>
+            <li>Aurora Lamp</li>
+            <li>HRV Watch</li>
+          </ul>
+        </aside>
+        <div class="shell-main">
+          <div class="crumb"><a href="#">Library</a><span class="sep">›</span><a href="#">Today</a><span class="sep">›</span> <span style="color:var(--ink);">Slow Tide</span></div>
+          <div class="tabs">
+            <button class="tab -active">Overview</button>
+            <button class="tab">Sounds</button>
+            <button class="tab">Telemetry</button>
+            <button class="tab">Notes</button>
+          </div>
+          <h4>Slow Tide, North Atlantic</h4>
+          <p style="font-size: 14px; margin-top: 6px;">A 32-minute focus block, paired with low warm light. We'll dim your lamp at minute 10.</p>
+        </div>
+      </div>
+    </div>
+    <div class="demo">
+      <div class="demo-label"><span>// PAGINATION & MOBILE TAB-BAR</span><span>MIXED</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;">
+        <div class="pager">
+          <button>‹</button><button>1</button><button class="-active">2</button><button>3</button><button>4</button><span class="ellipsis">…</span><button>14</button><button>›</button>
+        </div>
+        <div class="mob-nav">
+          <button class="-active"><div class="ico"></div>Today</button>
+          <button><div class="ico"></div>Library</button>
+          <button><div class="ico"></div>Sounds</button>
+          <button><div class="ico"></div>Me</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 DATA -->
+<section class="section">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">08 / 10</span>
+      <h2>Data display</h2>
+    </div>
+    <p class="lede">Tables, lists, badges, and key→value blocks — all sitting on glass, all using the same hairline as the rest of the system.</p>
+  </header>
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead><tr><th>Session ↓</th><th>Sound</th><th>Status</th><th class="num">Minutes</th><th>Updated</th></tr></thead>
+      <tbody>
+        <tr><td>Friday Quiet Hour</td><td>Slow Tide</td><td><span class="badge -success"><span class="d"></span>Live</span></td><td class="num">312</td><td>2 min ago</td></tr>
+        <tr><td>Studio Wind-down</td><td>Pinewood</td><td><span class="badge -info"><span class="d"></span>Drafting</span></td><td class="num">128</td><td>14:02</td></tr>
+        <tr><td>Sleep · Tier 2</td><td>Reef cave</td><td><span class="badge -warning"><span class="d"></span>Reviewing</span></td><td class="num">540</td><td>Yesterday</td></tr>
+        <tr><td>Morning Reset</td><td>Birdsong, low</td><td><span class="badge"><span class="d"></span>Idle</span></td><td class="num">86</td><td>2 days</td></tr>
+        <tr><td>Old draft · v1</td><td>—</td><td><span class="badge -danger"><span class="d"></span>Archived</span></td><td class="num">—</td><td>Last month</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px;">
+    <div class="list">
+      <div class="list-item"><div class="list-icon">🌊</div><div class="list-text"><div class="t">Slow Tide</div><div class="s">North Atlantic · drone + binaural</div></div><span class="badge -success"><span class="d"></span>Now</span><span class="list-meta">32:00</span></div>
+      <div class="list-item"><div class="list-icon">🌲</div><div class="list-text"><div class="t">Pinewood, after rain</div><div class="s">Field · ambient</div></div><span class="badge -info"><span class="d"></span>Up next</span><span class="list-meta">24:00</span></div>
+      <div class="list-item"><div class="list-icon">🪨</div><div class="list-text"><div class="t">Reef cave pulse</div><div class="s">Synthesized · 60 BPM</div></div><span class="badge"><span class="d"></span>Queued</span><span class="list-meta">28:00</span></div>
+      <div class="list-item"><div class="list-icon">🕯</div><div class="list-text"><div class="t">Sundown ritual</div><div class="s">Lamp dims 30%</div></div><span class="badge -warning"><span class="d"></span>18:30</span><span class="list-meta">Auto</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div>
+        <h6 style="margin-bottom:10px;">// TAGS</h6>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag">ambient</span><span class="tag -glow">members-only</span><span class="tag">drone</span><span class="tag">binaural</span><span class="tag">low-bpm</span><span class="tag">deep-focus</span></div>
+      </div>
+      <div>
+        <h6 style="margin-bottom:10px;">// COLLABORATORS</h6>
+        <div style="display:flex;gap:14px;align-items:center;">
+          <div class="avatar lg">MO</div>
+          <div style="display:flex;">
+            <div class="avatar sm" style="margin-left:0;">A</div>
+            <div class="avatar sm" style="margin-left:-8px;background:linear-gradient(135deg,var(--aurora-3),var(--aurora-2));">K</div>
+            <div class="avatar sm" style="margin-left:-8px;background:linear-gradient(135deg,var(--aurora-4),var(--aurora-1));">D</div>
+            <div class="avatar sm" style="margin-left:-8px;background:var(--glass-3);color:var(--ink);font-size:11px;">+9</div>
+          </div>
+        </div>
+      </div>
+      <dl class="kv">
+        <div class="row"><dt>Release</dt><dd>14 June 2026</dd></div>
+        <div class="row"><dt>Format</dt><dd>Lamp + 12-month membership</dd></div>
+        <div class="row"><dt>First batch</dt><dd>500 units · ships from BE</dd></div>
+        <div class="row"><dt>Latency</dt><dd>14ms · audio &amp; light synced</dd></div>
+      </dl>
+    </div>
+  </div>
+  <div class="empty" style="margin-top:24px;">
+    <h5>No sessions today.</h5>
+    <p>That's allowed. Take it easy — or seed a new soundscape and we'll match it to your evening.</p>
+    <div style="display:flex;gap:10px;justify-content:center;margin-top:14px;"><button class="btn btn-ghost btn-sm">Skip today</button><button class="btn btn-primary btn-sm">Start a session</button></div>
+  </div>
+</section>
+
+<!-- 09 FEEDBACK -->
+<section class="section">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">09 / 10</span>
+      <h2>Feedback &amp; overlays</h2>
+    </div>
+    <p class="lede">Alerts borrow color quietly. Modals dim the world behind them with backdrop blur instead of a black scrim. Toasts whisper.</p>
+  </header>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+    <div class="alert -success"><div class="icon">✓</div><div><div class="t">Session saved</div><div class="s">Slow Tide · 32 min · synced to your watch.</div></div><button class="btn btn-ghost btn-sm">Open</button></div>
+    <div class="alert -info"><div class="icon">i</div><div><div class="t">Aurora Lamp ships 14 June</div><div class="s">You're in the first batch — number 124 of 500.</div></div><button class="btn btn-ghost btn-sm">Track</button></div>
+    <div class="alert -warning"><div class="icon">!</div><div><div class="t">Watch HRV signal weak</div><div class="s">Charge the band before tonight's wind-down to keep adaptive lighting on.</div></div><button class="btn btn-ghost btn-sm">Remind me</button></div>
+    <div class="alert -danger"><div class="icon">×</div><div><div class="t">Couldn't reach the lamp</div><div class="s">It looks like Wi-Fi dropped. We'll keep retrying every 60 seconds.</div></div><button class="btn btn-ghost btn-sm">Retry now</button></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;">
+    <div class="modal-stage">
+      <div class="modal">
+        <h4>End the session?</h4>
+        <p style="margin-top:8px;">You're 11 minutes in. Ending now logs only the time you've completed — your lamp will return to ambient.</p>
+        <div class="actions">
+          <button class="btn btn-ghost">Keep going</button>
+          <button class="btn btn-destructive">End session</button>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-stage">
+      <div class="drawer">
+        <h5>Session notes</h5>
+        <p style="font-family:var(--mono);font-size:11px;color:var(--ink-mute);margin-bottom:12px;">// SLOW TIDE · 11:48 / 32:00</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="padding:10px 12px;border-radius:10px;background:var(--glass-2);border:1px solid var(--hairline);font-size:13px;"><strong>Mira</strong> · drone is louder than usual — drop 3dB after intro?</div>
+          <div style="padding:10px 12px;border-radius:10px;background:color-mix(in oklab,var(--accent) 18%,var(--glass-2));border:1px solid var(--hairline);font-size:13px;"><strong>Aurora</strong> · noted. Adjusting for tonight at 21:00.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:24px;">
+    <div>
+      <h6 style="margin-bottom:10px;">// TOOLTIP &amp; POPOVER</h6>
+      <div style="display:flex;gap:18px;align-items:flex-end;">
+        <div class="tooltip-anchor"><button class="btn btn-secondary btn-sm">Hover</button><div class="tooltip">⌥ + S to save</div></div>
+        <div class="popover"><button class="btn btn-secondary btn-sm">Details ▾</button><div class="popover-card"><h6>Slow Tide</h6><p>32 min focus · adaptive lamp · 4.7★</p></div></div>
+      </div>
+    </div>
+    <div>
+      <h6 style="margin-bottom:10px;">// TOAST</h6>
+      <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start;">
+        <div class="toast"><div class="ico">✓</div><span class="t">Saved 6 seconds ago</span><button>Undo</button></div>
+        <div class="toast"><div class="ico" style="background:var(--success);">⌁</div><span class="t">Lamp connected · ambient mode</span></div>
+      </div>
+    </div>
+    <div>
+      <h6 style="margin-bottom:10px;">// PROGRESS &amp; SKELETON</h6>
+      <div class="progress"><span style="width:62%"></span></div>
+      <p style="font-family:var(--mono);font-size:11px;color:var(--ink-mute);margin-top:6px;">// SYNCING SESSION · 62% · 14.2 / 22.3 MB</p>
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:6px;">
+        <div class="skel -img"></div>
+        <div class="skel -tall" style="width:80%"></div>
+        <div class="skel" style="width:60%"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 PATTERNS -->
+<section class="section" id="patterns">
+  <header class="section-head">
+    <div class="meta">
+      <span class="num">10 / 10</span>
+      <h2>Layout patterns</h2>
+    </div>
+    <p class="lede">A sample dashboard, a feature trio, and a CTA — all using the same six tokens. Nothing here is bespoke.</p>
+  </header>
+  <div class="dash">
+    <div>
+      <span class="hero-eyebrow"><span class="dot"></span> THIS WEEK · WK 19</span>
+      <h3>You went deeper than you noticed.</h3>
+      <p class="subtitle">14h 32m of focus, 7 of them after sundown. Slow Tide accounts for 38%.</p>
+      <div class="dash-stats">
+        <div class="dash-stat"><div class="k">// FOCUS</div><div class="v">14h 32m <small>+18%</small></div></div>
+        <div class="dash-stat"><div class="k">// SESSIONS</div><div class="v">22 <small>×</small></div></div>
+        <div class="dash-stat"><div class="k">// HRV</div><div class="v">68 <small>ms avg</small></div></div>
+      </div>
+      <div class="chart">
+        <div class="chart-legend"><span><span class="dot" style="background:var(--accent);"></span>focus</span><span><span class="dot" style="background:var(--accent-2);"></span>sleep</span></div>
+        <svg viewBox="0 0 600 160" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--accent)" stop-opacity="0.45"/><stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/></linearGradient>
+            <linearGradient id="gb" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--accent-2)" stop-opacity="0.35"/><stop offset="100%" stop-color="var(--accent-2)" stop-opacity="0"/></linearGradient>
+          </defs>
+          <path d="M0,120 C80,90 120,70 200,80 C280,90 320,40 400,50 C480,60 520,30 600,20 L600,160 L0,160 Z" fill="url(#ga)"/>
+          <path d="M0,120 C80,90 120,70 200,80 C280,90 320,40 400,50 C480,60 520,30 600,20" fill="none" stroke="var(--accent)" stroke-width="2"/>
+          <path d="M0,140 C80,130 130,140 200,130 C270,120 320,110 400,115 C480,120 540,100 600,90 L600,160 L0,160 Z" fill="url(#gb)"/>
+          <path d="M0,140 C80,130 130,140 200,130 C270,120 320,110 400,115 C480,120 540,100 600,90" fill="none" stroke="var(--accent-2)" stroke-width="2"/>
+        </svg>
+      </div>
+    </div>
+    <div class="dash-side">
+      <div class="session-card">
+        <h6>// TONIGHT</h6>
+        <h5>Sundown ritual · 18:30</h5>
+        <p style="font-size:13px;color:var(--ink-mute);">Lamp dims 30%, kettle on, pinewood at low volume for 12 min.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;"><span class="tag">auto</span><span class="tag">lamp</span><span class="tag -glow">recommended</span></div>
+        <div style="display:flex;gap:8px;margin-top:6px;"><button class="btn btn-ghost btn-sm">Skip</button><button class="btn btn-primary btn-sm">Confirm</button></div>
+      </div>
+      <div class="session-card">
+        <h6>// LAMP</h6>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="width:48px;height:48px;border-radius:14px;background: radial-gradient(circle at 30% 30%, var(--aurora-4), var(--aurora-1));"></div>
+          <div>
+            <h5>Aurora Lamp</h5>
+            <p style="font-size:12px;color:var(--ink-mute);">Connected · ambient · 28% brightness</p>
+          </div>
+          <button class="icon-btn" style="margin-left:auto;">⏻</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="feat-grid">
+    <div class="feat"><div class="ico">01</div><h5>Light follows audio</h5><p>The lamp dims, cools, and lifts in lockstep with the soundscape. 14 ms latency end-to-end.</p></div>
+    <div class="feat"><div class="ico">02</div><h5>Adaptive sessions</h5><p>HRV shapes the session live: longer drones on tense days, brighter rituals when you're flat.</p></div>
+    <div class="feat"><div class="ico">03</div><h5>Quiet by default</h5><p>No streaks, no notifications you didn't ask for, no leaderboards. Calm should not be gamified.</p></div>
+  </div>
+  <div class="cta">
+    <div>
+      <h3>Get the lamp. Get the year.</h3>
+      <p>Aurora Lamp + 12-month membership, €189. First batch ships 14 June. We'll send a quiet email when yours leaves the warehouse.</p>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="btn btn-ghost">Just the membership</button>
+      <button class="btn btn-primary btn-lg">Reserve a lamp</button>
+    </div>
+  </div>
+  <footer class="foot">
+    <div>
+      <div class="foot-brand"><div class="brand-glyph"></div><span class="brand-name">aurora</span></div>
+      <p style="margin-top:14px;font-size:13px;max-width:42ch;color:var(--ink-mute);">A small studio in Brussels making calm tools for focus and rest. We answer email slowly, on purpose.</p>
+    </div>
+    <div><h6>PRODUCT</h6><ul><li><a href="#">Sessions</a></li><li><a href="#">Library</a></li><li><a href="#">Hardware</a></li><li><a href="#">Membership</a></li></ul></div>
+    <div><h6>COMPANY</h6><ul><li><a href="#">About</a></li><li><a href="#">Manifesto</a></li><li><a href="#">Press</a></li><li><a href="#">Careers</a></li></ul></div>
+    <div><h6>LEGAL</h6><ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">Cookies</a></li><li><a href="#">DPA</a></li></ul></div>
+  </footer>
+  <div class="colophon">
+    <span>© 2026 AURORA STUDIO · BRUSSELS BE</span>
+    <span>SET IN PLUS JAKARTA SANS · MADE QUIETLY</span>
+  </div>
+</section>
+
+</main>
+
+<script>
+(function(){
+  const html = document.documentElement;
+  const panel = document.getElementById('panel');
+  document.getElementById('panelToggle').addEventListener('click', () => panel.classList.toggle('open'));
+
+  document.querySelectorAll('[data-theme]').forEach(b => b.addEventListener('click', () => {
+    html.dataset.theme = b.dataset.theme;
+    document.querySelectorAll('[data-theme]').forEach(x => x.setAttribute('aria-pressed', x.dataset.theme === b.dataset.theme));
+    refreshTokens();
+  }));
+  document.querySelectorAll('[data-aurora]').forEach(b => b.addEventListener('click', () => {
+    html.dataset.aurora = b.dataset.aurora;
+    document.querySelectorAll('[data-aurora]').forEach(x => x.setAttribute('aria-pressed', x.dataset.aurora === b.dataset.aurora));
+    refreshTokens();
+  }));
+  document.querySelectorAll('[data-radius]').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('[data-radius]').forEach(x => x.setAttribute('aria-pressed', x === b));
+    const map = { soft: ['8px','12px','16px','20px','28px','36px'], round: ['12px','18px','24px','28px','36px','48px'], sharp: ['2px','4px','6px','8px','10px','14px'] };
+    const v = map[b.dataset.radius];
+    [1,2,3,4,5,6].forEach((n,i) => html.style.setProperty('--r-'+n, v[i]));
+  }));
+
+  function refreshTokens(){
+    requestAnimationFrame(() => {
+      document.querySelectorAll('[data-token]').forEach(el => {
+        const t = el.dataset.token;
+        const v = getComputedStyle(html).getPropertyValue('--' + t).trim();
+        el.textContent = `--${t}  ${v}`;
+      });
+    });
+  }
+  refreshTokens();
+})();
+</script>
+</body>
+</html>

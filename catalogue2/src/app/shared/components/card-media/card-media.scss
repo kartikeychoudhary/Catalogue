@@ -1,0 +1,47 @@
+:host {
+  display: block;
+
+  .card {
+    background: var(--surface);
+    border: var(--bw) solid var(--text);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .img {
+    height: 180px;
+    border-bottom: var(--bw) solid var(--text);
+    background:
+      linear-gradient(45deg, var(--accent) 25%, transparent 25%),
+      linear-gradient(-45deg, var(--accent) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, var(--accent) 75%),
+      linear-gradient(-45deg, transparent 75%, var(--accent) 75%);
+    background-size: 24px 24px;
+    background-position: 0 0, 0 12px, 12px -12px, -12px 0px;
+    background-color: var(--surface-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+
+    span {
+      background: var(--text);
+      color: var(--bg);
+      padding: 4px 8px;
+      font-weight: 700;
+    }
+  }
+
+  .body-pad {
+    padding: 16px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

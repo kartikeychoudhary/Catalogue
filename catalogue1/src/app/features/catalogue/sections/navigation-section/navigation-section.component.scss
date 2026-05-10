@@ -1,0 +1,37 @@
+.demo {
+  padding: var(--s-5) 0;
+  border-bottom: var(--rule);
+}
+
+.demo-label {
+  font-family: var(--mono);
+  font-size: var(--t-overline);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  display: block;
+  margin-bottom: var(--s-3);
+}
+
+.fake-shell {
+  display: flex;
+  border: var(--rule);
+  height: 320px;
+}
+
+.fake-side {
+  width: 240px;
+  border-right: var(--rule);
+  padding: var(--s-4);
+  overflow-y: auto;
+}
+
+.fake-main {
+  flex: 1;
+  background: var(--surface-2);
+}
+
+.bottom-nav-demo {
+  border: var(--rule);
+  max-width: 400px;
+}

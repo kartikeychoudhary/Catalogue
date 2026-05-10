@@ -1,0 +1,13 @@
+<div class="field">
+  <label *ngIf="label">{{ label }}</label>
+  <input
+    class="slider"
+    type="range"
+    [min]="min"
+    [max]="max"
+    [value]="value"
+    [attr.aria-label]="label || null"
+    (input)="onInput($event)"
+  />
+  <span class="helper" *ngIf="helper || true">{{ helper }}: {{ value }}</span>
+</div>

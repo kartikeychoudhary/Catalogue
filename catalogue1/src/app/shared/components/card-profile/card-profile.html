@@ -1,0 +1,14 @@
+<article class="card card-profile">
+  <div class="profile-header">
+    <div class="avatar" *ngIf="avatarInitials">{{ avatarInitials }}</div>
+    <div class="profile-info">
+      <p class="name" *ngIf="name">{{ name }}</p>
+      <p class="role" *ngIf="role">{{ role }}</p>
+    </div>
+  </div>
+  <p class="bio" *ngIf="bio">{{ bio }}</p>
+  <div class="meta" *ngIf="metaLabel || metaValue">
+    <span class="meta-label" *ngIf="metaLabel">{{ metaLabel }}</span>
+    <span class="meta-value" *ngIf="metaValue">{{ metaValue }}</span>
+  </div>
+</article>

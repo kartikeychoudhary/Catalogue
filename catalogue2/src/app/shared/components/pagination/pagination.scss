@@ -1,0 +1,31 @@
+:host {
+  display: block;
+
+  .pager {
+    display: flex;
+    gap: 8px;
+    padding: 16px;
+    flex-wrap: wrap;
+
+    button {
+      width: 40px;
+      height: 40px;
+      border: var(--bw) solid var(--text);
+      background: var(--surface);
+      cursor: pointer;
+      font-family: var(--mono);
+      font-weight: 700;
+      box-shadow: 2px 2px 0 var(--text);
+
+      &.-active {
+        background: var(--accent);
+      }
+    }
+
+    .ellipsis {
+      width: 20px;
+      line-height: 40px;
+      text-align: center;
+    }
+  }
+}

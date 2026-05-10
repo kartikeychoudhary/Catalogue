@@ -1,0 +1,48 @@
+// _themes.scss — Neo-Brutalist tokens (verbatim from source HTML)
+
+:root {
+  --display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  --bg: #f5f1e8;
+  --surface: #ffffff;
+  --surface-2: #ebe6d8;
+  --text: #050505;
+  --text-muted: #1a1a1a;
+  --text-dim: #555;
+  --border: #050505;
+
+  --success: #1ea654;
+  --warning: #ff9b00;
+  --danger:  #ff3a3a;
+  --info:    #2c5cff;
+
+  --accent:    #ffd400;
+  --accent-2:  #ff5af0;
+  --accent-fg: #050505;
+
+  --shadow: 6px 6px 0 var(--text);
+  --shadow-lg: 10px 10px 0 var(--text);
+  --shadow-sm: 3px 3px 0 var(--text);
+  --bw: 3px;
+  --bw-thick: 5px;
+
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px;
+  --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px;
+}
+[data-palette="toxic"] {
+  --bg: #d2ff3a; --surface: #ffffff; --surface-2: #b0e000;
+  --accent: #ff00aa; --accent-2: #00ffd5;
+}
+[data-palette="riso"] {
+  --bg: #ffd9e0; --surface: #fff7d6; --surface-2: #c9e0ff;
+  --accent: #ff3a3a; --accent-2: #2c5cff;
+}
+[data-theme="dark"] {
+  --bg: #0a0a0a; --surface: #1a1a1a; --surface-2: #2a2a2a;
+  --text: #f5f1e8; --text-muted: #f5f1e8; --text-dim: #aaa;
+  --accent-fg: #050505;
+}
+[data-theme="dark"][data-palette="toxic"] { --bg: #0a0a0a; --surface: #1a1a1a; --surface-2: #1a3300; --text: #d2ff3a; --accent: #ff00aa; }
+[data-theme="dark"][data-palette="riso"]  { --bg: #0d0a14; --surface: #1c1424; --surface-2: #2a1f3a; --text: #ffd9e0; --accent: #ff3a3a; }

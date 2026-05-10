@@ -1,0 +1,6 @@
+<div class="crumb">
+  <ng-container *ngFor="let crumb of crumbs; let last = last">
+    <a [href]="crumb.href">{{ crumb.label }}</a>
+    <span *ngIf="!last">/</span>
+  </ng-container>
+</div>

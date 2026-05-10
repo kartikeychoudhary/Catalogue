@@ -1,0 +1,16 @@
+<div class="fake-navbar">
+  <span class="brand">{{ brand }}</span>
+  <nav>
+    @for (link of links; track link.label) {
+      <a
+        [href]="link.href"
+        [class.-active]="link.active"
+        (click)="$event.preventDefault(); linkClicked.emit(link.href)">
+        {{ link.label }}
+      </a>
+    }
+  </nav>
+  @if (ctaLabel) {
+    <button class="cta" (click)="ctaClicked.emit()">{{ ctaLabel }}</button>
+  }
+</div>

@@ -1,0 +1,29 @@
+:host {
+  display: block;
+
+  .modal-stage {
+    border: var(--bw) solid var(--text);
+    background: var(--surface-2);
+    padding: 24px;
+    min-height: 280px;
+    position: relative;
+  }
+
+  .modal {
+    background: var(--surface);
+    border: var(--bw) solid var(--text);
+    padding: 20px;
+    max-width: 460px;
+    box-shadow: var(--shadow-lg);
+
+    h4 {
+      margin-bottom: 8px;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+  }
+}

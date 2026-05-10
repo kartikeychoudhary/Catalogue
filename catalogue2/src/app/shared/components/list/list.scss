@@ -1,0 +1,9 @@
+:host {
+  display: block;
+
+  .list {
+    border: var(--bw) solid var(--text);
+    box-shadow: var(--shadow);
+    background: var(--surface);
+  }
+}

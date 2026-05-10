@@ -1,0 +1,8 @@
+<div class="alert" [class]="'alert -' + variant" role="alert">
+  <span class="alert-dot" aria-hidden="true">●</span>
+  <div class="alert-body">
+    <h6>{{ title }}</h6>
+    <p>{{ message }}</p>
+  </div>
+  <button class="alert-action" *ngIf="actionLabel" (click)="actionClick.emit()">{{ actionLabel }}</button>
+</div>

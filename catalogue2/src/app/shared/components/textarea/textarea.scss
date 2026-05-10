@@ -1,0 +1,41 @@
+:host {
+  display: block;
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .textarea-el {
+    font-family: var(--sans);
+    font-size: 16px;
+    padding: 12px 14px;
+    min-height: 100px;
+    border: var(--bw) solid var(--text);
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: var(--shadow-sm);
+
+    &:focus {
+      outline: none;
+      background: var(--accent);
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0 var(--text);
+    }
+
+    &[disabled] {
+      background: var(--surface-2);
+      color: var(--text-dim);
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+  }
+}

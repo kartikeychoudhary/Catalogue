@@ -1,0 +1,71 @@
+<section class="section">
+  <div class="section-head">
+    <span class="section-num">09</span>
+    <h2 class="section-title">Feedback</h2>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Alerts</span>
+    <div style="display:flex;flex-direction:column;gap:var(--s-3)">
+      <app-alert variant="success" title="Success" message="Your changes have been saved successfully."></app-alert>
+      <app-alert variant="warning" title="Warning" message="Your session will expire in 5 minutes." actionLabel="Extend"></app-alert>
+      <app-alert variant="danger" title="Error" message="Something went wrong. Please try again." actionLabel="Retry"></app-alert>
+      <app-alert variant="info" title="Info" message="A new version of the catalogue is available."></app-alert>
+    </div>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Toast</span>
+    <div style="display:flex;gap:var(--s-3);align-items:center">
+      <app-button variant="primary" size="sm" (clicked)="showToast()">Show toast</app-button>
+      <app-toast message="Item saved successfully" variant="success" actionLabel="Undo"></app-toast>
+    </div>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Modal</span>
+    <div class="modal-stage">
+      <app-modal [open]="true" title="Confirm action">
+        <p>Are you sure you want to proceed with this action? This cannot be undone.</p>
+        <app-button variant="primary" size="sm">Confirm</app-button>
+        <app-button variant="tertiary" size="sm">Cancel</app-button>
+      </app-modal>
+    </div>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Drawer</span>
+    <div class="drawer-stage">
+      <app-drawer [open]="true" title="Settings">
+        <p>Drawer content goes here.</p>
+      </app-drawer>
+    </div>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Progress</span>
+    <div style="display:flex;flex-direction:column;gap:var(--s-3)">
+      <app-progress [value]="35" [max]="100" label="Uploading files"></app-progress>
+      <app-progress [value]="72" [max]="100" label="Processing data"></app-progress>
+      <app-progress [value]="100" [max]="100" label="Complete"></app-progress>
+    </div>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Skeleton</span>
+    <div style="display:flex;flex-direction:column;gap:var(--s-2)">
+      <app-skeleton variant="text" width="60%"></app-skeleton>
+      <app-skeleton variant="text" width="80%"></app-skeleton>
+      <app-skeleton variant="text" width="40%"></app-skeleton>
+      <app-skeleton variant="tall"></app-skeleton>
+    </div>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Tooltip & Popover</span>
+    <div class="tooltip-row">
+      <span class="tooltip-anchor" appTooltip="This is a helpful tooltip">Tooltip anchor</span>
+      <span class="tooltip-anchor" appPopover="Additional context and details about this element." popoverTitle="More Info">Popover anchor</span>
+    </div>
+  </div>
+</section>

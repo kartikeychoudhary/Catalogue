@@ -1,0 +1,1419 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-palette="ink">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Catalogue 01 — Swiss / Editorial Minimal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ---------- TOKENS ---------- */
+:root {
+  --serif: "Fraunces", "GT Sectra", "Times New Roman", serif;
+  --sans: "Inter", "Neue Haas Grotesk", -apple-system, system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  /* INK palette (default) */
+  --bg:        #fafaf7;
+  --surface:   #ffffff;
+  --surface-2: #f3f3ee;
+  --border:    #1a1a1a;
+  --border-soft: #e2e2dc;
+  --hairline:  #c8c8c2;
+  --text:      #0a0a0a;
+  --text-muted:#5b5b56;
+  --text-dim:  #8a8a83;
+
+  --success: #1f6f3f;
+  --warning: #b06f00;
+  --danger:  #b1242c;
+  --info:    #1c4a86;
+
+  --accent:   #d6231a;     /* hot red — Swiss classic */
+  --accent-fg:#ffffff;
+
+  /* Geometry */
+  --radius: 0px;
+  --hair: 1px;
+  --rule: 1px solid var(--hairline);
+  --rule-strong: 1px solid var(--text);
+
+  /* Spacing scale (8pt-ish but tight) */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px;
+  --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px; --s-10: 128px;
+
+  /* Type scale — fluid clamp */
+  --t-display: clamp(56px, 9vw, 152px);
+  --t-h1: clamp(40px, 5.5vw, 80px);
+  --t-h2: clamp(30px, 4vw, 56px);
+  --t-h3: clamp(24px, 3vw, 36px);
+  --t-h4: 22px;
+  --t-h5: 18px;
+  --t-h6: 15px;
+  --t-body-lg: 19px;
+  --t-body: 16px;
+  --t-body-sm: 14px;
+  --t-caption: 12px;
+  --t-overline: 11px;
+}
+
+/* WARM STONE palette */
+[data-palette="stone"] {
+  --bg: #f5f1ea;
+  --surface: #fbf8f2;
+  --surface-2: #ece6da;
+  --border: #2a241c;
+  --border-soft: #d9d2c2;
+  --hairline: #beb6a4;
+  --text: #1f1a13;
+  --text-muted: #645c4d;
+  --text-dim: #8e8676;
+}
+/* COLD STEEL palette */
+[data-palette="steel"] {
+  --bg: #f1f3f5;
+  --surface: #ffffff;
+  --surface-2: #e3e7eb;
+  --border: #11161c;
+  --border-soft: #cfd5dc;
+  --hairline: #adb6c0;
+  --text: #0c1117;
+  --text-muted: #4a5260;
+  --text-dim: #7a8390;
+}
+
+/* DARK MODE */
+[data-theme="dark"] {
+  --bg: #0c0c0a;
+  --surface: #141412;
+  --surface-2: #1c1c19;
+  --border: #f4f4ee;
+  --border-soft: #2a2a26;
+  --hairline: #3a3a35;
+  --text: #f4f4ee;
+  --text-muted: #a3a39d;
+  --text-dim: #6e6e68;
+  --success: #4fae6e;
+  --warning: #d99b3a;
+  --danger:  #ec5b62;
+  --info:    #5b8fd8;
+}
+[data-theme="dark"][data-palette="stone"] {
+  --bg: #14110b; --surface: #1c1812; --surface-2: #25201a;
+  --border-soft: #322c22; --hairline: #443d2f;
+  --text: #f1eadc; --text-muted: #a59c89; --text-dim: #6f6857;
+}
+[data-theme="dark"][data-palette="steel"] {
+  --bg: #07090b; --surface: #0e1115; --surface-2: #161b21;
+  --border-soft: #232a32; --hairline: #38424d;
+  --text: #eef2f7; --text-muted: #99a3b0; --text-dim: #5d6772;
+}
+
+/* ---------- BASE ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: var(--t-body);
+  line-height: 1.5;
+  font-feature-settings: "ss01","cv11";
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+h1, h2, h3, h4, h5, h6, .display { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; line-height: 1.05; margin: 0; }
+.display { font-size: var(--t-display); letter-spacing: -0.04em; line-height: 0.92; }
+h1 { font-size: var(--t-h1); letter-spacing: -0.025em; }
+h2 { font-size: var(--t-h2); letter-spacing: -0.02em; }
+h3 { font-size: var(--t-h3); }
+h4 { font-size: var(--t-h4); }
+h5 { font-size: var(--t-h5); }
+h6 { font-size: var(--t-h6); }
+p { margin: 0; }
+a { color: var(--accent); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ---------- LAYOUT GRID ---------- */
+.page { max-width: 1440px; margin: 0 auto; padding: 0 var(--s-7); }
+@media (max-width: 900px) { .page { padding: 0 var(--s-4); } }
+.row { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--s-5); }
+@media (max-width: 720px) { .row { grid-template-columns: repeat(6, 1fr); gap: var(--s-4); } }
+
+.section { padding: var(--s-9) 0; border-top: var(--rule); position: relative; }
+.section:first-of-type { border-top: 0; }
+.section-head {
+  display: grid; grid-template-columns: 80px 1fr; gap: var(--s-5);
+  align-items: baseline;
+  padding-bottom: var(--s-7);
+  margin-bottom: var(--s-7);
+  border-bottom: var(--rule);
+}
+.section-num { font-family: var(--mono); font-size: var(--t-caption); letter-spacing: 0.08em; color: var(--text-muted); }
+.section-title { font-family: var(--serif); font-size: var(--t-h2); letter-spacing: -0.02em; }
+.section-meta { font-family: var(--mono); font-size: var(--t-overline); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); }
+
+/* ---------- TOP BAR ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in oklab, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: var(--rule);
+}
+.topbar-inner {
+  max-width: 1440px; margin: 0 auto;
+  padding: var(--s-3) var(--s-7);
+  display: flex; align-items: center; gap: var(--s-5);
+  justify-content: space-between;
+}
+@media (max-width: 900px) { .topbar-inner { padding: var(--s-3) var(--s-4); } }
+.brand { display: flex; align-items: baseline; gap: var(--s-3); }
+.brand-mark {
+  font-family: var(--serif); font-size: 22px; letter-spacing: -0.02em;
+}
+.brand-mark em { font-style: italic; color: var(--accent); }
+.brand-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+.nav-links { display: flex; gap: var(--s-5); font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+.nav-links a { color: var(--text); text-decoration: none; }
+.nav-links a:hover { color: var(--accent); }
+@media (max-width: 900px) { .nav-links { display: none; } }
+
+/* ---------- THEME PANEL ---------- */
+.panel-toggle {
+  width: 40px; height: 40px;
+  border: 1px solid var(--text); background: var(--surface); color: var(--text);
+  font-family: var(--mono); font-size: 16px; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.theme-panel {
+  position: fixed; top: 64px; right: var(--s-4); z-index: 60;
+  width: 300px;
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--text);
+  padding: var(--s-5);
+  font-family: var(--sans); font-size: 13px;
+  display: none;
+  box-shadow: 8px 8px 0 var(--text);
+}
+.theme-panel.open { display: block; }
+.theme-panel h6 {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--s-2);
+  font-weight: 500;
+}
+.theme-panel section + section { margin-top: var(--s-5); }
+.swatch-row { display: flex; gap: 6px; flex-wrap: wrap; }
+.swatch-btn {
+  width: 28px; height: 28px; border: 1px solid var(--hairline);
+  cursor: pointer; padding: 0; position: relative;
+}
+.swatch-btn[aria-pressed="true"] { outline: 2px solid var(--text); outline-offset: 2px; }
+.palette-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.palette-btn {
+  border: 1px solid var(--hairline); background: var(--surface);
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 6px 8px; cursor: pointer; color: var(--text);
+}
+.palette-btn[aria-pressed="true"] { background: var(--text); color: var(--bg); }
+.theme-row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.theme-btn {
+  border: 1px solid var(--hairline); background: var(--surface); color: var(--text);
+  padding: 8px; cursor: pointer; font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.theme-btn[aria-pressed="true"] { background: var(--text); color: var(--bg); }
+.hex-input {
+  width: 100%; border: 1px solid var(--hairline); background: var(--bg);
+  color: var(--text); font-family: var(--mono); font-size: 12px;
+  padding: 6px 8px; margin-top: 6px;
+}
+
+/* ---------- IDENTITY HEADER ---------- */
+.identity { padding-top: var(--s-9); padding-bottom: var(--s-7); }
+.identity .row { row-gap: var(--s-7); }
+.identity-tag {
+  font-family: var(--mono); font-size: var(--t-overline);
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted);
+  display: flex; align-items: center; gap: var(--s-3);
+}
+.identity-tag::before { content: ""; width: 24px; height: 1px; background: var(--accent); }
+.identity-title { grid-column: span 12; }
+.identity-title .display em { font-style: italic; color: var(--accent); }
+.identity-philosophy { grid-column: 1 / span 7; font-size: var(--t-body-lg); line-height: 1.5; max-width: 60ch; }
+.identity-meta { grid-column: 9 / span 4; }
+@media (max-width: 900px) { .identity-philosophy, .identity-meta { grid-column: 1 / -1; } }
+.meta-block { border-top: var(--rule); padding-top: var(--s-3); margin-bottom: var(--s-5); }
+.meta-block dt { font-family: var(--mono); font-size: var(--t-overline); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+.meta-block dd { font-family: var(--serif); font-size: var(--t-h5); margin: 0; }
+.signature {
+  margin-top: var(--s-7);
+  border-top: 1px solid var(--text); border-bottom: 1px solid var(--text);
+  padding: var(--s-7) 0;
+  display: grid; grid-template-columns: 1fr auto; gap: var(--s-5); align-items: center;
+}
+.signature-quote { font-family: var(--serif); font-style: italic; font-size: var(--t-h3); max-width: 26ch; }
+.signature-mark { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; }
+
+/* ---------- COLOR SYSTEM ---------- */
+.swatch-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); }
+@media (max-width: 720px) { .swatch-grid { grid-template-columns: repeat(3, 1fr); } }
+.swatch {
+  background: var(--surface); padding: var(--s-4);
+  display: flex; flex-direction: column; gap: var(--s-3); aspect-ratio: 1 / 1.1;
+  justify-content: space-between;
+}
+.swatch-chip { width: 100%; aspect-ratio: 1 / 1; }
+.swatch-name { font-family: var(--serif); font-size: 16px; }
+.swatch-hex { font-family: var(--mono); font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; }
+.semantic-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-4);
+  margin-top: var(--s-7);
+}
+@media (max-width: 720px) { .semantic-grid { grid-template-columns: repeat(2, 1fr); } }
+.semantic {
+  border: var(--rule); padding: var(--s-4);
+  display: flex; flex-direction: column; gap: var(--s-2);
+}
+.semantic-bar { height: 6px; }
+.semantic-name { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+.semantic-token { font-family: var(--serif); font-size: 18px; }
+
+/* ---------- TYPOGRAPHY ---------- */
+.type-row {
+  display: grid; grid-template-columns: 200px 1fr 240px;
+  gap: var(--s-5);
+  padding: var(--s-5) 0;
+  border-bottom: var(--rule);
+  align-items: baseline;
+}
+@media (max-width: 900px) { .type-row { grid-template-columns: 1fr; gap: var(--s-2); } }
+.type-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+.type-meta { font-family: var(--mono); font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; }
+.type-spec.serif { font-family: var(--serif); }
+.type-spec.sans { font-family: var(--sans); }
+.type-spec.mono { font-family: var(--mono); }
+
+/* ---------- BUTTONS ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--s-2);
+  font-family: var(--sans); font-size: 14px; font-weight: 500;
+  letter-spacing: 0.02em; line-height: 1;
+  padding: 12px 20px; border: 1px solid transparent; cursor: pointer;
+  background: transparent; color: var(--text); transition: all 120ms ease;
+  text-decoration: none; min-height: 44px;
+}
+.btn-primary { background: var(--accent); color: var(--accent-fg); }
+.btn-primary:hover { filter: brightness(0.92); }
+.btn-secondary { border-color: var(--text); color: var(--text); }
+.btn-secondary:hover { background: var(--text); color: var(--bg); }
+.btn-tertiary { color: var(--text); }
+.btn-tertiary:hover { color: var(--accent); }
+.btn-tertiary::after { content: " ↗"; opacity: 0.6; }
+.btn-destructive { background: var(--danger); color: #fff; }
+.btn-destructive:hover { filter: brightness(0.9); }
+.btn-icon { width: 44px; height: 44px; padding: 0; border: 1px solid var(--text); }
+.btn[disabled] { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
+.btn.-loading { color: transparent; position: relative; }
+.btn.-loading::after {
+  content: ""; position: absolute; inset: 0; margin: auto;
+  width: 14px; height: 14px; border: 2px solid currentColor; color: var(--accent-fg);
+  border-top-color: transparent; border-radius: 50%; animation: spin 800ms linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.btn-sm { font-size: 12px; padding: 8px 14px; min-height: 36px; }
+.btn-lg { font-size: 16px; padding: 16px 28px; min-height: 52px; }
+
+.btn-grid { display: grid; grid-template-columns: 180px 1fr; gap: var(--s-4) var(--s-5); align-items: center; }
+@media (max-width: 720px) { .btn-grid { grid-template-columns: 1fr; } .btn-grid .label { margin-top: var(--s-3); } }
+.btn-grid .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+.btn-cluster { display: flex; gap: var(--s-3); flex-wrap: wrap; align-items: center; }
+
+/* ---------- FORMS ---------- */
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label, .field .label-text { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+.field .helper { font-size: 12px; color: var(--text-muted); }
+.field.error .helper { color: var(--danger); }
+.field.success .helper { color: var(--success); }
+.input, .select, .textarea {
+  font-family: var(--sans); font-size: 15px;
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--hairline);
+  padding: 12px 14px; min-height: 44px; width: 100%;
+}
+.field.error .input, .field.error .select, .field.error .textarea { border-color: var(--danger); }
+.field.success .input { border-color: var(--success); }
+.input:focus, .select:focus, .textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.input[disabled], .select[disabled], .textarea[disabled] { background: var(--surface-2); color: var(--text-dim); cursor: not-allowed; }
+.textarea { min-height: 96px; resize: vertical; }
+
+.check, .radio { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; cursor: pointer; min-height: 32px; }
+.check input, .radio input { appearance: none; width: 18px; height: 18px; border: 1px solid var(--text); background: var(--surface); cursor: pointer; position: relative; }
+.radio input { border-radius: 50%; }
+.check input:checked { background: var(--text); }
+.check input:checked::after { content: ""; position: absolute; left: 4px; top: 0px; width: 5px; height: 10px; border: solid var(--bg); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.radio input:checked::after { content: ""; position: absolute; inset: 3px; background: var(--text); border-radius: 50%; }
+
+.toggle { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+.toggle input { appearance: none; width: 40px; height: 22px; border: 1px solid var(--text); background: var(--surface); position: relative; cursor: pointer; }
+.toggle input::after { content: ""; position: absolute; top: 1px; left: 1px; width: 18px; height: 18px; background: var(--text); transition: 120ms; }
+.toggle input:checked { background: var(--accent); border-color: var(--accent); }
+.toggle input:checked::after { left: 19px; background: var(--accent-fg); }
+
+.slider { -webkit-appearance: none; appearance: none; width: 100%; height: 1px; background: var(--text); }
+.slider::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; background: var(--accent); cursor: pointer; }
+.slider::-moz-range-thumb { width: 18px; height: 18px; background: var(--accent); border: 0; cursor: pointer; }
+
+.upload {
+  border: 1px dashed var(--hairline); background: var(--surface);
+  padding: var(--s-5); text-align: center; cursor: pointer;
+}
+.upload:hover { border-color: var(--accent); color: var(--accent); }
+
+.search {
+  position: relative;
+}
+.search .input { padding-left: 38px; }
+.search::before {
+  content: ""; position: absolute; left: 14px; top: 50%;
+  width: 12px; height: 12px;
+  border: 1.5px solid var(--text-muted); border-radius: 50%;
+  transform: translateY(-50%);
+}
+.search::after {
+  content: ""; position: absolute; left: 24px; top: 50%; width: 7px; height: 1.5px;
+  background: var(--text-muted); transform: translateY(7px) rotate(45deg);
+  transform-origin: 0 0;
+}
+
+.form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-5); }
+@media (max-width: 720px) { .form-grid { grid-template-columns: 1fr; } }
+
+/* ---------- CARDS ---------- */
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-5); }
+@media (max-width: 1024px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 720px) { .card-grid { grid-template-columns: 1fr; } }
+.card {
+  background: var(--surface);
+  border: var(--rule);
+  padding: var(--s-5);
+  display: flex; flex-direction: column; gap: var(--s-4);
+  position: relative;
+}
+.card-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+.card h4 { font-family: var(--serif); font-size: var(--t-h4); }
+.card .meta { font-family: var(--mono); font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; padding-top: var(--s-4); border-top: var(--rule); display: flex; justify-content: space-between; }
+
+.card-feature { background: var(--text); color: var(--bg); border-color: var(--text); }
+.card-feature .card-eyebrow { color: var(--accent); }
+.card-feature .meta { border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); }
+
+.card-pricing { padding: var(--s-7) var(--s-5); }
+.card-pricing .price { font-family: var(--serif); font-size: 64px; line-height: 1; letter-spacing: -0.03em; }
+.card-pricing .price small { font-family: var(--sans); font-size: 14px; color: var(--text-muted); letter-spacing: 0; }
+.card-pricing ul { list-style: none; padding: 0; margin: var(--s-4) 0 0; display: flex; flex-direction: column; gap: 8px; }
+.card-pricing li { font-size: 14px; padding-left: 18px; position: relative; }
+.card-pricing li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+
+.card-profile { display: grid; grid-template-columns: 64px 1fr; gap: var(--s-4); align-items: center; }
+.avatar {
+  width: 64px; height: 64px; background: var(--surface-2);
+  border: 1px solid var(--hairline);
+  font-family: var(--serif); font-size: 22px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text);
+}
+
+.card-stat { padding: var(--s-5) var(--s-5) var(--s-4); }
+.stat-num { font-family: var(--serif); font-size: 80px; line-height: 1; letter-spacing: -0.04em; }
+.stat-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+.stat-delta { font-family: var(--mono); font-size: 12px; color: var(--success); }
+.stat-delta.-neg { color: var(--danger); }
+
+.card-media { padding: 0; overflow: hidden; }
+.card-media .img {
+  height: 200px; width: 100%;
+  background:
+    repeating-linear-gradient(135deg, transparent 0 14px, color-mix(in oklab, var(--text) 8%, transparent) 14px 15px),
+    var(--surface-2);
+  border-bottom: var(--rule);
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-media .img::after {
+  content: "16:9 EDITORIAL FIGURE";
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: var(--text-muted);
+}
+.card-media .body { padding: var(--s-4) var(--s-5) var(--s-5); display: flex; flex-direction: column; gap: var(--s-3); }
+
+/* ---------- NAV ---------- */
+.demo { border: var(--rule); background: var(--surface); padding: 0; }
+.demo-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); padding: var(--s-3) var(--s-4); border-bottom: var(--rule); display: flex; justify-content: space-between; }
+
+.fake-navbar { display: flex; align-items: center; padding: var(--s-3) var(--s-4); gap: var(--s-5); border-bottom: var(--rule); }
+.fake-navbar .brand { font-family: var(--serif); font-size: 18px; }
+.fake-navbar nav { display: flex; gap: var(--s-4); margin-left: auto; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.fake-navbar nav a { color: var(--text); text-decoration: none; }
+.fake-navbar nav a.-active { color: var(--accent); }
+
+.fake-shell { display: grid; grid-template-columns: 220px 1fr; min-height: 320px; }
+@media (max-width: 720px) { .fake-shell { grid-template-columns: 1fr; } .fake-side { display: none; } }
+.fake-side { border-right: var(--rule); padding: var(--s-4); }
+.fake-side h6 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--s-3); }
+.fake-side ul { list-style: none; padding: 0; margin: 0 0 var(--s-5); display: flex; flex-direction: column; }
+.fake-side li { padding: 8px 0; font-size: 14px; border-bottom: var(--rule); display: flex; justify-content: space-between; }
+.fake-side li.-active { color: var(--accent); }
+.fake-side li:last-child { border-bottom: 0; }
+.fake-main { padding: var(--s-5); }
+
+.tabs { display: flex; gap: var(--s-5); border-bottom: var(--rule); margin-bottom: var(--s-4); padding: 0 var(--s-4); }
+.tab { padding: var(--s-3) 0; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); border-bottom: 2px solid transparent; cursor: pointer; background: none; border-top: 0; border-left: 0; border-right: 0; margin-bottom: -1px; }
+.tab.-active { color: var(--text); border-bottom-color: var(--accent); }
+
+.crumb { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--text-muted); padding: var(--s-3) var(--s-4); border-bottom: var(--rule); }
+.crumb a { color: var(--text); text-decoration: none; }
+.crumb a:hover { color: var(--accent); }
+.crumb span { padding: 0 8px; color: var(--text-dim); }
+
+.pager { display: flex; gap: 0; padding: var(--s-3) var(--s-4); align-items: center; }
+.pager button { width: 36px; height: 36px; border: 1px solid var(--hairline); background: var(--surface); color: var(--text); font-family: var(--mono); font-size: 12px; cursor: pointer; margin-left: -1px; }
+.pager button:first-child { margin-left: 0; }
+.pager button.-active { background: var(--text); color: var(--bg); border-color: var(--text); }
+.pager .ellipsis { padding: 0 var(--s-2); color: var(--text-muted); }
+
+.bottom-nav { display: flex; border-top: var(--rule); }
+.bottom-nav button { flex: 1; padding: 10px; background: var(--surface); border: 0; border-right: var(--rule); font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); cursor: pointer; }
+.bottom-nav button:last-child { border-right: 0; }
+.bottom-nav button.-active { color: var(--accent); }
+
+/* ---------- DATA ---------- */
+.table-wrap { border: var(--rule); background: var(--surface); overflow-x: auto; }
+table.tbl { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 640px; }
+.tbl th, .tbl td { text-align: left; padding: var(--s-3) var(--s-4); border-bottom: var(--rule); }
+.tbl th { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 500; cursor: pointer; }
+.tbl th .arrow { color: var(--accent); margin-left: 6px; }
+.tbl tr:last-child td { border-bottom: 0; }
+.tbl tr:hover td { background: var(--surface-2); }
+.tbl .num { font-family: var(--mono); text-align: right; }
+
+.badge { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 8px; border: 1px solid currentColor; }
+.badge.-success { color: var(--success); }
+.badge.-danger { color: var(--danger); }
+.badge.-warning { color: var(--warning); }
+.badge.-info { color: var(--info); }
+.badge.-neutral { color: var(--text-muted); }
+.tag { display: inline-flex; padding: 4px 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; background: var(--surface-2); color: var(--text); }
+
+.list { border: var(--rule); background: var(--surface); }
+.list-item { display: grid; grid-template-columns: 40px 1fr auto; gap: var(--s-4); padding: var(--s-3) var(--s-4); border-bottom: var(--rule); align-items: center; }
+.list-item:last-child { border-bottom: 0; }
+.list-icon { width: 36px; height: 36px; background: var(--surface-2); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 16px; }
+.list-text { font-size: 14px; }
+.list-text small { display: block; color: var(--text-muted); font-size: 12px; margin-top: 2px; }
+
+.kv { display: grid; grid-template-columns: 140px 1fr; border: var(--rule); }
+.kv > * { padding: var(--s-3) var(--s-4); border-bottom: var(--rule); }
+.kv > *:nth-last-child(-n+2) { border-bottom: 0; }
+.kv dt { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); border-right: var(--rule); }
+.kv dd { margin: 0; font-size: 14px; }
+
+.avatar-group { display: inline-flex; }
+.avatar-group .avatar { width: 36px; height: 36px; font-size: 14px; margin-left: -8px; background: var(--surface); }
+.avatar-group .avatar:first-child { margin-left: 0; }
+.avatar-group .more { width: 36px; height: 36px; margin-left: -8px; border: 1px solid var(--hairline); background: var(--bg); display: inline-flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 11px; }
+
+.empty { border: 1px dashed var(--hairline); padding: var(--s-7); text-align: center; }
+.empty h5 { font-family: var(--serif); font-size: 22px; margin-bottom: 8px; }
+.empty p { color: var(--text-muted); font-size: 14px; }
+
+/* ---------- FEEDBACK ---------- */
+.alert { border: var(--rule); background: var(--surface); padding: var(--s-4); border-left-width: 3px; border-left-style: solid; display: grid; grid-template-columns: auto 1fr auto; gap: var(--s-3); }
+.alert h6 { font-family: var(--serif); font-size: 17px; margin-bottom: 4px; }
+.alert p { font-size: 13px; color: var(--text-muted); }
+.alert .badge-x { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.alert.-success { border-left-color: var(--success); }
+.alert.-warning { border-left-color: var(--warning); }
+.alert.-danger { border-left-color: var(--danger); }
+.alert.-info { border-left-color: var(--info); }
+
+.toast {
+  background: var(--text); color: var(--bg);
+  padding: var(--s-3) var(--s-4);
+  display: flex; gap: var(--s-3); align-items: center;
+  font-size: 14px;
+}
+.toast .dot { width: 8px; height: 8px; background: var(--accent); }
+.toast button { margin-left: auto; background: transparent; border: 0; color: var(--bg); font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; }
+
+.modal-stage { border: var(--rule); background: var(--surface-2); padding: var(--s-5); position: relative; min-height: 280px; }
+.modal { background: var(--surface); border: 1px solid var(--text); padding: var(--s-5); max-width: 480px; box-shadow: 12px 12px 0 var(--text); }
+.modal h4 { font-family: var(--serif); margin-bottom: var(--s-3); }
+.modal-actions { display: flex; gap: var(--s-3); margin-top: var(--s-5); justify-content: flex-end; }
+
+.drawer-stage { border: var(--rule); background: var(--surface-2); height: 280px; position: relative; overflow: hidden; }
+.drawer { position: absolute; top: 0; right: 0; bottom: 0; width: 60%; background: var(--surface); border-left: 1px solid var(--text); padding: var(--s-5); }
+.drawer h5 { font-family: var(--serif); margin-bottom: var(--s-2); }
+
+.tooltip-row { display: flex; gap: var(--s-5); align-items: flex-end; }
+.tooltip-anchor { position: relative; }
+.tooltip { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%) translateY(-8px); background: var(--text); color: var(--bg); font-size: 12px; padding: 6px 10px; white-space: nowrap; }
+.tooltip::after { content: ""; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: var(--text); }
+
+.popover { position: relative; }
+.popover-card { position: absolute; top: 100%; left: 0; margin-top: 8px; background: var(--surface); border: 1px solid var(--text); padding: var(--s-4); width: 240px; box-shadow: 6px 6px 0 var(--text); }
+
+.progress { background: var(--surface-2); height: 4px; position: relative; border: var(--rule); }
+.progress > span { display: block; height: 100%; background: var(--accent); }
+
+.skel { background: linear-gradient(90deg, var(--surface-2), color-mix(in oklab, var(--surface-2) 50%, var(--bg)), var(--surface-2)); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; height: 12px; }
+.skel.-tall { height: 32px; }
+.skel.-img { height: 140px; }
+@keyframes shimmer { from { background-position: 0 0; } to { background-position: -200% 0; } }
+
+/* ---------- LAYOUT PATTERNS ---------- */
+.hero {
+  border-top: 1px solid var(--text); border-bottom: var(--rule);
+  padding: var(--s-9) 0;
+  display: grid; grid-template-columns: 7fr 5fr; gap: var(--s-7);
+}
+@media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
+.hero-eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--s-5); display: flex; align-items: center; gap: var(--s-3); }
+.hero-eyebrow::before { content: ""; width: 32px; height: 1px; background: var(--accent); }
+.hero h1 { font-family: var(--serif); }
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero p { font-size: var(--t-body-lg); color: var(--text-muted); max-width: 50ch; margin-top: var(--s-5); }
+.hero-actions { display: flex; gap: var(--s-3); margin-top: var(--s-7); flex-wrap: wrap; }
+.hero-side {
+  border-left: var(--rule); padding-left: var(--s-7);
+  display: flex; flex-direction: column; gap: var(--s-5);
+}
+@media (max-width: 900px) { .hero-side { border-left: 0; padding-left: 0; border-top: var(--rule); padding-top: var(--s-7); } }
+.hero-figure {
+  flex: 1; min-height: 240px;
+  background:
+    linear-gradient(transparent calc(100% - 1px), var(--hairline) 1px),
+    repeating-linear-gradient(0deg, transparent 0 23px, color-mix(in oklab, var(--text) 5%, transparent) 23px 24px),
+    var(--surface);
+  border: var(--rule);
+  display: flex; align-items: flex-end; justify-content: flex-end;
+  padding: var(--s-3);
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-muted); text-transform: uppercase;
+}
+
+.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: var(--rule); }
+@media (max-width: 720px) { .feature-grid { grid-template-columns: 1fr; } }
+.feature {
+  padding: var(--s-7) var(--s-5);
+  border-right: var(--rule); border-bottom: var(--rule);
+}
+.feature:nth-child(3n) { border-right: 0; }
+.feature:nth-last-child(-n+3) { border-bottom: 0; }
+@media (max-width: 720px) {
+  .feature { border-right: 0; }
+  .feature:not(:last-child) { border-bottom: var(--rule); }
+}
+.feature-num { font-family: var(--serif); font-size: 56px; letter-spacing: -0.03em; line-height: 1; color: var(--accent); margin-bottom: var(--s-4); }
+.feature h5 { font-family: var(--serif); font-size: 22px; margin-bottom: var(--s-3); }
+.feature p { color: var(--text-muted); font-size: 14px; }
+
+.cta {
+  border: 1px solid var(--text); padding: var(--s-7);
+  display: grid; grid-template-columns: 1fr auto; gap: var(--s-5); align-items: center;
+}
+@media (max-width: 720px) { .cta { grid-template-columns: 1fr; } }
+.cta h3 { font-family: var(--serif); font-size: var(--t-h3); }
+.cta p { color: var(--text-muted); margin-top: var(--s-3); max-width: 50ch; }
+
+footer.foot {
+  margin-top: var(--s-9); border-top: 1px solid var(--text);
+  padding: var(--s-7) 0 var(--s-5);
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--s-5);
+}
+@media (max-width: 720px) { footer.foot { grid-template-columns: 1fr 1fr; } }
+.foot h6 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--s-3); }
+.foot ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+.foot a { color: var(--text); text-decoration: none; }
+.foot a:hover { color: var(--accent); }
+.foot-mark { font-family: var(--serif); font-size: 56px; letter-spacing: -0.03em; line-height: 1; }
+.foot-mark em { font-style: italic; color: var(--accent); }
+.colophon {
+  margin-top: var(--s-7); padding-top: var(--s-3); border-top: var(--rule);
+  display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--text-muted);
+}
+
+/* tokens display strip */
+.token-strip {
+  margin-top: var(--s-7);
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--s-5);
+  font-family: var(--mono); font-size: 12px;
+  border-top: var(--rule); padding-top: var(--s-4);
+}
+.token-strip h6 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--s-2); font-weight: 500; }
+.token-strip code { color: var(--accent); }
+@media (max-width: 720px) { .token-strip { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- ============== TOPBAR ============== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark">Catalogue <em>nº 01</em></span>
+      <span class="brand-meta">Swiss · Editorial</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#identity">Identity</a>
+      <a href="#color">Color</a>
+      <a href="#type">Type</a>
+      <a href="#components">Components</a>
+      <a href="#patterns">Patterns</a>
+    </nav>
+    <button class="panel-toggle" id="panelToggle" aria-label="Open theme panel" aria-expanded="false">⊕</button>
+  </div>
+</header>
+
+<aside class="theme-panel" id="themePanel" aria-label="Theme controls">
+  <section>
+    <h6>Theme</h6>
+    <div class="theme-row">
+      <button class="theme-btn" data-theme="light" aria-pressed="true">Light</button>
+      <button class="theme-btn" data-theme="dark" aria-pressed="false">Dark</button>
+    </div>
+  </section>
+  <section>
+    <h6>Palette</h6>
+    <div class="palette-row">
+      <button class="palette-btn" data-palette="ink" aria-pressed="true">Ink</button>
+      <button class="palette-btn" data-palette="stone" aria-pressed="false">Stone</button>
+      <button class="palette-btn" data-palette="steel" aria-pressed="false">Steel</button>
+    </div>
+  </section>
+  <section>
+    <h6>Accent</h6>
+    <div class="swatch-row" id="accentRow">
+      <button class="swatch-btn" data-accent="#d6231a" style="background:#d6231a" aria-pressed="true" aria-label="Hot Red"></button>
+      <button class="swatch-btn" data-accent="#0e6efd" style="background:#0e6efd" aria-label="Marine"></button>
+      <button class="swatch-btn" data-accent="#1f6f3f" style="background:#1f6f3f" aria-label="Forest"></button>
+      <button class="swatch-btn" data-accent="#e08a00" style="background:#e08a00" aria-label="Amber"></button>
+      <button class="swatch-btn" data-accent="#5b3ad6" style="background:#5b3ad6" aria-label="Violet"></button>
+      <button class="swatch-btn" data-accent="#0a0a0a" style="background:#0a0a0a" aria-label="Ink"></button>
+    </div>
+    <input type="text" class="hex-input" id="hexInput" placeholder="#d6231a" />
+  </section>
+</aside>
+
+<main class="page">
+
+<!-- ============== 01 IDENTITY ============== -->
+<section class="identity" id="identity">
+  <div class="row">
+    <div class="identity-title">
+      <p class="identity-tag">Catalogue nº 01 / Style A</p>
+      <h1 class="display">Swiss <em>Editorial</em><br/>Minimal.</h1>
+    </div>
+    <div class="identity-philosophy">
+      <p>A typographic discipline first, an interface second. We compose with a stable grid, hairline rules, and a single hot accent that earns its weight by being almost the only color in the room. The result is calm, dense, and unmistakably authored — pages read like a quarterly journal that happens to ship as software.</p>
+    </div>
+    <div class="identity-meta">
+      <dl>
+        <div class="meta-block">
+          <dt>Best used for</dt>
+          <dd>Reading apps · Financial dashboards · Long-form publishing</dd>
+        </div>
+        <div class="meta-block">
+          <dt>Signature visual move</dt>
+          <dd>Oversized italic numerals against a 12-column rule grid</dd>
+        </div>
+        <div class="meta-block">
+          <dt>Voice</dt>
+          <dd>Edited. Confident. Quiet.</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+  <div class="signature">
+    <p class="signature-quote">"The grid is the moral compass; the accent is the punctuation."</p>
+    <span class="signature-mark">— House Style, ¶ 2.1</span>
+  </div>
+</section>
+
+<!-- ============== 02 COLOR ============== -->
+<section class="section" id="color">
+  <header class="section-head">
+    <span class="section-num">02 / 10</span>
+    <div>
+      <h2 class="section-title">Color System</h2>
+      <p class="section-meta">Palette · Semantic Tokens · Accent</p>
+    </div>
+  </header>
+
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch-chip" style="background: var(--bg)"></div><div><div class="swatch-name">Background</div><div class="swatch-hex" data-token="bg">--bg</div></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background: var(--surface); border: 1px solid var(--hairline)"></div><div><div class="swatch-name">Surface</div><div class="swatch-hex" data-token="surface">--surface</div></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background: var(--surface-2)"></div><div><div class="swatch-name">Surface 2</div><div class="swatch-hex" data-token="surface-2">--surface-2</div></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background: var(--text)"></div><div><div class="swatch-name">Text</div><div class="swatch-hex" data-token="text">--text</div></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background: var(--text-muted)"></div><div><div class="swatch-name">Text Muted</div><div class="swatch-hex" data-token="text-muted">--text-muted</div></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background: var(--accent)"></div><div><div class="swatch-name">Accent</div><div class="swatch-hex" data-token="accent">--accent</div></div></div>
+  </div>
+
+  <div class="semantic-grid">
+    <div class="semantic"><div class="semantic-bar" style="background: var(--success)"></div><div class="semantic-token">Success</div><div class="semantic-name">--success</div></div>
+    <div class="semantic"><div class="semantic-bar" style="background: var(--warning)"></div><div class="semantic-token">Warning</div><div class="semantic-name">--warning</div></div>
+    <div class="semantic"><div class="semantic-bar" style="background: var(--danger)"></div><div class="semantic-token">Danger</div><div class="semantic-name">--danger</div></div>
+    <div class="semantic"><div class="semantic-bar" style="background: var(--info)"></div><div class="semantic-token">Info</div><div class="semantic-name">--info</div></div>
+  </div>
+
+  <div class="token-strip">
+    <div><h6>Spacing</h6>4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96 · 128</div>
+    <div><h6>Radius</h6><code>0px</code> · everything is square</div>
+    <div><h6>Hairline</h6><code>1px solid var(--hairline)</code></div>
+  </div>
+</section>
+
+<!-- ============== 03 TYPE ============== -->
+<section class="section" id="type">
+  <header class="section-head">
+    <span class="section-num">03 / 10</span>
+    <div>
+      <h2 class="section-title">Typography</h2>
+      <p class="section-meta">Fraunces (Serif) · Inter (Grotesque) · JetBrains Mono</p>
+    </div>
+  </header>
+
+  <div class="type-row"><span class="type-label">Display</span><span class="type-spec serif" style="font-size: clamp(56px,7vw,108px); letter-spacing: -0.04em; line-height: 0.92;">A grid is a frame for breathing.</span><span class="type-meta">Fraunces · 400 · clamp(56,7vw,108)px · 1.0 · -0.04em</span></div>
+  <div class="type-row"><span class="type-label">Heading 1</span><span class="type-spec serif" style="font-size:64px;letter-spacing:-0.025em;">Quarterly Letter, Spring Edition</span><span class="type-meta">Fraunces · 400 · 64px · 1.05 · -0.025em</span></div>
+  <div class="type-row"><span class="type-label">Heading 2</span><span class="type-spec serif" style="font-size:44px;letter-spacing:-0.02em;">Findings & Methodology</span><span class="type-meta">Fraunces · 400 · 44px · 1.1 · -0.02em</span></div>
+  <div class="type-row"><span class="type-label">Heading 3</span><span class="type-spec serif" style="font-size:30px;">Field notes from the studio</span><span class="type-meta">Fraunces · 400 · 30px · 1.15</span></div>
+  <div class="type-row"><span class="type-label">Heading 4</span><span class="type-spec serif" style="font-size:22px;">A small monograph on white space</span><span class="type-meta">Fraunces · 500 · 22px · 1.25</span></div>
+  <div class="type-row"><span class="type-label">Heading 5</span><span class="type-spec sans" style="font-size:18px;font-weight:600;">Rhythm at the section level</span><span class="type-meta">Inter · 600 · 18px · 1.3</span></div>
+  <div class="type-row"><span class="type-label">Heading 6</span><span class="type-spec sans" style="font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;">Subhead, Sentence Case</span><span class="type-meta">Inter · 600 · 15px · 1.4 · 0.04em</span></div>
+  <div class="type-row"><span class="type-label">Body Lg</span><span class="type-spec sans" style="font-size:19px;line-height:1.55;">A serif for warmth, a grotesque for command, a monospace for receipts. Three voices in conversation across the page, never shouting.</span><span class="type-meta">Inter · 400 · 19px · 1.55</span></div>
+  <div class="type-row"><span class="type-label">Body</span><span class="type-spec sans" style="font-size:16px;line-height:1.5;">Set running text at sixteen pixels with enough leading to feel like a printed page. Avoid justification; ragged right preserves the rhythm of words.</span><span class="type-meta">Inter · 400 · 16px · 1.5</span></div>
+  <div class="type-row"><span class="type-label">Body Sm</span><span class="type-spec sans" style="font-size:14px;line-height:1.5;">Compressed text for tables, captions, and meta. Reserve italics for citations and quoted titles.</span><span class="type-meta">Inter · 400 · 14px · 1.5</span></div>
+  <div class="type-row"><span class="type-label">Caption</span><span class="type-spec sans" style="font-size:12px;color:var(--text-muted);">Figure 4. Composition study after Müller-Brockmann.</span><span class="type-meta">Inter · 400 · 12px · muted</span></div>
+  <div class="type-row"><span class="type-label">Overline</span><span class="type-spec mono" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">Filed under · Methodology</span><span class="type-meta">Mono · 500 · 11px · 0.18em</span></div>
+  <div class="type-row"><span class="type-label">Code</span><span class="type-spec mono" style="font-size:13px;background:var(--surface-2);padding:6px 10px;">--accent: #d6231a;</span><span class="type-meta">JetBrains Mono · 400 · 13px</span></div>
+</section>
+
+<!-- ============== 04 BUTTONS ============== -->
+<section class="section" id="components">
+  <header class="section-head">
+    <span class="section-num">04 / 10</span>
+    <div>
+      <h2 class="section-title">Buttons</h2>
+      <p class="section-meta">Variants · Sizes · States</p>
+    </div>
+  </header>
+
+  <div class="btn-grid">
+    <span class="label">Primary</span>
+    <div class="btn-cluster">
+      <button class="btn btn-primary btn-sm">Subscribe</button>
+      <button class="btn btn-primary">Subscribe</button>
+      <button class="btn btn-primary btn-lg">Subscribe</button>
+      <button class="btn btn-primary -loading">Subscribe</button>
+      <button class="btn btn-primary" disabled>Subscribe</button>
+    </div>
+
+    <span class="label">Secondary</span>
+    <div class="btn-cluster">
+      <button class="btn btn-secondary btn-sm">Read more</button>
+      <button class="btn btn-secondary">Read more</button>
+      <button class="btn btn-secondary btn-lg">Read more</button>
+      <button class="btn btn-secondary" disabled>Read more</button>
+    </div>
+
+    <span class="label">Tertiary</span>
+    <div class="btn-cluster">
+      <button class="btn btn-tertiary">View archive</button>
+      <button class="btn btn-tertiary btn-sm">Filed under method</button>
+      <button class="btn btn-tertiary" disabled>Disabled link</button>
+    </div>
+
+    <span class="label">Destructive</span>
+    <div class="btn-cluster">
+      <button class="btn btn-destructive">Cancel subscription</button>
+      <button class="btn btn-destructive btn-sm">Delete draft</button>
+    </div>
+
+    <span class="label">Icon-only</span>
+    <div class="btn-cluster">
+      <button class="btn btn-icon" aria-label="Print">⎙</button>
+      <button class="btn btn-icon" aria-label="Bookmark">★</button>
+      <button class="btn btn-icon" aria-label="Search">⌕</button>
+      <button class="btn btn-icon" aria-label="Settings">⚙</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 05 FORMS ============== -->
+<section class="section">
+  <header class="section-head">
+    <span class="section-num">05 / 10</span>
+    <div>
+      <h2 class="section-title">Form Controls</h2>
+      <p class="section-meta">Inputs · Selection · Validation</p>
+    </div>
+  </header>
+
+  <div class="form-grid">
+    <div class="field">
+      <label>Author name</label>
+      <input class="input" placeholder="Hans Müller" value="Hans Müller" />
+      <span class="helper">Displayed on the byline.</span>
+    </div>
+    <div class="field">
+      <div class="search">
+        <input class="input" placeholder="Search the archive…" />
+      </div>
+    </div>
+    <div class="field error">
+      <label>Email</label>
+      <input class="input" value="hans@" />
+      <span class="helper">Address is incomplete — please add a domain.</span>
+    </div>
+    <div class="field success">
+      <label>Slug</label>
+      <input class="input" value="quarterly-letter-spring" />
+      <span class="helper">Available — looks good.</span>
+    </div>
+    <div class="field">
+      <label>Section</label>
+      <select class="select">
+        <option>Editorial</option><option>Methodology</option><option>Field Notes</option><option>Letters</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Tags · multi</label>
+      <select class="select" multiple size="3">
+        <option selected>typography</option><option selected>grid</option><option>printmaking</option><option>archive</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Synopsis</label>
+      <textarea class="textarea" placeholder="Two sentences, please.">A close reading of Tschichold's late period, with notes on his return to symmetry and the conditions that compelled it.</textarea>
+    </div>
+    <div class="field">
+      <label>Disabled note</label>
+      <input class="input" value="Locked by editorial review" disabled />
+      <span class="helper">Editable after sign-off.</span>
+    </div>
+    <div class="field">
+      <span class="label-text">Format</span>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;">
+        <label class="radio"><input type="radio" name="fmt" checked /> Print</label>
+        <label class="radio"><input type="radio" name="fmt" /> Digital</label>
+        <label class="radio"><input type="radio" name="fmt" /> Both</label>
+      </div>
+    </div>
+    <div class="field">
+      <span class="label-text">Audience flags</span>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:6px;">
+        <label class="check"><input type="checkbox" checked /> Subscribers</label>
+        <label class="check"><input type="checkbox" checked /> Patrons</label>
+        <label class="check"><input type="checkbox" /> Public archive</label>
+      </div>
+    </div>
+    <div class="field">
+      <span class="label-text">Schedule</span>
+      <input class="input" type="date" value="2026-05-15" />
+    </div>
+    <div class="field">
+      <label class="toggle"><input type="checkbox" checked /> <span>Open comments after publish</span></label>
+      <label class="toggle" style="margin-top:12px;"><input type="checkbox" /> <span>Send to patrons-only newsletter</span></label>
+    </div>
+    <div class="field">
+      <label>Issue number · slider</label>
+      <input class="slider" type="range" min="1" max="48" value="17" />
+      <span class="helper">Issue 17 of 48.</span>
+    </div>
+    <div class="field">
+      <label>Cover plate</label>
+      <div class="upload">Drop a 2400×3000 TIFF here, or <strong>browse</strong>.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 06 CARDS ============== -->
+<section class="section">
+  <header class="section-head">
+    <span class="section-num">06 / 10</span>
+    <div>
+      <h2 class="section-title">Cards & Surfaces</h2>
+      <p class="section-meta">Six compositional containers</p>
+    </div>
+  </header>
+
+  <div class="card-grid">
+    <article class="card">
+      <span class="card-eyebrow">Field Note · 04</span>
+      <h4>What we learned shipping the spring issue at half the page count</h4>
+      <p>Trimmed pages forced sharper edits. Three essays became one, and it remains the highest-read piece of the year.</p>
+      <div class="meta"><span>HM</span><span>6 MIN READ</span></div>
+    </article>
+
+    <article class="card card-feature">
+      <span class="card-eyebrow">Featured Essay</span>
+      <h4>The hairline as a moral object</h4>
+      <p>One pixel of restraint is worth a paragraph of declaration. A defense of the rule.</p>
+      <div class="meta"><span>BERTA L.</span><span>NEW</span></div>
+    </article>
+
+    <article class="card card-pricing">
+      <span class="card-eyebrow">Patron</span>
+      <div class="price">€18<small>/month</small></div>
+      <p style="color:var(--text-muted);font-size:14px;">Quarterly print, full archive, and a printed colophon at year's end.</p>
+      <ul>
+        <li>Quarterly printed issue, mailed</li>
+        <li>Complete digital archive</li>
+        <li>Two studio visits per year</li>
+        <li>Patron-only letter</li>
+      </ul>
+      <button class="btn btn-primary" style="margin-top:auto;">Become a patron</button>
+    </article>
+
+    <article class="card">
+      <div class="card-profile">
+        <div class="avatar">HM</div>
+        <div>
+          <h4 style="font-size:18px;">Hans Müller</h4>
+          <p style="font-size:13px;color:var(--text-muted);">Editor-at-large · Zürich</p>
+        </div>
+      </div>
+      <p>Writing at the intersection of typography, archives and quiet software. Currently working on a monograph on the Swiss school.</p>
+      <div class="meta"><span>JOINED 2019</span><span>42 ESSAYS</span></div>
+    </article>
+
+    <article class="card card-stat">
+      <span class="card-eyebrow">Subscribers · QoQ</span>
+      <div class="stat-num">12,847</div>
+      <div class="stat-delta">↑ 6.2% vs. last quarter</div>
+      <div class="stat-label" style="margin-top:var(--s-3);">Net of churn · 184 lapsed</div>
+    </article>
+
+    <article class="card card-media">
+      <div class="img"></div>
+      <div class="body">
+        <span class="card-eyebrow">Plate 04</span>
+        <h4>Composition study, after Müller-Brockmann</h4>
+        <p style="color:var(--text-muted);font-size:13px;">From the studio archive. 1968. Reproduced at 1:1.</p>
+        <div class="meta" style="border-top:0;padding-top:0;"><span>Z-1968-04</span><span>VIEW PLATE</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============== 07 NAVIGATION ============== -->
+<section class="section">
+  <header class="section-head">
+    <span class="section-num">07 / 10</span>
+    <div>
+      <h2 class="section-title">Navigation</h2>
+      <p class="section-meta">Six navigational primitives</p>
+    </div>
+  </header>
+
+  <div style="display:grid;grid-template-columns:1fr;gap:var(--s-5);">
+    <div class="demo">
+      <div class="demo-label"><span>Primary navbar</span><span>≥ 768px</span></div>
+      <div class="fake-navbar">
+        <div class="brand">Catalogue</div>
+        <nav>
+          <a href="#" class="-active">Issue</a>
+          <a href="#">Archive</a>
+          <a href="#">Letters</a>
+          <a href="#">About</a>
+        </nav>
+        <button class="btn btn-secondary btn-sm" style="margin-left:var(--s-4);">Subscribe</button>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-label"><span>App shell · sidebar + main</span><span>SaaS layout</span></div>
+      <div class="fake-shell">
+        <aside class="fake-side">
+          <h6>Editorial</h6>
+          <ul>
+            <li class="-active">Drafts <span style="color:var(--accent);">12</span></li>
+            <li>In review <span style="color:var(--text-muted);">4</span></li>
+            <li>Scheduled <span style="color:var(--text-muted);">2</span></li>
+            <li>Published <span style="color:var(--text-muted);">182</span></li>
+          </ul>
+          <h6>Library</h6>
+          <ul>
+            <li>Plates</li>
+            <li>Authors</li>
+            <li>Tags</li>
+          </ul>
+        </aside>
+        <div class="fake-main">
+          <div class="crumb"><a href="#">Editorial</a><span>/</span><a href="#">Drafts</a><span>/</span> Composition study, after Müller-Brockmann</div>
+          <div class="tabs" style="padding:0;margin-top:var(--s-4);">
+            <button class="tab -active">Manuscript</button>
+            <button class="tab">Plates</button>
+            <button class="tab">Reviewers</button>
+            <button class="tab">History</button>
+          </div>
+          <h4 style="font-family:var(--serif);margin-top:var(--s-4);">Composition study, after Müller-Brockmann</h4>
+          <p style="font-size:14px;color:var(--text-muted);margin-top:8px;">Last edited 24 minutes ago by Berta L. · 1,820 words.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-label"><span>Pagination</span><span>Editorial archive</span></div>
+      <div class="pager">
+        <button>‹</button>
+        <button>1</button>
+        <button class="-active">2</button>
+        <button>3</button>
+        <button>4</button>
+        <span class="ellipsis">…</span>
+        <button>14</button>
+        <button>›</button>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-label"><span>Mobile bottom nav</span><span>≤ 768px</span></div>
+      <div class="bottom-nav">
+        <button class="-active">Issue</button>
+        <button>Archive</button>
+        <button>Letters</button>
+        <button>Account</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 08 DATA ============== -->
+<section class="section">
+  <header class="section-head">
+    <span class="section-num">08 / 10</span>
+    <div>
+      <h2 class="section-title">Data Display</h2>
+      <p class="section-meta">Tables · Lists · Tags · Avatars · Empty states</p>
+    </div>
+  </header>
+
+  <div class="table-wrap">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Title <span class="arrow">↓</span></th>
+          <th>Author</th>
+          <th>Section</th>
+          <th>Status</th>
+          <th class="num">Words</th>
+          <th>Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>The hairline as a moral object</td><td>Berta L.</td><td>Editorial</td><td><span class="badge -success">● Published</span></td><td class="num">2,140</td><td>May 2</td></tr>
+        <tr><td>Composition study, after MB</td><td>Hans Müller</td><td>Plates</td><td><span class="badge -warning">● In review</span></td><td class="num">1,820</td><td>May 7</td></tr>
+        <tr><td>Letter to a young typesetter</td><td>I. Voss</td><td>Letters</td><td><span class="badge -neutral">● Draft</span></td><td class="num">880</td><td>May 8</td></tr>
+        <tr><td>The grid as alibi</td><td>K. Sasaki</td><td>Methodology</td><td><span class="badge -info">● Scheduled</span></td><td class="num">3,200</td><td>May 9</td></tr>
+        <tr><td>On reading at length</td><td>Hans Müller</td><td>Editorial</td><td><span class="badge -danger">● Held</span></td><td class="num">4,400</td><td>May 9</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s-5);margin-top:var(--s-5);">
+    <div class="list">
+      <div class="list-item">
+        <div class="list-icon">¶</div>
+        <div class="list-text">Quarterly Letter, Spring Edition <small>Editorial · 6 min read</small></div>
+        <span class="badge -success">● LIVE</span>
+      </div>
+      <div class="list-item">
+        <div class="list-icon">⌥</div>
+        <div class="list-text">Plate Archive, 1968–1972 <small>Plates · 142 entries</small></div>
+        <span class="badge -info">● ARCHIVED</span>
+      </div>
+      <div class="list-item">
+        <div class="list-icon">✎</div>
+        <div class="list-text">Reviewer assignments, May <small>Tasks · 4 open</small></div>
+        <span class="badge -warning">● DUE</span>
+      </div>
+      <div class="list-item">
+        <div class="list-icon">★</div>
+        <div class="list-text">Patron drop, Issue 18 <small>Schedule · May 15</small></div>
+        <span class="badge -neutral">● QUEUED</span>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:var(--s-4);">
+      <div>
+        <h6 style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:var(--s-3);font-weight:500;">Tags</h6>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span class="tag">typography</span><span class="tag">grid-systems</span><span class="tag">printmaking</span><span class="tag">archive-1968</span><span class="tag">methodology</span><span class="tag">letters</span>
+        </div>
+      </div>
+      <div>
+        <h6 style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:var(--s-3);font-weight:500;">Avatars</h6>
+        <div style="display:flex;gap:var(--s-4);align-items:center;">
+          <div class="avatar" style="width:48px;height:48px;font-size:18px;">HM</div>
+          <div class="avatar-group">
+            <div class="avatar">B</div>
+            <div class="avatar">I</div>
+            <div class="avatar">K</div>
+            <div class="more">+4</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h6 style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:var(--s-3);font-weight:500;">Key — Value</h6>
+        <dl class="kv">
+          <dt>Issue</dt><dd>17 / Spring 2026</dd>
+          <dt>Editor</dt><dd>Hans Müller</dd>
+          <dt>Pages</dt><dd>112</dd>
+          <dt>Pressed</dt><dd>Heidelberg, GR-V</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="empty" style="margin-top:var(--s-5);">
+    <h5>The archive for this query is empty.</h5>
+    <p>Try removing a filter, or browse the complete <a href="#">spring catalogue</a>.</p>
+  </div>
+</section>
+
+<!-- ============== 09 FEEDBACK ============== -->
+<section class="section">
+  <header class="section-head">
+    <span class="section-num">09 / 10</span>
+    <div>
+      <h2 class="section-title">Feedback & Overlays</h2>
+      <p class="section-meta">Alerts · Toasts · Modals · Drawers · Progress</p>
+    </div>
+  </header>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s-4);">
+    <div class="alert -success">
+      <span class="badge-x" style="color:var(--success);">●</span>
+      <div><h6>Manuscript accepted</h6><p>"The hairline as a moral object" has cleared editorial review.</p></div>
+      <button class="btn btn-tertiary btn-sm">View</button>
+    </div>
+    <div class="alert -info">
+      <span class="badge-x" style="color:var(--info);">●</span>
+      <div><h6>Issue 18 schedules in 6 days</h6><p>Your patrons will receive the printed issue starting May 15.</p></div>
+      <button class="btn btn-tertiary btn-sm">Schedule</button>
+    </div>
+    <div class="alert -warning">
+      <span class="badge-x" style="color:var(--warning);">●</span>
+      <div><h6>Two reviewers haven't signed off</h6><p>Berta L. and I. Voss are pending. Send a nudge?</p></div>
+      <button class="btn btn-tertiary btn-sm">Nudge</button>
+    </div>
+    <div class="alert -danger">
+      <span class="badge-x" style="color:var(--danger);">●</span>
+      <div><h6>Plate file is missing color profile</h6><p>Z-1968-04 was uploaded without an embedded ICC. The press will reject it.</p></div>
+      <button class="btn btn-tertiary btn-sm">Fix</button>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s-5);margin-top:var(--s-5);">
+    <div class="modal-stage">
+      <div class="modal">
+        <h4>Send to press?</h4>
+        <p style="color:var(--text-muted);font-size:14px;">Issue 17 will be locked for editing after the press hand-off. This action cannot be undone today, only revised in the next issue.</p>
+        <div class="modal-actions">
+          <button class="btn btn-secondary btn-sm">Hold</button>
+          <button class="btn btn-primary btn-sm">Send to press</button>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-stage">
+      <div class="drawer">
+        <h5>Reviewer notes</h5>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:var(--s-4);">Inline thread for "Composition study, after MB"</p>
+        <div style="display:flex;flex-direction:column;gap:var(--s-3);">
+          <div style="border-left:2px solid var(--accent);padding-left:10px;font-size:13px;"><strong>Berta L.</strong> · The opening sets up a tension that is never paid off in §3.</div>
+          <div style="border-left:2px solid var(--hairline);padding-left:10px;font-size:13px;"><strong>I. Voss</strong> · Plate 04 should anchor the spread, not float to the side.</div>
+          <div style="border-left:2px solid var(--hairline);padding-left:10px;font-size:13px;"><strong>HM</strong> · Agreed. Re-blocking now.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--s-5);margin-top:var(--s-5);">
+    <div>
+      <h6 style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:var(--s-3);">Tooltip & Popover</h6>
+      <div class="tooltip-row">
+        <div class="tooltip-anchor">
+          <button class="btn btn-secondary btn-sm">Hover me</button>
+          <div class="tooltip">Filed under Methodology</div>
+        </div>
+        <div class="popover">
+          <button class="btn btn-secondary btn-sm">Show popover ▾</button>
+          <div class="popover-card">
+            <strong style="font-family:var(--serif);font-size:16px;">Issue 17</strong>
+            <p style="font-size:12px;color:var(--text-muted);margin-top:6px;">112 pages · 14 essays · 28 plates · pressed in Zürich</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h6 style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:var(--s-3);">Toast</h6>
+      <div class="toast"><span class="dot"></span> Draft saved 12 seconds ago. <button>Undo</button></div>
+      <div class="toast" style="margin-top:8px;background:var(--surface);color:var(--text);border:1px solid var(--text);"><span class="dot" style="background:var(--success);"></span> Plate uploaded — Z-1968-04. <button style="color:var(--text);">Open</button></div>
+    </div>
+    <div>
+      <h6 style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:var(--s-3);">Progress & Skeleton</h6>
+      <div class="progress" style="margin-bottom:8px;"><span style="width:64%"></span></div>
+      <p style="font-size:11px;font-family:var(--mono);color:var(--text-muted);letter-spacing:0.06em;">UPLOADING PLATE · 64% · 14.2 MB / 22.3 MB</p>
+      <div style="margin-top:var(--s-4);display:flex;flex-direction:column;gap:6px;">
+        <div class="skel -img"></div>
+        <div class="skel -tall" style="width:80%"></div>
+        <div class="skel" style="width:60%"></div>
+        <div class="skel" style="width:90%"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 10 PATTERNS ============== -->
+<section class="section" id="patterns">
+  <header class="section-head">
+    <span class="section-num">10 / 10</span>
+    <div>
+      <h2 class="section-title">Layout Patterns</h2>
+      <p class="section-meta">How the system composes into a real page</p>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div>
+      <p class="hero-eyebrow">Issue 17 · Spring 2026 · Out May 15</p>
+      <h1 style="font-size:clamp(48px,6vw,96px);">A quarterly letter on <em>typography,</em> archives, and quiet software.</h1>
+      <p>One serif, one grotesque, one accent. Twelve essays four times a year, printed in Zürich and mailed flat. The web edition is a faithful companion, not a substitute.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg">Subscribe — €18 / mo</button>
+        <button class="btn btn-secondary btn-lg">Read this issue</button>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="hero-figure">FIG. 17 / 2026</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s-4);">
+        <div><span class="stat-label">Issues</span><div style="font-family:var(--serif);font-size:42px;letter-spacing:-0.02em;">17</div></div>
+        <div><span class="stat-label">Patrons</span><div style="font-family:var(--serif);font-size:42px;letter-spacing:-0.02em;">2,840</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature-grid" style="margin-top:var(--s-7);">
+    <div class="feature"><div class="feature-num">01</div><h5>A grid you can feel</h5><p>Twelve columns, hairline rules, generous gutters. The page breathes the same on a phone as on a printed spread.</p></div>
+    <div class="feature"><div class="feature-num">02</div><h5>Type that earns its weight</h5><p>One serif voice, one grotesque, one mono for receipts. No display fonts, no novelty, no shouting.</p></div>
+    <div class="feature"><div class="feature-num">03</div><h5>A single hot accent</h5><p>Used sparingly, for primary actions and the occasional editorial italic. The accent is the punctuation.</p></div>
+    <div class="feature"><div class="feature-num">04</div><h5>Density by craft</h5><p>Tables, archives, and references designed for the long read, not the scroll. Nothing important is hidden behind a click.</p></div>
+    <div class="feature"><div class="feature-num">05</div><h5>Light & dark, both intentional</h5><p>Dark mode is its own issue, not an invert. Tones, paper, and contrast tuned for evening reading.</p></div>
+    <div class="feature"><div class="feature-num">06</div><h5>Mobile is the same letter</h5><p>The grid collapses but the rhythm holds. Tables stack, modals become sheets, and the rule never breaks.</p></div>
+  </div>
+
+  <div class="cta" style="margin-top:var(--s-7);">
+    <div>
+      <h3>Become a patron of the spring issue.</h3>
+      <p>Quarterly print, full archive, two studio visits, and a printed colophon at year's end. €18 per month, cancel before any issue.</p>
+    </div>
+    <div style="display:flex;gap:var(--s-3);">
+      <button class="btn btn-secondary">Read first</button>
+      <button class="btn btn-primary">Become a patron</button>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <div>
+      <div class="foot-mark">Catalogue<br/><em>nº 01</em></div>
+      <p style="margin-top:var(--s-4);color:var(--text-muted);font-size:14px;max-width:42ch;">A quarterly journal of typography, archives, and quiet software. Pressed in Zürich, mailed everywhere.</p>
+    </div>
+    <div>
+      <h6>Editorial</h6>
+      <ul><li><a href="#">Current issue</a></li><li><a href="#">Archive</a></li><li><a href="#">Letters</a></li><li><a href="#">Plates</a></li></ul>
+    </div>
+    <div>
+      <h6>Studio</h6>
+      <ul><li><a href="#">Masthead</a></li><li><a href="#">Submissions</a></li><li><a href="#">Press</a></li><li><a href="#">Contact</a></li></ul>
+    </div>
+    <div>
+      <h6>Subscribe</h6>
+      <ul><li><a href="#">Patron — €18/mo</a></li><li><a href="#">Annual — €180</a></li><li><a href="#">Institution</a></li><li><a href="#">Gift</a></li></ul>
+    </div>
+  </footer>
+  <div class="colophon">
+    <span>© 2026 The Catalogue Studio · Zürich</span>
+    <span>Set in Fraunces & Inter · Printed at GR-V Heidelberg</span>
+  </div>
+</section>
+
+</main>
+
+<script>
+(function(){
+  const html = document.documentElement;
+  const panel = document.getElementById('themePanel');
+  const toggle = document.getElementById('panelToggle');
+  toggle.addEventListener('click', () => {
+    const open = panel.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+
+  // Theme buttons
+  document.querySelectorAll('[data-theme]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const t = btn.dataset.theme;
+      html.dataset.theme = t;
+      document.querySelectorAll('[data-theme]').forEach(b => b.setAttribute('aria-pressed', b.dataset.theme === t));
+      refreshHexLabels();
+    });
+  });
+
+  // Palette buttons
+  document.querySelectorAll('[data-palette]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const p = btn.dataset.palette;
+      html.dataset.palette = p;
+      document.querySelectorAll('[data-palette]').forEach(b => b.setAttribute('aria-pressed', b.dataset.palette === p));
+      refreshHexLabels();
+    });
+  });
+
+  // Accent
+  function setAccent(hex) {
+    html.style.setProperty('--accent', hex);
+    // luminance for accent-fg
+    const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
+    const lum = (0.299*r + 0.587*g + 0.114*b) / 255;
+    html.style.setProperty('--accent-fg', lum > 0.6 ? '#0a0a0a' : '#ffffff');
+  }
+  document.querySelectorAll('.swatch-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setAccent(btn.dataset.accent);
+      document.querySelectorAll('.swatch-btn').forEach(b => b.setAttribute('aria-pressed', b === btn));
+      document.getElementById('hexInput').value = btn.dataset.accent;
+    });
+  });
+  document.getElementById('hexInput').addEventListener('change', e => {
+    const v = e.target.value.trim();
+    if (/^#[0-9a-f]{6}$/i.test(v)) {
+      setAccent(v);
+      document.querySelectorAll('.swatch-btn').forEach(b => b.setAttribute('aria-pressed', false));
+    }
+  });
+
+  // Display token hexes
+  function refreshHexLabels() {
+    requestAnimationFrame(() => {
+      document.querySelectorAll('[data-token]').forEach(el => {
+        const t = el.dataset.token;
+        const v = getComputedStyle(html).getPropertyValue('--' + t).trim();
+        el.textContent = `--${t}  ${v}`;
+      });
+    });
+  }
+  refreshHexLabels();
+})();
+</script>
+</body>
+</html>

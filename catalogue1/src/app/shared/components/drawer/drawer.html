@@ -1,0 +1,9 @@
+<div class="drawer-stage" [class.-open]="open" role="complementary" [attr.aria-label]="title">
+  <div class="drawer">
+    <h5>{{ title }}</h5>
+    <button class="drawer-close" (click)="close.emit()" aria-label="Close drawer">&times;</button>
+    <div class="drawer-content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="list-item">
+  <div class="list-icon">{{ icon }}</div>
+  <div class="list-text">
+    {{ title }}
+    <small *ngIf="subtitle">{{ subtitle }}</small>
+  </div>
+  <span *ngIf="badgeLabel">
+    <app-badge [variant]="badgeVariant">{{ badgeLabel }}</app-badge>
+  </span>
+</div>

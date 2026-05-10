@@ -1,0 +1,26 @@
+.kv {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  border: var(--rule);
+  margin: 0;
+}
+
+dt,
+dd {
+  padding: var(--s-3) var(--s-4);
+  border-bottom: var(--rule);
+}
+
+dt {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-right: var(--rule);
+}
+
+dd {
+  margin: 0;
+  font-size: 14px;
+}

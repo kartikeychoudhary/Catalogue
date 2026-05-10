@@ -1,0 +1,7 @@
+<div class="empty">
+  <h5>{{ title }}</h5>
+  <p>{{ description }}</p>
+  <app-button *ngIf="actionLabel" variant="primary" size="sm" (clicked)="actionClick.emit()" style="margin-top:14px;">
+    {{ actionLabel }}
+  </app-button>
+</div>

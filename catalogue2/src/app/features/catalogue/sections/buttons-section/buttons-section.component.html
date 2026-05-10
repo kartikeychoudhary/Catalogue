@@ -1,0 +1,42 @@
+<section class="section" id="components">
+  <header class="section-head">
+    <span class="section-num">04 / 10</span>
+    <span class="section-title">BUTTONS</span>
+    <span class="section-meta">// VARIANTS :: SIZES :: STATES</span>
+  </header>
+  <div class="btn-grid">
+    <span class="lab">PRIMARY</span>
+    <div class="btn-cluster">
+      <app-button variant="primary" size="sm">SHIP IT</app-button>
+      <app-button variant="primary">SHIP IT</app-button>
+      <app-button variant="primary" size="lg">SHIP IT</app-button>
+      <app-button variant="primary" [loading]="true">SHIP IT</app-button>
+      <app-button variant="primary" [disabled]="true">SHIP IT</app-button>
+    </div>
+    <span class="lab">SECONDARY</span>
+    <div class="btn-cluster">
+      <app-button variant="secondary" size="sm">SAVE DRAFT</app-button>
+      <app-button variant="secondary">SAVE DRAFT</app-button>
+      <app-button variant="secondary" size="lg">SAVE DRAFT</app-button>
+      <app-button variant="secondary" [disabled]="true">SAVE DRAFT</app-button>
+    </div>
+    <span class="lab">TERTIARY</span>
+    <div class="btn-cluster">
+      <app-button variant="tertiary">View changes</app-button>
+      <app-button variant="tertiary" size="sm">More options</app-button>
+      <app-button variant="tertiary" [disabled]="true">Locked</app-button>
+    </div>
+    <span class="lab">DESTRUCTIVE</span>
+    <div class="btn-cluster">
+      <app-button variant="destructive">DELETE FOREVER</app-button>
+      <app-button variant="destructive" size="sm">REMOVE</app-button>
+    </div>
+    <span class="lab">ICON</span>
+    <div class="btn-cluster">
+      <app-icon-button icon="star" size="md"></app-icon-button>
+      <app-icon-button icon="search" size="md"></app-icon-button>
+      <app-icon-button icon="settings" size="md"></app-icon-button>
+      <app-icon-button icon="heart" size="md"></app-icon-button>
+    </div>
+  </div>
+</section>

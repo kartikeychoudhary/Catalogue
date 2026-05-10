@@ -1,0 +1,37 @@
+<button class="panel-toggle" (click)="togglePanel()" aria-label="Open theme panel">&#x25a3;</button>
+
+<aside class="theme-panel" [class.open]="open()">
+  <section>
+    <h6>// THEME</h6>
+    <div class="theme-row">
+      <button class="theme-btn" data-theme="light" [attr.aria-pressed]="currentTheme === 'light'" (click)="setTheme('light')">LIGHT</button>
+      <button class="theme-btn" data-theme="dark" [attr.aria-pressed]="currentTheme === 'dark'" (click)="setTheme('dark')">DARK</button>
+    </div>
+  </section>
+  <section>
+    <h6>// PALETTE</h6>
+    <div class="palette-row">
+      <button
+        *ngFor="let p of PALETTES"
+        class="palette-btn"
+        [attr.data-palette]="p"
+        [attr.aria-pressed]="currentPalette === p"
+        (click)="setPalette(p)">
+        {{ p | uppercase }}
+      </button>
+    </div>
+  </section>
+  <section>
+    <h6>// ACCENT</h6>
+    <div class="swatch-row">
+      <button
+        *ngFor="let a of ACCENTS"
+        class="swatch-btn"
+        [style.background]="a.hex"
+        [attr.aria-pressed]="currentAccent === a.hex"
+        (click)="setAccent(a.hex)">
+      </button>
+    </div>
+    <input class="hex-input" [value]="currentAccent" placeholder="#ffd400" (change)="onHexInput($event)" />
+  </section>
+</aside>

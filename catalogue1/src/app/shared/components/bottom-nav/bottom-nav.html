@@ -1,0 +1,9 @@
+<nav class="bottom-nav">
+  @for (item of items; track item.label) {
+    <button
+      [class.-active]="item.active"
+      (click)="itemClick.emit(item.label)">
+      {{ item.label }}
+    </button>
+  }
+</nav>

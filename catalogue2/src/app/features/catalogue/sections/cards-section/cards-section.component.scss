@@ -1,0 +1,117 @@
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-eyebrow {
+  align-self: flex-start;
+  padding: 4px 8px;
+  background: var(--accent);
+  color: var(--accent-fg);
+  border: 2px solid var(--text);
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+.body {
+  font-size: 14px;
+}
+
+.price {
+  font-size: 72px;
+  line-height: 0.9;
+  font-weight: 700;
+
+  small {
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+
+  li::before {
+    content: "▸ ";
+    font-weight: 700;
+  }
+}
+
+.card-profile-grid {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+.num {
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.delta {
+  display: inline-block;
+  padding: 3px 8px;
+  background: var(--success);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.card-media .img {
+  height: 180px;
+  border-bottom: var(--bw) solid var(--text);
+  background:
+    linear-gradient(45deg, var(--accent) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--accent) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--accent) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--accent) 75%);
+  background-size: 24px 24px;
+  background-position: 0 0, 0 12px, 12px -12px, -12px 0px;
+  background-color: var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+
+  span {
+    background: var(--text);
+    color: var(--bg);
+    padding: 4px 8px;
+    font-weight: 700;
+  }
+}
+
+.body-pad {
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

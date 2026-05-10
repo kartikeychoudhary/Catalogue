@@ -1,0 +1,9 @@
+<div class="tabs">
+  <button
+    *ngFor="let tab of tabs; let i = index"
+    class="tab"
+    [class.-active]="i === activeTab"
+    (click)="tabChange.emit(i)">
+    {{ tab.label }}
+  </button>
+</div>

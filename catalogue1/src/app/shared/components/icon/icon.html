@@ -1,0 +1,8 @@
+<svg
+  [attr.width]="pixelSize"
+  [attr.height]="pixelSize"
+  [attr.aria-hidden]="!ariaLabel ? true : null"
+  [attr.role]="ariaLabel ? 'img' : null"
+  [attr.aria-label]="ariaLabel || null">
+  <use [attr.href]="href"></use>
+</svg>

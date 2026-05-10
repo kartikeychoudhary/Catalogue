@@ -1,0 +1,45 @@
+<section class="section">
+  <div class="section-head">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Forms</h2>
+  </div>
+
+  <div class="form-grid">
+    <app-input label="Full name" placeholder="Hans Wilsdorf" value="Hans Wilsdorf"></app-input>
+    <app-input label="Email" type="email" placeholder="hans@example.com" value="hans@example.com"></app-input>
+    <app-input label="Email (error)" type="email" placeholder="error@example" value="error@example" state="error" helper="Invalid email address"></app-input>
+    <app-input label="Disabled" placeholder="Read only" [disabled]="true" value="Read only"></app-input>
+  </div>
+
+  <div class="form-grid">
+    <app-textarea label="Message" placeholder="Your message..." value="Dear team, I would like to inquire about..."></app-textarea>
+    <app-select label="Country" [options]="countryOptions" value="ch"></app-select>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Choice controls</span>
+    <div class="form-grid">
+      <div>
+        <app-checkbox label="I accept the terms" [checked]="true"></app-checkbox>
+        <app-checkbox label="Send me the newsletter"></app-checkbox>
+      </div>
+      <app-radio-group name="layout" [options]="layoutOptions" value="grid"></app-radio-group>
+    </div>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Toggle & Slider</span>
+    <div class="form-grid">
+      <app-toggle label="Notifications" [checked]="true"></app-toggle>
+      <app-slider label="Volume" [value]="65" helper="System volume level"></app-slider>
+    </div>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Search & Upload</span>
+    <div class="form-grid">
+      <app-search placeholder="Search catalogue..."></app-search>
+      <app-upload label="Choose a file" accept=".pdf,.png"></app-upload>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  transition: all 120ms ease;
+}
+
+.icon-btn:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.icon-btn-primary {
+  background: var(--accent);
+  color: var(--accent-fg);
+  border-color: var(--accent);
+}
+
+.icon-btn-primary:hover {
+  filter: brightness(0.92);
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+.icon-btn-sm {
+  width: 36px;
+  height: 36px;
+}
+
+.icon-btn-lg {
+  width: 52px;
+  height: 52px;
+}
+
+.icon-btn[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}

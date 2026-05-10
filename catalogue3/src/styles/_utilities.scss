@@ -1,0 +1,8 @@
+// _utilities.scss — Glassmorphic Spatial layout utilities
+.page { max-width: 1280px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+.section { padding: 96px 0; }
+.section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 32px; flex-wrap: wrap; }
+.section-head .meta { display: flex; gap: 14px; align-items: baseline; }
+.section-head .num { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); }
+.section-head h2 { max-width: 24ch; }
+.section-head .lede { color: var(--ink-mute); max-width: 38ch; font-size: 15px; }

@@ -1,0 +1,43 @@
+<section class="section">
+  <div class="section-head">
+    <span class="section-num">07</span>
+    <h2 class="section-title">Navigation</h2>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Navbar</span>
+    <app-navbar brand="Catalogue" [links]="navbarLinks" ctaLabel="Subscribe"></app-navbar>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Sidebar</span>
+    <div class="fake-shell">
+      <div class="fake-side">
+        <app-sidebar [sections]="sidebarSections"></app-sidebar>
+      </div>
+      <div class="fake-main"></div>
+    </div>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Tabs</span>
+    <app-tabs [tabs]="tabs" [activeTab]="0"></app-tabs>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Breadcrumbs</span>
+    <app-breadcrumbs [crumbs]="crumbs"></app-breadcrumbs>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Pagination</span>
+    <app-pagination [current]="3" [total]="10"></app-pagination>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Bottom Nav</span>
+    <div class="bottom-nav-demo">
+      <app-bottom-nav [items]="bottomNavItems"></app-bottom-nav>
+    </div>
+  </div>
+</section>

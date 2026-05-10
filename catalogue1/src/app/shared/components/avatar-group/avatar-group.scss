@@ -1,0 +1,27 @@
+.avatar-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+:host ::ng-deep .avatar {
+  margin-left: -8px;
+}
+
+:host ::ng-deep .avatar:first-child {
+  margin-left: 0;
+}
+
+.more {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-family: var(--mono);
+  border: 1px solid var(--hairline);
+  background: var(--bg);
+  color: var(--text-muted);
+  margin-left: -8px;
+  flex-shrink: 0;
+}

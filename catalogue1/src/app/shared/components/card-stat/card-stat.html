@@ -1,0 +1,8 @@
+<article class="card card-stat">
+  <p class="stat-label" *ngIf="eyebrow">{{ eyebrow }}</p>
+  <p class="stat-num" *ngIf="value">{{ value }}</p>
+  <p class="stat-delta" *ngIf="delta" [class.-neg]="deltaDirection === 'down'">
+    {{ deltaDirection === 'up' ? '↑' : '↓' }} {{ delta }}
+  </p>
+  <p class="stat-caption" *ngIf="caption">{{ caption }}</p>
+</article>

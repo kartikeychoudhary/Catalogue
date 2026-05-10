@@ -1,0 +1,16 @@
+// _reset.scss — Neo-Brutalist reset
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  background-image: radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--text) 20%, transparent) 1px, transparent 0);
+  background-size: 24px 24px;
+  transition: background-color 120ms ease, color 120ms ease;
+}

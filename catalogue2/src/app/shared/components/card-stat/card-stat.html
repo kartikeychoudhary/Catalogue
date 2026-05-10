@@ -1,0 +1,9 @@
+<article class="card">
+  <ng-content select="[slot=eyebrow]"></ng-content>
+  <div class="num">{{ value }}</div>
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span class="delta" *ngIf="delta" [class.-neg]="deltaDirection === 'down'">{{ deltaDirection === 'up' ? '↑' : '↓' }} {{ delta }}</span>
+  </div>
+  <p>{{ caption }}</p>
+  <ng-content></ng-content>
+</article>

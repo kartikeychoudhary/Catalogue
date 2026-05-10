@@ -1,0 +1,53 @@
+<section class="section">
+  <header class="section-head">
+    <span class="section-num">09 / 10</span>
+    <span class="section-title">FEEDBACK & OVERLAYS</span>
+    <span class="section-meta">// ALERTS :: TOASTS :: MODALS :: PROGRESS</span>
+  </header>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+    <app-alert variant="success" title="MASTER UPLOADED" message="BARRIER METAL · 24-bit / 96kHz · 184 MB" actionLabel="OPEN"></app-alert>
+    <app-alert variant="info" title="SESSION SCHEDULED" message="BBC RADIO 1, MAY 21 — DOORS 18:30, ON-AIR 19:15." actionLabel="DETAILS"></app-alert>
+    <app-alert variant="warning" title="MIX BOUNCE PENDING" message="WAREHOUSE BREATH still hasn't been re-bounced after the May 5 notes." actionLabel="REMIND"></app-alert>
+    <app-alert variant="danger" title="FILE FAILED CHECKSUM" message="The pressing plant rejected the WAV. Re-export from the master DAW." actionLabel="RE-EXPORT"></app-alert>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;">
+    <app-modal [open]="true" title="SCRAP THIS TRACK?">
+      <p style="font-size:14px;">SOFT EDGE will be removed from the EP and the master archive. We can't get it back without re-recording.</p>
+      <div class="modal-actions" style="display:flex;gap:10px;margin-top:18px;">
+        <app-button variant="secondary" size="sm">KEEP IT</app-button>
+        <app-button variant="destructive" size="sm">SCRAP</app-button>
+      </div>
+    </app-modal>
+    <app-drawer [open]="true" title="STUDIO NOTES">
+      <p style="font-family:var(--mono);font-size:11px;text-transform:uppercase;margin-bottom:12px;">// WAREHOUSE BREATH</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="border-left:4px solid var(--accent);padding:6px 10px;background:var(--surface-2);font-size:13px;"><strong>P:</strong> THE BASS DROPS OUT TOO EARLY IN B2.</div>
+        <div style="border-left:4px solid var(--text);padding:6px 10px;background:var(--surface-2);font-size:13px;"><strong>M:</strong> AGREE. PUSH IT 4 BARS.</div>
+        <div style="border-left:4px solid var(--text);padding:6px 10px;background:var(--surface-2);font-size:13px;"><strong>D:</strong> RE-BOUNCING NOW. TAKE 4.</div>
+      </div>
+    </app-drawer>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:24px;">
+    <div>
+      <h6 style="margin-bottom:10px;">// TOOLTIP & POPOVER</h6>
+      <div style="display:flex;gap:18px;align-items:flex-end;">
+        <app-button variant="secondary" size="sm" appTooltip="// CTRL+S TO SAVE">HOVER</app-button>
+        <app-button variant="secondary" size="sm" appPopover="6 TRACKS · 13:42 · MASTER PENDING" popoverTitle="EP // 02">DETAILS ▾</app-button>
+      </div>
+    </div>
+    <div>
+      <h6 style="margin-bottom:10px;">// TOAST</h6>
+      <app-toast message="SAVED 6s AGO." actionLabel="UNDO" style="margin-bottom:8px;"></app-toast>
+      <app-toast message="COPIED TO CLIPBOARD" actionLabel="OK" variant="success"></app-toast>
+    </div>
+    <div>
+      <h6 style="margin-bottom:10px;">// PROGRESS & SKELETON</h6>
+      <app-progress [value]="64" label="// UPLOADING · 64% · 14.2 / 22.3 MB"></app-progress>
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:6px;">
+        <app-skeleton variant="img"></app-skeleton>
+        <app-skeleton variant="tall" width="80%"></app-skeleton>
+        <app-skeleton width="60%"></app-skeleton>
+      </div>
+    </div>
+  </div>
+</section>

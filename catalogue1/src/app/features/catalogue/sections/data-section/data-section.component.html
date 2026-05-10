@@ -1,0 +1,68 @@
+<section class="section">
+  <div class="section-head">
+    <span class="section-num">08</span>
+    <h2 class="section-title">Data</h2>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Table</span>
+    <div class="table-wrap">
+      <app-table [columns]="columns" [rows]="rows"></app-table>
+    </div>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Badges</span>
+    <div style="display:flex;gap:var(--s-3);align-items:center;flex-wrap:wrap">
+      <app-badge variant="success">Success</app-badge>
+      <app-badge variant="warning">Warning</app-badge>
+      <app-badge variant="danger">Danger</app-badge>
+      <app-badge variant="info">Info</app-badge>
+      <app-badge variant="neutral">Neutral</app-badge>
+    </div>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Tags</span>
+    <div style="display:flex;gap:var(--s-2);align-items:center;flex-wrap:wrap">
+      <app-tag>Design</app-tag>
+      <app-tag>Engineering</app-tag>
+      <app-tag>Research</app-tag>
+      <app-tag>Architecture</app-tag>
+    </div>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">List</span>
+    <app-list>
+      <app-list-item icon="star" title="Featured Item" subtitle="A prominent list entry" badgeLabel="New" badgeVariant="info"></app-list-item>
+      <app-list-item icon="heart" title="Saved Item" subtitle="Bookmarked for later"></app-list-item>
+      <app-list-item icon="settings" title="Configured Item" subtitle="Settings applied"></app-list-item>
+    </app-list>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Key-Value</span>
+    <app-key-value [items]="kvItems"></app-key-value>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Avatar & Avatar Group</span>
+    <div style="display:flex;gap:var(--s-4);align-items:center;flex-wrap:wrap">
+      <app-avatar initials="HW" size="sm"></app-avatar>
+      <app-avatar initials="MB"></app-avatar>
+      <app-avatar initials="GG" size="lg"></app-avatar>
+    </div>
+    <div style="margin-top:var(--s-4)">
+      <app-avatar-group [avatars]="avatars" [max]="3"></app-avatar-group>
+    </div>
+  </div>
+
+  <div class="demo">
+    <span class="demo-label">Empty State</span>
+    <app-empty-state
+      title="No results found"
+      description="Try adjusting your search or filter criteria to find what you're looking for."
+      actionLabel="Clear filters"></app-empty-state>
+  </div>
+</section>

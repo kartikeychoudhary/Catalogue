@@ -1,0 +1,16 @@
+<article class="card card-pricing">
+  <div class="price" *ngIf="price">
+    {{ price }}
+    <small *ngIf="period">/{{ period }}</small>
+  </div>
+  <p class="description" *ngIf="description">{{ description }}</p>
+  <ul *ngIf="features.length">
+    <li *ngFor="let feature of features">{{ feature }}</li>
+  </ul>
+  <button
+    class="btn-cta"
+    *ngIf="ctaLabel"
+    (click)="ctaClicked.emit()">
+    {{ ctaLabel }}
+  </button>
+</article>

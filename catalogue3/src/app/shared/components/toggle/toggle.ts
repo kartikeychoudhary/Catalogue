@@ -1,0 +1,42 @@
+import { Component, ChangeDetectionStrategy, Input, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
+@Component({
+  selector: 'app-toggle',
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `<label class="toggle">
+    <input type="checkbox" [checked]="checked" [disabled]="disabled" (change)="toggle()" />
+    <span *ngIf="label">{{ label }}</span>
+  </label>`,
+  styles: `
+    .toggle { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+    .toggle input {
+      appearance: none; width: 44px; height: 26px; border-radius: 999px;
+      background: var(--glass-2); border: 1px solid var(--hairline-bold); position: relative; cursor: pointer; transition: 200ms;
+    }
+    .toggle input::after { content: ""; position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%; background: var(--ink); transition: 200ms; }
+    .toggle input:checked { background: linear-gradient(180deg, var(--accent), color-mix(in oklab, var(--accent) 60%, var(--accent-2))); border-color: transparent; }
+    .toggle input:checked::after { left: 20px; background: white; }
+  `,
+  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => ToggleComponent), multi: true }],
+})
+export class ToggleComponent implements ControlValueAccessor {
+  @Input() label = '';
+  @Input() disabled = false;
+  @Input() checked = false;
+
+  private onChange: (v: boolean) => void = () => {};
+  private onTouchedFn: () => void = () => {};
+
+  writeValue(v: boolean): void { this.checked = v; }
+  registerOnChange(fn: (v: boolean) => void): void { this.onChange = fn; }
+  registerOnTouched(fn: () => void): void { this.onTouchedFn = fn; }
+  setDisabledState(isDisabled: boolean): void { this.disabled = isDisabled; }
+
+  toggle(): void {
+    this.checked = !this.checked;
+    this.onChange(this.checked);
+    this.onTouchedFn();
+  }
+}

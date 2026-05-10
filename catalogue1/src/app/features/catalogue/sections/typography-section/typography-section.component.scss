@@ -1,0 +1,16 @@
+.type-row {
+  padding: var(--s-5) 0;
+  border-bottom: var(--rule);
+  display: grid;
+  grid-template-columns: 120px 120px 1fr;
+  gap: var(--s-4);
+  align-items: baseline;
+}
+
+.type-spec {
+  font-family: var(--mono);
+  font-size: var(--t-caption);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}

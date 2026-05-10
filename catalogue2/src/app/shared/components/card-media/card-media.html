@@ -1,0 +1,9 @@
+<article class="card">
+  <div class="img"><span>{{ imageAlt }}</span></div>
+  <div class="body-pad">
+    <ng-content select="[slot=eyebrow]"></ng-content>
+    <h4>{{ title }}</h4>
+    <p style="font-size:14px;">{{ description }}</p>
+    <ng-content></ng-content>
+  </div>
+</article>

@@ -1,0 +1,10 @@
+// _reset.scss — Swiss Editorial reset
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color 120ms ease, color 120ms ease;
+}
